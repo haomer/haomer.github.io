@@ -1,0 +1,711 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="arithmetic," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="张 浩 | Zhang Hao" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5192;&amp;#x6CE1;&amp;#x6392;&amp;#x5E8F;  &amp;#x65F6;&amp;#x95F4;&amp;#x590D;&amp;#x6742;&amp;#x5EA6;:n^2&amp;#x3002;  &amp;#x6BCF;&amp;#x4E00;&amp;#x8F6E;&amp;#x6BD4;&amp;#x8F83;&amp;#x90FD;&amp;#x4ECE;&amp;#x5934;&amp;#x5F00;&amp;#x59CB;,&amp;#x7136;&amp;#x540E;&amp;#x4E24;&amp;#x4E24">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA排序">
+<meta property="og:url" content="http://www.sharehao.com/2016/08/29/arithmetic/index.html">
+<meta property="og:site_name" content="张 浩 | Zhang Hao">
+<meta property="og:description" content="&amp;#x5192;&amp;#x6CE1;&amp;#x6392;&amp;#x5E8F;  &amp;#x65F6;&amp;#x95F4;&amp;#x590D;&amp;#x6742;&amp;#x5EA6;:n^2&amp;#x3002;  &amp;#x6BCF;&amp;#x4E00;&amp;#x8F6E;&amp;#x6BD4;&amp;#x8F83;&amp;#x90FD;&amp;#x4ECE;&amp;#x5934;&amp;#x5F00;&amp;#x59CB;,&amp;#x7136;&amp;#x540E;&amp;#x4E24;&amp;#x4E24">
+<meta property="og:updated_time" content="2016-08-30T05:53:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA排序">
+<meta name="twitter:description" content="&amp;#x5192;&amp;#x6CE1;&amp;#x6392;&amp;#x5E8F;  &amp;#x65F6;&amp;#x95F4;&amp;#x590D;&amp;#x6742;&amp;#x5EA6;:n^2&amp;#x3002;  &amp;#x6BCF;&amp;#x4E00;&amp;#x8F6E;&amp;#x6BD4;&amp;#x8F83;&amp;#x90FD;&amp;#x4ECE;&amp;#x5934;&amp;#x5F00;&amp;#x59CB;,&amp;#x7136;&amp;#x540E;&amp;#x4E24;&amp;#x4E24">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.sharehao.com/2016/08/29/arithmetic/"/>
+
+  <title> JAVA排序 | 张 浩 | Zhang Hao </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s6.cnzz.com/stat.php?id=www.sharehao.com&web_id=www.sharehao.com" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">张 浩 | Zhang Hao</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Just do IT</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-categories"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-guestbook"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JAVA排序
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-29T11:50:34+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+          
+          
+              <span id="busuanzi_container_page_pv">&nbsp;&nbsp;|&nbsp;&nbsp;阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+          
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/29/arithmetic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/arithmetic/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="&#x5192;&#x6CE1;&#x6392;&#x5E8F;"><a href="#&#x5192;&#x6CE1;&#x6392;&#x5E8F;" class="headerlink" title="&#x5192;&#x6CE1;&#x6392;&#x5E8F;"></a>&#x5192;&#x6CE1;&#x6392;&#x5E8F;</h3><p>  &#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;:n^2&#x3002;<br>  &#x6BCF;&#x4E00;&#x8F6E;&#x6BD4;&#x8F83;&#x90FD;&#x4ECE;&#x5934;&#x5F00;&#x59CB;,&#x7136;&#x540E;&#x4E24;&#x4E24;&#x6BD4;&#x8F83;,&#x5982;&#x679C;&#x5DE6;&#x503C;&#x6BD4;&#x53F3;&#x503C;&#x5927;,&#x5219;&#x4EA4;&#x6362;&#x4F4D;&#x7F6E;,&#x6BCF;&#x4E00;&#x8F6E;&#x7ED3;&#x675F;&#x540E;,&#x5F53;&#x524D;&#x8F6E;&#x201D;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x201D;&#x5FC5;&#x5C06;&#x662F;&#x6700;&#x5927;&#x7684;.<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line">public void bubbling(int[] arr, int length){</div><div class="line">     for(int i = 0; i &lt; length-1; i++){</div><div class="line">         for(int j = 0; j&lt; length -i -1; j++){</div><div class="line">             if(arr[j] &gt; arr[j+1]){</div><div class="line">                 int tmp = arr[j];</div><div class="line">                 arr[j] = arr[j+1];</div><div class="line">                 arr[j+1] = tmp;</div><div class="line">             }</div><div class="line">         }</div><div class="line">     }</div><div class="line"> }</div><div class="line"> </div><div class="line">  </div></pre></td></tr></table></figure></p>
+<h3 id="&#x5FEB;&#x901F;&#x6392;&#x5E8F;"><a href="#&#x5FEB;&#x901F;&#x6392;&#x5E8F;" class="headerlink" title="&#x5FEB;&#x901F;&#x6392;&#x5E8F;"></a>&#x5FEB;&#x901F;&#x6392;&#x5E8F;</h3><p>  &#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;n*logN<br>  &#x901A;&#x8FC7;&#x4E00;&#x8D9F;&#x6392;&#x5E8F;&#x5C06;&#x8981;&#x6392;&#x5E8F;&#x7684;&#x6570;&#x636E;&#x5206;&#x5272;&#x6210;&#x72EC;&#x7ACB;&#x7684;&#x4E24;&#x90E8;&#x5206;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x90FD;&#x6BD4;&#x53E6;&#x5916;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x90FD;&#x8981;&#x5C0F;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6309;&#x6B64;&#x65B9;&#x6CD5;&#x5BF9;&#x8FD9;&#x4E24;&#x90E8;&#x5206;&#x6570;&#x636E;&#x5206;&#x522B;&#x8FDB;&#x884C;&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#xFF0C;&#x6574;&#x4E2A;&#x6392;&#x5E8F;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x9012;&#x5F52;&#x8FDB;&#x884C;&#xFF0C;&#x4EE5;&#x6B64;&#x8FBE;&#x5230;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x53D8;&#x6210;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">public static void quictSort(int[] sources,int start,int end){</div><div class="line">     if(start &lt; end){</div><div class="line">         int tmp;</div><div class="line">         int i = start;</div><div class="line">         int j = end;</div><div class="line">         int value = sources[i];</div><div class="line">         while(i &lt; j){</div><div class="line">             while(sources[j] &gt; value ){</div><div class="line">                 j--;</div><div class="line">             }</div><div class="line">             //&#x53F3;&#x8FB9;&#x627E;&#x5230;&#x4E86;&#x6BD4;key&#x5927;&#x7684;.</div><div class="line">             tmp = sources[i];</div><div class="line">             sources[i] = sources[j];</div><div class="line">             sources[j] = tmp;</div><div class="line"></div><div class="line">             while(sources[i] &lt; value){</div><div class="line">                 i++;</div><div class="line">             }</div><div class="line">             //&#x5DE6;&#x8FB9;&#x627E;&#x5230;&#x4E86;&#x6BD4;key&#x5927;&#x7684;&#x503C;</div><div class="line">             tmp = sources[i];</div><div class="line">             sources[i] = sources[j];</div><div class="line">             sources[j] = tmp;</div><div class="line">         }</div><div class="line">         for (int x = 0; x &lt; sources.length; x++) {</div><div class="line">             System.out.print(sources[x] + &quot; &quot;);</div><div class="line">         }</div><div class="line">         System.out.println();</div><div class="line"></div><div class="line">         quictSort(sources, start, j - 1);</div><div class="line">         quictSort(sources, j + 1, end);</div><div class="line">     }</div><div class="line"> }</div><div class="line">  </div></pre></td></tr></table></figure>
+<h3 id="&#x63D2;&#x5165;&#x6392;&#x5E8F;"><a href="#&#x63D2;&#x5165;&#x6392;&#x5E8F;" class="headerlink" title="&#x63D2;&#x5165;&#x6392;&#x5E8F;"></a>&#x63D2;&#x5165;&#x6392;&#x5E8F;</h3><p>  &#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;n^2<br>  &#x628A;&#x5F85;&#x6392;&#x5E8F;&#x7684;&#x7EAA;&#x5F55;&#x6309;&#x5176;&#x5173;&#x952E;&#x7801;&#x503C;&#x7684;&#x5927;&#x5C0F;&#x9010;&#x4E2A;&#x63D2;&#x5165;&#x5230;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x6392;&#x597D;&#x5E8F;&#x7684;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;&#x76F4;&#x5230;&#x6240;&#x6709;&#x7684;&#x7EAA;&#x5F55;&#x63D2;&#x5165;&#x5B8C;&#x4E3A;&#x6B62;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6709;&#x5E8F;&#x5E8F;&#x5217;<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line">public void insertSort(int[] arr, int size){</div><div class="line">     for(int i=0; i &lt; size-1; i++){</div><div class="line">         for(int j=i; j&gt;0; j--){</div><div class="line">             if(arr[j] &lt; arr[j-1]){</div><div class="line">                 int tmp = arr[j];</div><div class="line">                 arr[j] = arr[j-1];</div><div class="line">                 arr[j-1] = tmp;</div><div class="line">             }</div><div class="line">         }</div><div class="line">     }</div><div class="line"> }</div><div class="line">  </div></pre></td></tr></table></figure></p>
+<h3 id="&#x5F52;&#x5E76;&#x6392;&#x5E8F;"><a href="#&#x5F52;&#x5E76;&#x6392;&#x5E8F;" class="headerlink" title="&#x5F52;&#x5E76;&#x6392;&#x5E8F;"></a>&#x5F52;&#x5E76;&#x6392;&#x5E8F;</h3><p>  &#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A;n*logN &#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF1A; n<br>  &#x5206;&#x6CBB;&#x6CD5;,&#x5C06;&#x6570;&#x7EC4;&#x9010;&#x6B65;&#x62C6;&#x5206;&#x4E3A;&#x201D;&#x7EC4;&#x201D;,&#x76F4;&#x5230;&#x6700;&#x5C0F;&#x7684;&#x201D;&#x7EC4;&#x201D;,&#x7136;&#x540E;&#x6BCF;&#x4E2A;&#x7EC4;&#x5185;&#x6392;&#x5E8F;,&#x7136;&#x540E;&#x4F9D;&#x6B21;&#x548C;&#x76F8;&#x90BB;&#x7684;&#x7EC4;&#x201D;&#x6392;&#x5E8F;&#x5408;&#x5E76;&#x201D;,&#x5176;&#x4E2D;&#x201D;&#x6392;&#x5E8F;&#x201D;.&#x5176;&#x5185;&#x90E8;&#x6392;&#x5E8F;&#x975E;&#x5E38;&#x7B80;&#x5355;.&#x76F4;&#x63A5;&#x6BD4;&#x8F83;.<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line">public static void mergeSort(int[] sources,int begin,int end){</div><div class="line">     if(begin &lt; end){</div><div class="line">         int range = end - begin;</div><div class="line">         int mid = begin + range/2;</div><div class="line">         mergeSort(sources, begin, mid);//&#x5DE6;&#x6BB5;</div><div class="line">         mergeSort(sources, mid + 1, end);//&#x53F3;&#x7AEF;</div><div class="line">         System.out.println(Arrays.toString(sources));</div><div class="line">         merge(sources, begin, mid, end);</div><div class="line">     }</div><div class="line"> }</div><div class="line"> private static void merge(int[] sources,int begin,int mid,int end){</div><div class="line">     int[] tmp = new int[end - begin + 1];</div><div class="line">     int b1 = begin;</div><div class="line">     int e1 = mid;</div><div class="line">     int b2 = mid+1;</div><div class="line">     int e2 = end;</div><div class="line">     int i=0;</div><div class="line">     for(;b1 &lt;= e1 &amp;&amp; b2 &lt;= e2 ; i++){</div><div class="line">         //&#x586B;&#x5145;tmp&#x6570;&#x7EC4;,&#x5E76;&#x4F9D;&#x6B64;&#x5728;&#x4E24;&#x6BB5;&#x6570;&#x636E;&#x533A;&#x57DF;&#x4E2D;&#x627E;&#x5230;&#x6700;&#x5C0F;&#x7684;</div><div class="line">         if(sources[b1] &lt;= sources[b2]){</div><div class="line">             tmp[i] = sources[b1];</div><div class="line">             b1++;</div><div class="line">         }else{</div><div class="line">             tmp[i] = sources[b2];</div><div class="line">             b2++;</div><div class="line">         }</div><div class="line">     }</div><div class="line">     //&#x5230;&#x6B64;&#x4E3A;&#x6B62;,&#x4E24;&#x6BB5;&#x6570;&#x636E;&#x533A;&#x57DF;,&#x5DF2;&#x7ECF;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x88AB;&#x626B;&#x63CF;&#x5B8C;&#x6BD5;</div><div class="line">     if(b1 &gt; e1){</div><div class="line">         //&#x5982;&#x679C;b1~e1&#x626B;&#x63CF;&#x5B8C;&#x6BD5;,&#x90A3;&#x4E48;&#x53EF;&#x80FD;b2~e2&#x8FD8;&#x6709;&#x5269;&#x4F59;</div><div class="line">         for(int t = b2;t &lt; e2 + 1; t++){</div><div class="line">             tmp[i] = sources[t];</div><div class="line">             i++;</div><div class="line">         }</div><div class="line">     }</div><div class="line">     if(b2 &gt; e2){</div><div class="line">         //&#x5982;&#x679C;b2~e2&#x626B;&#x63CF;&#x5B8C;&#x6BD5;,&#x90A3;&#x4E48;&#x53EF;&#x80FD;b1~e1&#x8FD8;&#x6709;&#x5269;&#x4F59;</div><div class="line">         for(int t = b1;t &lt; e1 + 1; t++){</div><div class="line">             tmp[i] = sources[t];</div><div class="line">             i++;</div><div class="line">         }</div><div class="line">     }</div><div class="line">     //replace and fill:&#x5C06;tmp&#x6570;&#x7EC4;&#x7684;&#x6570;&#x636E;,&#x66FF;&#x6362;&#x5230;source&#x4E2D;,begin~end</div><div class="line">     //&#x56E0;&#x4E3A;&#x6B64;&#x65F6;tmp&#x4E2D;&#x7684;&#x6570;&#x636E;&#x662F;&#x6392;&#x5E8F;&#x597D;&#x7684;</div><div class="line">     i=0;</div><div class="line">     for(int t= begin;t &lt;= end; t++){</div><div class="line">         sources[t] = tmp[i];</div><div class="line">         i++;</div><div class="line">     }</div><div class="line">     tmp = null;//</div><div class="line"> }</div><div class="line">  </div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/arithmetic/" rel="tag">#arithmetic</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/26/HashMapAndHashSet/" rel="next" title="HashMapAndHashSet">
+                <i class="fa fa-chevron-left"></i> HashMapAndHashSet
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/30/java反射机制/" rel="prev" title="JAVA反射机制">
+                JAVA反射机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+ 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/29/arithmetic/"
+           data-title="JAVA排序" data-url="http://www.sharehao.com/2016/08/29/arithmetic/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="张 浩 | Zhang Hao" />
+          <p class="site-author-name" itemprop="name">张 浩 | Zhang Hao</p>
+          <p class="site-description motion-element" itemprop="description">Just do IT</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhanghao1013" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:zhanghao_foo@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">2.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">3.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序"><span class="nav-number">4.</span> <span class="nav-text">归并排序</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张 浩 | Zhang Hao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sharehao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
