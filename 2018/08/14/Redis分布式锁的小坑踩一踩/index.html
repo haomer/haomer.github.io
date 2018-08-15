@@ -86,16 +86,28 @@
 
 
 
-<meta name="description" content="&amp;#x6982;&amp;#x8FF0;&amp;#x76EE;&amp;#x524D;&amp;#x51E0;&amp;#x4E4E;&amp;#x5F88;&amp;#x591A;&amp;#x5E94;&amp;#x7528;&amp;#x90FD;&amp;#x662F;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x90E8;&amp;#x7F72;&amp;#x7684;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;">
+<meta name="description" content="概述目前几乎很多应用都是分布式部署的，我们的应用中有一些业务需要定时执行，虽然有幂等性保护，但是不想让一次任务被调度多次（打印太多错误日志，数据库主键约束，耗费资源）。所以选择使用基于Redis的分布式锁
+Redis分布式锁特性
+互斥性。在任意时刻，只有一个客户端能持有锁。
+不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。
+具有容错性。只要大部分的Re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis分布式锁的小坑踩一踩">
 <meta property="og:url" content="http://www.sharehao.com/2018/08/14/Redis分布式锁的小坑踩一踩/index.html">
 <meta property="og:site_name" content="张 浩 | Zhang Hao">
-<meta property="og:description" content="&amp;#x6982;&amp;#x8FF0;&amp;#x76EE;&amp;#x524D;&amp;#x51E0;&amp;#x4E4E;&amp;#x5F88;&amp;#x591A;&amp;#x5E94;&amp;#x7528;&amp;#x90FD;&amp;#x662F;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x90E8;&amp;#x7F72;&amp;#x7684;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;">
-<meta property="og:updated_time" content="2018-08-14T10:39:12.773Z">
+<meta property="og:description" content="概述目前几乎很多应用都是分布式部署的，我们的应用中有一些业务需要定时执行，虽然有幂等性保护，但是不想让一次任务被调度多次（打印太多错误日志，数据库主键约束，耗费资源）。所以选择使用基于Redis的分布式锁
+Redis分布式锁特性
+互斥性。在任意时刻，只有一个客户端能持有锁。
+不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。
+具有容错性。只要大部分的Re">
+<meta property="og:updated_time" content="2018-08-15T02:14:56.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis分布式锁的小坑踩一踩">
-<meta name="twitter:description" content="&amp;#x6982;&amp;#x8FF0;&amp;#x76EE;&amp;#x524D;&amp;#x51E0;&amp;#x4E4E;&amp;#x5F88;&amp;#x591A;&amp;#x5E94;&amp;#x7528;&amp;#x90FD;&amp;#x662F;&amp;#x5206;&amp;#x5E03;&amp;#x5F0F;&amp;#x90E8;&amp;#x7F72;&amp;#x7684;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x7684;&amp;#x5E94;&amp;#x7528;&amp;#x4E2D;">
+<meta name="twitter:description" content="概述目前几乎很多应用都是分布式部署的，我们的应用中有一些业务需要定时执行，虽然有幂等性保护，但是不想让一次任务被调度多次（打印太多错误日志，数据库主键约束，耗费资源）。所以选择使用基于Redis的分布式锁
+Redis分布式锁特性
+互斥性。在任意时刻，只有一个客户端能持有锁。
+不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。
+具有容错性。只要大部分的Re">
 
 
 
@@ -351,6 +363,7 @@
 <li>&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x6B7B;&#x9501;&#x3002;&#x5373;&#x4F7F;&#x6709;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x6301;&#x6709;&#x9501;&#x7684;&#x671F;&#x95F4;&#x5D29;&#x6E83;&#x800C;&#x6CA1;&#x6709;&#x4E3B;&#x52A8;&#x89E3;&#x9501;&#xFF0C;&#x4E5F;&#x80FD;&#x4FDD;&#x8BC1;&#x540E;&#x7EED;&#x5176;&#x4ED6;&#x5BA2;&#x6237;&#x7AEF;&#x80FD;&#x52A0;&#x9501;&#x3002;</li>
 <li>&#x5177;&#x6709;&#x5BB9;&#x9519;&#x6027;&#x3002;&#x53EA;&#x8981;&#x5927;&#x90E8;&#x5206;&#x7684;Redis&#x8282;&#x70B9;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x53EF;&#x4EE5;&#x52A0;&#x9501;&#x548C;&#x89E3;&#x9501;&#x3002;</li>
 </ul>
+<a id="more"></a>
 <h2 id="&#x4E1A;&#x52A1;&#x5B9E;&#x73B0;"><a href="#&#x4E1A;&#x52A1;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4E1A;&#x52A1;&#x5B9E;&#x73B0;"></a>&#x4E1A;&#x52A1;&#x5B9E;&#x73B0;</h2><p>&#x521A;&#x5F00;&#x59CB;&#x9009;&#x62E9; Redis &#x4E2D;&#x7684; SETNX &#x6765;&#x83B7;&#x53D6;&#x9501;&#x3002; </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Set key to hold string value if key does not exist. </div><div class="line">In that case, it is equal to SET. </div><div class="line">When key already holds a value, no operation is performed. </div><div class="line">SETNX is short for &quot;SET if Not eXists&quot;.</div><div class="line"></div><div class="line">Return value</div><div class="line">Integer reply, specifically:</div><div class="line"></div><div class="line">1 if the key was set</div><div class="line">0 if the key was not set</div></pre></td></tr></table></figure>
 <p>&#x770B;&#x4EE3;&#x7801;&#xFF1A;</p>
