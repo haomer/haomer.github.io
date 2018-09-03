@@ -89,7 +89,7 @@
 <meta name="description" content="Just do IT">
 <meta property="og:type" content="website">
 <meta property="og:title" content="张 浩 | Zhang Hao">
-<meta property="og:url" content="http://www.haomer.top/categories/git/index.html">
+<meta property="og:url" content="http://www.haomer.top/page/2/index.html">
 <meta property="og:site_name" content="张 浩 | Zhang Hao">
 <meta property="og:description" content="Just do IT">
 <meta name="twitter:card" content="summary">
@@ -115,9 +115,9 @@
 
 
 
-  <link rel="canonical" href="http://www.haomer.top/categories/git/"/>
+  <link rel="canonical" href="http://www.haomer.top/page/2/"/>
 
-  <title> 分类: git | 张 浩 | Zhang Hao </title>
+  <title> 张 浩 | Zhang Hao </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +144,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -241,40 +243,133 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        git
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <section id="posts" class="posts-expand">
     
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
 
-      <h1 class="post-title">
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/28/gitflow介绍以及hubflow简单使用/" itemprop="url">
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
               
-                <span itemprop="name">Git Flow介绍以及hubflow简单使用</span>
+                
+                <a class="post-title-link" href="/2016/05/26/Centos添加虚拟内存/" itemprop="url">
+                  Centos添加虚拟内存
+                </a>
               
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-26T17:34:11+08:00" content="2016-05-26">
+              2016-05-26
+            </time>
+          </span>
+          
+          
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/centos/" itemprop="url" rel="index">
+                    <span itemprop="name">centos</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/26/Centos添加虚拟内存/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/26/Centos添加虚拟内存/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="查看内存大小"><a href="#查看内存大小" class="headerlink" title="查看内存大小"></a>查看内存大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">free -m</div></pre></td></tr></table></figure>
+<h3 id="添加虚拟内存"><a href="#添加虚拟内存" class="headerlink" title="添加虚拟内存"></a>添加虚拟内存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dd if=/dev/zero of=/swapfile bs=1k count=4000000</div></pre></td></tr></table></figure>
+<p> 创建/swapfile文件</p>
+<p> 修改 /etc/fstab 文件中 挂载虚拟内存的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/dev/xvdb1 /data/ ext3 defaults 0 0</div><div class="line">/swapfile   swap   swap    default  0 0</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/26/Centos添加虚拟内存/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
+          </div>
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-28T14:34:11+08:00"
-              content="2018-02-28" >
-          02-28
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
@@ -282,6 +377,9 @@
   </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 

@@ -1,0 +1,687 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="张 浩 | Zhang Hao" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="CGLIB原理cglib是一个java字节码的生成工具，它动态生成一个被代理类的子类，子类重写被代理的类的所有不是final的方法。在子类中采用方法拦截的技术拦截所有父类方法的调用，顺势织入横切逻辑。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CGLIB动态代理机制">
+<meta property="og:url" content="http://www.haomer.top/2018/09/03/CGLIB原理/index.html">
+<meta property="og:site_name" content="张 浩 | Zhang Hao">
+<meta property="og:description" content="CGLIB原理cglib是一个java字节码的生成工具，它动态生成一个被代理类的子类，子类重写被代理的类的所有不是final的方法。在子类中采用方法拦截的技术拦截所有父类方法的调用，顺势织入横切逻辑。">
+<meta property="og:updated_time" content="2018-09-03T16:06:16.783Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CGLIB动态代理机制">
+<meta name="twitter:description" content="CGLIB原理cglib是一个java字节码的生成工具，它动态生成一个被代理类的子类，子类重写被代理的类的所有不是final的方法。在子类中采用方法拦截的技术拦截所有父类方法的调用，顺势织入横切逻辑。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.haomer.top/2018/09/03/CGLIB原理/"/>
+
+  <title> CGLIB动态代理机制 | 张 浩 | Zhang Hao </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s6.cnzz.com/stat.php?id=www.sharehao.com&web_id=www.sharehao.com" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">张 浩 | Zhang Hao</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Just do IT</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CGLIB动态代理机制
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-09-03T22:51:34+08:00" content="2018-09-03">
+              2018-09-03
+            </time>
+          </span>
+          
+          
+              <span id="busuanzi_container_page_pv">&nbsp;&nbsp;|&nbsp;&nbsp;阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+          
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/09/03/CGLIB原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/03/CGLIB原理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="cglib&#x539F;&#x7406;"><a href="#CGLIB&#x539F;&#x7406;" class="headerlink" title="CGLIB&#x539F;&#x7406;"></a>CGLIB&#x539F;&#x7406;</h2><p>cglib&#x662F;&#x4E00;&#x4E2A;java&#x5B57;&#x8282;&#x7801;&#x7684;&#x751F;&#x6210;&#x5DE5;&#x5177;&#xFF0C;&#x5B83;&#x52A8;&#x6001;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x5B50;&#x7C7B;&#x91CD;&#x5199;&#x88AB;&#x4EE3;&#x7406;&#x7684;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x4E0D;&#x662F;final&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x91C7;&#x7528;&#x65B9;&#x6CD5;&#x62E6;&#x622A;&#x7684;&#x6280;&#x672F;&#x62E6;&#x622A;&#x6240;&#x6709;&#x7236;&#x7C7B;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x987A;&#x52BF;&#x7EC7;&#x5165;&#x6A2A;&#x5207;&#x903B;&#x8F91;&#x3002;</p>
+<a id="more"></a>
+<h2 id="&#x793A;&#x4F8B;"><a href="#&#x793A;&#x4F8B;" class="headerlink" title="&#x793A;&#x4F8B;"></a>&#x793A;&#x4F8B;</h2><p>&#x88AB;&#x4EE3;&#x7406;&#x7C7B;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class HelloServiceImpl {</div><div class="line">    public void sayHello(){</div><div class="line">        System.out.println(&quot;Hello Zhanghao&quot;);</div><div class="line">    }</div><div class="line"></div><div class="line">    public void sayBey(){</div><div class="line">        System.out.println(&quot;Bye Zhanghao&quot;);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x5B9E;&#x73B0;MethodInterceptor&#x63A5;&#x53E3;&#x751F;&#x6210;&#x65B9;&#x6CD5;&#x62E6;&#x622A;&#x5668;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class HelloMethodInterceptor  implements MethodInterceptor{</div><div class="line">    @Override</div><div class="line">    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {</div><div class="line">        System.out.println(&quot;Before: &quot;  + method.getName());</div><div class="line">        Object object = methodProxy.invokeSuper(o, objects);</div><div class="line">        System.out.println(&quot;After: &quot; + method.getName());</div><div class="line">        return object;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x751F;&#x6210;&#x4EE3;&#x7406;&#x7C7B;&#x5BF9;&#x8C61;&#x5E76;&#x6253;&#x5370;&#x5728;&#x4EE3;&#x7406;&#x7C7B;&#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x4E4B;&#x540E;&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Client {</div><div class="line">    public static void main(String[] args) {</div><div class="line">        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, &quot;/Users/zhanghao/Documents/toy/spring-framework-source-study/&quot;);</div><div class="line">        Enhancer enhancer = new Enhancer();</div><div class="line">        //&#x7EE7;&#x627F;&#x88AB;&#x4EE3;&#x7406;&#x7C7B;</div><div class="line">        enhancer.setSuperclass(HelloServiceImpl.class);</div><div class="line">        //&#x8BBE;&#x7F6E;&#x56DE;&#x8C03;</div><div class="line">        enhancer.setCallback(new HelloMethodInterceptor());</div><div class="line">        //&#x8BBE;&#x7F6E;&#x4EE3;&#x7406;&#x7C7B;&#x5BF9;&#x8C61;</div><div class="line">        HelloServiceImpl helloService = (HelloServiceImpl) enhancer.create();</div><div class="line">        //&#x5728;&#x8C03;&#x7528;&#x4EE3;&#x7406;&#x7C7B;&#x4E2D;&#x65B9;&#x6CD5;&#x65F6;&#x4F1A;&#x88AB;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;&#x62E6;&#x622A;&#x5668;&#x8FDB;&#x884C;&#x62E6;&#x622A;</div><div class="line">        helloService.sayBey();</div><div class="line">    }</div><div class="line">}</div><div class="line">result:</div><div class="line">Before: sayBey</div><div class="line">Bye Zhanghao</div><div class="line">After: sayBey</div></pre></td></tr></table></figure>
+<h2 id="&#x6784;&#x5EFA;&#x4EE3;&#x7406;&#x7C7B;&#x8FC7;&#x7A0B;"><a href="#&#x6784;&#x5EFA;&#x4EE3;&#x7406;&#x7C7B;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x6784;&#x5EFA;&#x4EE3;&#x7406;&#x7C7B;&#x8FC7;&#x7A0B;"></a>&#x6784;&#x5EFA;&#x4EE3;&#x7406;&#x7C7B;&#x8FC7;&#x7A0B;</h2><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x4E2D;&#x770B;&#x5230;&#xFF0C;&#x4EE3;&#x7406;&#x7C7B;&#x662F;&#x7531;enhancer.create()&#x521B;&#x5EFA;&#x7684;&#x3002;Enhancer&#x662F;CGLIB&#x7684;&#x5B57;&#x8282;&#x7801;&#x589E;&#x5F3A;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x5BF9;&#x7C7B;&#x8FDB;&#x884C;&#x62D3;&#x5C55;&#x3002;</p>
+<p>&#x521B;&#x5EFA;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li>&#x751F;&#x6210;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5B57;&#x8282;&#x7801;&#x6587;&#x4EF6;&#xFF1B;</li>
+<li>&#x52A0;&#x8F7D;&#x4E8C;&#x8FDB;&#x5236;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x751F;&#x6210;Class&#x5BF9;&#x8C61;&#xFF1B;</li>
+<li>&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x83B7;&#x5F97;&#x5B9E;&#x4F8B;&#x6784;&#x9020;&#xFF0C;&#x5E76;&#x521B;&#x5EFA;&#x4EE3;&#x7406;&#x7C7B;&#x5BF9;&#x8C61;&#x3002;</li>
+</ul>
+<p><strong>enhancer.create()</strong>&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">     * Generate a new class if necessary and uses the specified</div><div class="line">     * callbacks (if any) to create a new object instance.</div><div class="line">     * Uses the no-arg constructor of the superclass.</div><div class="line">     * @return a new instance</div><div class="line">     */</div><div class="line">    public Object create() {</div><div class="line">        classOnly = false;</div><div class="line">        argumentTypes = null;</div><div class="line">        return createHelper();</div><div class="line">    }</div><div class="line">    </div><div class="line">     private Object createHelper() {</div><div class="line">        validate();</div><div class="line">        if (superclass != null) {</div><div class="line">            //&#x8BBE;&#x7F6E;&#x751F;&#x6210;&#x7C7B;&#x7684;&#x540D;&#x79F0;</div><div class="line">            setNamePrefix(superclass.getName());</div><div class="line">        } else if (interfaces != null) {</div><div class="line">            //&#x8BBE;&#x7F6E;&#x751F;&#x6210;&#x7C7B;&#x7684;&#x540D;&#x79F0;</div><div class="line">            setNamePrefix(interfaces[ReflectUtils.findPackageProtected(interfaces)].getName());</div><div class="line">        }</div><div class="line">        //&#x751F;&#x6210;&#x4EE3;&#x7406;&#x7C7B;&#x5BF9;&#x8C61;&#xFF08;&#x5728;KEY_FACTORY.newInstance(...&#xFF09;-&gt;&#x751F;&#x6210;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5B57;&#x8282;&#x7801;&#x6587;&#x4EF6;&#x4EE5;&#x53CA;&#x52A0;&#x8F7D;&#x4E8C;&#x8FDB;&#x5236;&#x5B57;&#x8282;&#x7801;&#xFF09;</div><div class="line">        return super.create(KEY_FACTORY.newInstance((superclass != null) ? superclass.getName() : null,</div><div class="line">                                                    ReflectUtils.getNames(interfaces),</div><div class="line">                                                    filter,</div><div class="line">                                                    callbackTypes,</div><div class="line">                                                    useFactory,</div><div class="line">                                                    interceptDuringConstruction,</div><div class="line">                                                    serialVersionUID));</div><div class="line">    }</div></pre></td></tr></table></figure>
+<p>cglic&#x4E00;&#x5171;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E09;&#x4E2A;&#x5B57;&#x8282;&#x7801;&#x6587;&#x4EF6;&#x3002;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x7C7B;<strong>HelloServiceImpl$$EnhancerByCGLIB$$d855d4dc</strong> &#x7EE7;&#x627F;&#x4E86;&#x88AB;&#x4EE3;&#x7406;&#x7C7B; <strong>HelloServiceImpl</strong>&#x3002;&#x8FD9;&#x4E2A;&#x7C7B;&#x5C31;&#x662F;&#x52A0;&#x5F3A;&#x7684;&#x4EE3;&#x7406;&#x7C7B;&#xFF0C;&#x5176;&#x4E2D;&#x4F1A;&#x751F;&#x6210;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;<strong>CGLIB$sayHello$1()</strong>&#x548C;<strong>sayHello()</strong>&#x3002;<br>&#x5176;&#x4E2D;<strong>sayHello()</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public final void sayHello() {</div><div class="line">      MethodInterceptor var10000 = this.CGLIB$CALLBACK_0;</div><div class="line">      if(this.CGLIB$CALLBACK_0 == null) {</div><div class="line">          CGLIB$BIND_CALLBACKS(this);</div><div class="line">          var10000 = this.CGLIB$CALLBACK_0;</div><div class="line">      }</div><div class="line"></div><div class="line">      if(var10000 != null) {</div><div class="line">          var10000.intercept(this, CGLIB$sayHello$1$Method, CGLIB$emptyArgs, CGLIB$sayHello$1$Proxy);</div><div class="line">      } else {</div><div class="line">          super.sayHello();</div><div class="line">      }</div><div class="line">  }</div></pre></td></tr></table></figure>
+<p>&#x5F53;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x6267;&#x884C;sayHello&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x4F1A;&#x9996;&#x5148;&#x5224;&#x65AD;&#x4E00;&#x4E0B;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5B9E;&#x73B0;&#x4E86;MethodInterceptor&#x63A5;&#x53E3;&#x7684;CGLIB$CALLBACK_0;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x5C06;&#x8C03;&#x7528;MethodInterceptor&#x4E2D;&#x7684;intercept&#x65B9;&#x6CD5;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/14/基于Redis的分布式锁到底安全吗（上）/" rel="next" title="基于Redis的分布式锁到底安全吗（上）？(转载)">
+                <i class="fa fa-chevron-left"></i> 基于Redis的分布式锁到底安全吗（上）？(转载)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+ 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/09/03/CGLIB原理/"
+           data-title="CGLIB动态代理机制" data-url="http://www.haomer.top/2018/09/03/CGLIB原理/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="张 浩 | Zhang Hao" />
+          <p class="site-author-name" itemprop="name">张 浩 | Zhang Hao</p>
+          <p class="site-description motion-element" itemprop="description">Just do IT</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/haomer" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:zhanghao_foo@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cglib原理"><span class="nav-number">1.</span> <span class="nav-text">CGLIB原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建代理类过程"><span class="nav-number">3.</span> <span class="nav-text">构建代理类过程</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张 浩 | Zhang Hao</span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sharehao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
