@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,45 +63,41 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="centos,service," />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="张 浩 | Zhang Hao" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <meta name="keywords" content="centos,service,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="张 浩 | Zhang Hao" type="application/atom+xml">
 
-<meta name="description" content="创建脚本在Centos 目录下新建一个脚本，把operationdata作为service来运行，这样不用每次都打这么繁琐的命令了。新建一个  文件：
-12cd /etc/init.dtouch /etc/init.d/operationdata
- 内容如下：">
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="创建脚本在Centos 目录下新建一个脚本，把operationdata作为service来运行，这样不用每次都打这么繁琐的命令了。新建一个  文件： 12cd /etc/init.dtouch /etc/init.d/operationdata  内容如下：">
+<meta name="keywords" content="centos,service">
 <meta property="og:type" content="article">
 <meta property="og:title" content="系统SERVICE服务">
 <meta property="og:url" content="http://www.haomer.top/2016/06/19/系统SERVICE服务/index.html">
 <meta property="og:site_name" content="张 浩 | Zhang Hao">
-<meta property="og:description" content="创建脚本在Centos 目录下新建一个脚本，把operationdata作为service来运行，这样不用每次都打这么繁琐的命令了。新建一个  文件：
-12cd /etc/init.dtouch /etc/init.d/operationdata
- 内容如下：">
+<meta property="og:description" content="创建脚本在Centos 目录下新建一个脚本，把operationdata作为service来运行，这样不用每次都打这么繁琐的命令了。新建一个  文件： 12cd /etc/init.dtouch /etc/init.d/operationdata  内容如下：">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-15T02:18:35.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系统SERVICE服务">
-<meta name="twitter:description" content="创建脚本在Centos 目录下新建一个脚本，把operationdata作为service来运行，这样不用每次都打这么繁琐的命令了。新建一个  文件：
-12cd /etc/init.dtouch /etc/init.d/operationdata
- 内容如下：">
+<meta name="twitter:description" content="创建脚本在Centos 目录下新建一个脚本，把operationdata作为service来运行，这样不用每次都打这么繁琐的命令了。新建一个  文件： 12cd /etc/init.dtouch /etc/init.d/operationdata  内容如下：">
 
 
 
@@ -122,12 +118,12 @@
 
 
 
-  <link rel="canonical" href="http://www.haomer.top/2016/06/19/系统SERVICE服务/"/>
+  <link rel="canonical" href="http://www.haomer.top/2016/06/19/系统SERVICE服务/">
 
   <title> 系统SERVICE服务 | 张 浩 | Zhang Hao </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -139,7 +135,7 @@
 
 
   <div style="display: none;">
-    <script src="//s6.cnzz.com/stat.php?id=www.sharehao.com&web_id=www.sharehao.com" type="text/javascript"></script>
+    <script src="//s6.cnzz.com/stat.php?id=www.haomer.top&web_id=www.haomer.top" type="text/javascript"></script>
   </div>
 
 
@@ -154,12 +150,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">张 浩 | Zhang Hao</span>
       <span class="logo-line-after"><i></i></span>
@@ -186,7 +182,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -196,7 +192,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -206,7 +202,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -216,7 +212,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -226,7 +222,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -259,7 +255,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -293,14 +289,14 @@
 
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                   <a href="/categories/centos/" itemprop="url" rel="index">
                     <span itemprop="name">centos</span>
                   </a>
@@ -341,14 +337,14 @@
       
 
       
-        <h3 id="&#x521B;&#x5EFA;&#x811A;&#x672C;"><a href="#&#x521B;&#x5EFA;&#x811A;&#x672C;" class="headerlink" title="&#x521B;&#x5EFA;&#x811A;&#x672C;"></a>&#x521B;&#x5EFA;&#x811A;&#x672C;</h3><p>&#x5728;Centos &#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#xFF0C;&#x628A;operationdata&#x4F5C;&#x4E3A;service&#x6765;&#x8FD0;&#x884C;&#xFF0C;&#x8FD9;&#x6837;&#x4E0D;&#x7528;&#x6BCF;&#x6B21;&#x90FD;&#x6253;&#x8FD9;&#x4E48;&#x7E41;&#x7410;&#x7684;&#x547D;&#x4EE4;&#x4E86;&#x3002;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;  &#x6587;&#x4EF6;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /etc/init.d</div><div class="line">touch /etc/init.d/operationdata</div></pre></td></tr></table></figure>
-<p> &#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+        <h3><span id="创建脚本">创建脚本</span></h3><p>在Centos 目录下新建一个脚本，把operationdata作为service来运行，这样不用每次都打这么繁琐的命令了。新建一个  文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/init.d</span><br><span class="line">touch /etc/init.d/operationdata</span><br></pre></td></tr></table></figure>
+<p> 内容如下：</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">SERVICE_NAME=operationdata</div><div class="line">HOME=/data/webapps/operataiondata</div><div class="line">PATH_TO_JAR=$HOME/war/operationdata.war</div><div class="line">PID_PATH_NAME=/tmp/operationdata.pid</div><div class="line">LOG=$HOME/logs/production.log</div><div class="line">ERROR_LOG=$HOME/logs/production.err</div><div class="line">case $1 in</div><div class="line">    start)</div><div class="line">        echo &quot;Starting $SERVICE_NAME ...&quot;</div><div class="line">        if [ ! -f $PID_PATH_NAME ]; then</div><div class="line">            cd $HOME/war</div><div class="line">            nohup java -jar $PATH_TO_JAR &gt; $LOG 2&gt; $ERROR_LOG &amp;</div><div class="line">                        echo $! &gt; $PID_PATH_NAME</div><div class="line">            echo &quot;$SERVICE_NAME started ...&quot;</div><div class="line">        else</div><div class="line">            echo &quot;$SERVICE_NAME is already running ...&quot;</div><div class="line">        fi</div><div class="line">    ;;</div><div class="line">    stop)</div><div class="line">        if [ -f $PID_PATH_NAME ]; then</div><div class="line">            PID=$(cat $PID_PATH_NAME);</div><div class="line">            echo &quot;$SERVICE_NAME stoping ...&quot;</div><div class="line">            kill $PID;</div><div class="line">            echo &quot;$SERVICE_NAME stopped ...&quot;</div><div class="line">            rm $PID_PATH_NAME</div><div class="line">        else</div><div class="line">            echo &quot;$SERVICE_NAME is not running ...&quot;</div><div class="line">        fi</div><div class="line">    ;;</div><div class="line">    restart)</div><div class="line">        if [ -f $PID_PATH_NAME ]; then</div><div class="line">            PID=$(cat $PID_PATH_NAME);</div><div class="line">            echo &quot;$SERVICE_NAME stopping ...&quot;;</div><div class="line">            kill $PID;</div><div class="line">            echo &quot;$SERVICE_NAME stopped ...&quot;;</div><div class="line">            rm $PID_PATH_NAME</div><div class="line">            echo &quot;$SERVICE_NAME starting ...&quot;</div><div class="line">            cd $HOME/war</div><div class="line">            nohup java -jar $PATH_TO_JAR &gt; $LOG 2&gt; $ERROR_LOG &amp;</div><div class="line">                        echo $! &gt; $PID_PATH_NAME</div><div class="line">            echo &quot;$SERVICE_NAME started ...&quot;</div><div class="line">        else</div><div class="line">            echo &quot;$SERVICE_NAME is not running ...&quot;</div><div class="line">        fi</div><div class="line">    ;;</div><div class="line">esac</div></pre></td></tr></table></figure>
-<h3 id="&#x6DFB;&#x52A0;&#x670D;&#x52A1;"><a href="#&#x6DFB;&#x52A0;&#x670D;&#x52A1;" class="headerlink" title="&#x6DFB;&#x52A0;&#x670D;&#x52A1;"></a>&#x6DFB;&#x52A0;&#x670D;&#x52A1;</h3><p>&#x628A;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4; &#x6DFB;&#x52A0;&#x5230;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x4E2D; &#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chkconfig --add operationdata</div></pre></td></tr></table></figure></p>
-<p>&#x5C31;&#x53EF;&#x4EE5;&#x5F00;&#x542F;&#x670D;&#x52A1; &#x505C;&#x6B62;&#x670D;&#x52A1; &#x4EE5;&#x53CA;&#x91CD;&#x542F;&#x670D;&#x52A1;:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo service operationdata start</div><div class="line">sudo service operationdata stop</div><div class="line">sudo service operationdata restart</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">SERVICE_NAME=operationdata</span><br><span class="line">HOME=/data/webapps/operataiondata</span><br><span class="line">PATH_TO_JAR=$HOME/war/operationdata.war</span><br><span class="line">PID_PATH_NAME=/tmp/operationdata.pid</span><br><span class="line">LOG=$HOME/logs/production.log</span><br><span class="line">ERROR_LOG=$HOME/logs/production.err</span><br><span class="line">case $1 in</span><br><span class="line">    start)</span><br><span class="line">        echo &quot;Starting $SERVICE_NAME ...&quot;</span><br><span class="line">        if [ ! -f $PID_PATH_NAME ]; then</span><br><span class="line">            cd $HOME/war</span><br><span class="line">            nohup java -jar $PATH_TO_JAR &gt; $LOG 2&gt; $ERROR_LOG &amp;</span><br><span class="line">                        echo $! &gt; $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME started ...&quot;</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is already running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">    stop)</span><br><span class="line">        if [ -f $PID_PATH_NAME ]; then</span><br><span class="line">            PID=$(cat $PID_PATH_NAME);</span><br><span class="line">            echo &quot;$SERVICE_NAME stoping ...&quot;</span><br><span class="line">            kill $PID;</span><br><span class="line">            echo &quot;$SERVICE_NAME stopped ...&quot;</span><br><span class="line">            rm $PID_PATH_NAME</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is not running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">    restart)</span><br><span class="line">        if [ -f $PID_PATH_NAME ]; then</span><br><span class="line">            PID=$(cat $PID_PATH_NAME);</span><br><span class="line">            echo &quot;$SERVICE_NAME stopping ...&quot;;</span><br><span class="line">            kill $PID;</span><br><span class="line">            echo &quot;$SERVICE_NAME stopped ...&quot;;</span><br><span class="line">            rm $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME starting ...&quot;</span><br><span class="line">            cd $HOME/war</span><br><span class="line">            nohup java -jar $PATH_TO_JAR &gt; $LOG 2&gt; $ERROR_LOG &amp;</span><br><span class="line">                        echo $! &gt; $PID_PATH_NAME</span><br><span class="line">            echo &quot;$SERVICE_NAME started ...&quot;</span><br><span class="line">        else</span><br><span class="line">            echo &quot;$SERVICE_NAME is not running ...&quot;</span><br><span class="line">        fi</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<h3><span id="添加服务">添加服务</span></h3><p>把这个命令 添加到系统服务中 ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --add operationdata</span><br></pre></td></tr></table></figure></p>
+<p>就可以开启服务 停止服务 以及重启服务:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo service operationdata start</span><br><span class="line">sudo service operationdata stop</span><br><span class="line">sudo service operationdata restart</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -382,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/29/Lambda表达式/" rel="next" title="Lambda表达式">
-                <i class="fa fa-chevron-left"></i> Lambda表达式
+              <a href="/2016/05/29/HTTPS协议解析/" rel="next" title="HTTPS协议解析">
+                <i class="fa fa-chevron-left"></i> HTTPS协议解析
               </a>
             
           </div>
@@ -418,8 +414,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/19/系统SERVICE服务/"
-           data-title="系统SERVICE服务" data-url="http://www.haomer.top/2016/06/19/系统SERVICE服务/">
+      <div class="ds-thread" data-thread-key="2016/06/19/系统SERVICE服务/" data-title="系统SERVICE服务" data-url="http://www.haomer.top/2016/06/19/系统SERVICE服务/">
       </div>
     
   </div>
@@ -444,7 +439,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -454,10 +449,8 @@
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.png"
-               alt="张 浩 | Zhang Hao" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="张 浩 | Zhang Hao">
           <p class="site-author-name" itemprop="name">张 浩 | Zhang Hao</p>
           <p class="site-description motion-element" itemprop="description">Just do IT</p>
         </div>
@@ -526,7 +519,7 @@
         
           <div class="cc-license motion-element" itemprop="license">
             <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
             </a>
           </div>
         
@@ -543,7 +536,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建脚本"><span class="nav-number">1.</span> <span class="nav-text">创建脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加服务"><span class="nav-number">2.</span> <span class="nav-text">添加服务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">创建脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">添加服务</span></a></li></ol></div>
             
           </div>
         </section>
@@ -559,7 +552,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy;  2015 - 
   <span itemprop="copyrightYear">2019</span>

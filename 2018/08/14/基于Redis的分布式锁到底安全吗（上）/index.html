@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,44 +63,43 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Redis,分布式," />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="张 浩 | Zhang Hao" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <meta name="keywords" content="Redis,分布式,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="张 浩 | Zhang Hao" type="application/atom+xml">
 
-<meta name="description" content="网上有关Redis分布式锁的文章可谓多如牛毛了，不信的话你可以拿关键词“Redis 分布式锁”随便到哪个搜索引擎上去搜索一下就知道了。这些文章的思路大体相近，给出的实现算法也看似合乎逻辑，但当我们着手去实现它们的时候，却发现如果你越是仔细推敲，疑虑也就越来越多。
-实际上，大概在一年以前，关于Redis分布式锁的安全性问题，在分布式系统专家Martin Kleppmann和Redis的作者antir">
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="网上有关Redis分布式锁的文章可谓多如牛毛了，不信的话你可以拿关键词“Redis 分布式锁”随便到哪个搜索引擎上去搜索一下就知道了。这些文章的思路大体相近，给出的实现算法也看似合乎逻辑，但当我们着手去实现它们的时候，却发现如果你越是仔细推敲，疑虑也就越来越多。 实际上，大概在一年以前，关于Redis分布式锁的安全性问题，在分布式系统专家Martin Kleppmann和Redis的作者antir">
+<meta name="keywords" content="Redis,分布式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Redis的分布式锁到底安全吗（上）？(转载)">
 <meta property="og:url" content="http://www.haomer.top/2018/08/14/基于Redis的分布式锁到底安全吗（上）/index.html">
 <meta property="og:site_name" content="张 浩 | Zhang Hao">
-<meta property="og:description" content="网上有关Redis分布式锁的文章可谓多如牛毛了，不信的话你可以拿关键词“Redis 分布式锁”随便到哪个搜索引擎上去搜索一下就知道了。这些文章的思路大体相近，给出的实现算法也看似合乎逻辑，但当我们着手去实现它们的时候，却发现如果你越是仔细推敲，疑虑也就越来越多。
-实际上，大概在一年以前，关于Redis分布式锁的安全性问题，在分布式系统专家Martin Kleppmann和Redis的作者antir">
+<meta property="og:description" content="网上有关Redis分布式锁的文章可谓多如牛毛了，不信的话你可以拿关键词“Redis 分布式锁”随便到哪个搜索引擎上去搜索一下就知道了。这些文章的思路大体相近，给出的实现算法也看似合乎逻辑，但当我们着手去实现它们的时候，却发现如果你越是仔细推敲，疑虑也就越来越多。 实际上，大概在一年以前，关于Redis分布式锁的安全性问题，在分布式系统专家Martin Kleppmann和Redis的作者antir">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://zhangtielei.com/assets/photos_redlock/unsafe-lock.png">
 <meta property="og:image" content="http://zhangtielei.com/assets/photos_redlock/fencing-tokens.png">
 <meta property="og:updated_time" content="2018-08-15T02:04:51.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Redis的分布式锁到底安全吗（上）？(转载)">
-<meta name="twitter:description" content="网上有关Redis分布式锁的文章可谓多如牛毛了，不信的话你可以拿关键词“Redis 分布式锁”随便到哪个搜索引擎上去搜索一下就知道了。这些文章的思路大体相近，给出的实现算法也看似合乎逻辑，但当我们着手去实现它们的时候，却发现如果你越是仔细推敲，疑虑也就越来越多。
-实际上，大概在一年以前，关于Redis分布式锁的安全性问题，在分布式系统专家Martin Kleppmann和Redis的作者antir">
+<meta name="twitter:description" content="网上有关Redis分布式锁的文章可谓多如牛毛了，不信的话你可以拿关键词“Redis 分布式锁”随便到哪个搜索引擎上去搜索一下就知道了。这些文章的思路大体相近，给出的实现算法也看似合乎逻辑，但当我们着手去实现它们的时候，却发现如果你越是仔细推敲，疑虑也就越来越多。 实际上，大概在一年以前，关于Redis分布式锁的安全性问题，在分布式系统专家Martin Kleppmann和Redis的作者antir">
 <meta name="twitter:image" content="http://zhangtielei.com/assets/photos_redlock/unsafe-lock.png">
 
 
@@ -122,12 +121,12 @@
 
 
 
-  <link rel="canonical" href="http://www.haomer.top/2018/08/14/基于Redis的分布式锁到底安全吗（上）/"/>
+  <link rel="canonical" href="http://www.haomer.top/2018/08/14/基于Redis的分布式锁到底安全吗（上）/">
 
   <title> 基于Redis的分布式锁到底安全吗（上）？(转载) | 张 浩 | Zhang Hao </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -139,7 +138,7 @@
 
 
   <div style="display: none;">
-    <script src="//s6.cnzz.com/stat.php?id=www.sharehao.com&web_id=www.sharehao.com" type="text/javascript"></script>
+    <script src="//s6.cnzz.com/stat.php?id=www.haomer.top&web_id=www.haomer.top" type="text/javascript"></script>
   </div>
 
 
@@ -154,12 +153,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">张 浩 | Zhang Hao</span>
       <span class="logo-line-after"><i></i></span>
@@ -186,7 +185,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -196,7 +195,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -206,7 +205,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -216,7 +215,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -226,7 +225,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -259,7 +258,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -293,14 +292,14 @@
 
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                   <a href="/categories/分布式/" itemprop="url" rel="index">
                     <span itemprop="name">分布式</span>
                   </a>
@@ -341,146 +340,146 @@
       
 
       
-        <p>&#x7F51;&#x4E0A;&#x6709;&#x5173;Redis&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x6587;&#x7AE0;&#x53EF;&#x8C13;&#x591A;&#x5982;&#x725B;&#x6BDB;&#x4E86;&#xFF0C;&#x4E0D;&#x4FE1;&#x7684;&#x8BDD;&#x4F60;&#x53EF;&#x4EE5;&#x62FF;&#x5173;&#x952E;&#x8BCD;&#x201C;Redis &#x5206;&#x5E03;&#x5F0F;&#x9501;&#x201D;&#x968F;&#x4FBF;&#x5230;&#x54EA;&#x4E2A;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x4E0A;&#x53BB;&#x641C;&#x7D22;&#x4E00;&#x4E0B;&#x5C31;&#x77E5;&#x9053;&#x4E86;&#x3002;&#x8FD9;&#x4E9B;&#x6587;&#x7AE0;&#x7684;&#x601D;&#x8DEF;&#x5927;&#x4F53;&#x76F8;&#x8FD1;&#xFF0C;&#x7ED9;&#x51FA;&#x7684;&#x5B9E;&#x73B0;&#x7B97;&#x6CD5;&#x4E5F;&#x770B;&#x4F3C;&#x5408;&#x4E4E;&#x903B;&#x8F91;&#xFF0C;&#x4F46;&#x5F53;&#x6211;&#x4EEC;&#x7740;&#x624B;&#x53BB;&#x5B9E;&#x73B0;&#x5B83;&#x4EEC;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5374;&#x53D1;&#x73B0;&#x5982;&#x679C;&#x4F60;&#x8D8A;&#x662F;&#x4ED4;&#x7EC6;&#x63A8;&#x6572;&#xFF0C;&#x7591;&#x8651;&#x4E5F;&#x5C31;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x3002;</p>
-<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5927;&#x6982;&#x5728;&#x4E00;&#x5E74;&#x4EE5;&#x524D;&#xFF0C;&#x5173;&#x4E8E;Redis&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x5B89;&#x5168;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x4E13;&#x5BB6;Martin Kleppmann&#x548C;Redis&#x7684;&#x4F5C;&#x8005;antirez&#x4E4B;&#x95F4;&#x5C31;&#x53D1;&#x751F;&#x8FC7;&#x4E00;&#x573A;&#x4E89;&#x8BBA;&#x3002;&#x7531;&#x4E8E;&#x5BF9;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4E00;&#x76F4;&#x4EE5;&#x6765;&#x6BD4;&#x8F83;&#x5173;&#x6CE8;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x524D;&#x4E9B;&#x65E5;&#x5B50;&#x4ED4;&#x7EC6;&#x9605;&#x8BFB;&#x4E86;&#x4E0E;&#x8FD9;&#x573A;&#x4E89;&#x8BBA;&#x76F8;&#x5173;&#x7684;&#x8D44;&#x6599;&#x3002;&#x8FD9;&#x573A;&#x4E89;&#x8BBA;&#x7684;&#x5927;&#x6982;&#x8FC7;&#x7A0B;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;&#x4E3A;&#x4E86;&#x89C4;&#x8303;&#x5404;&#x5BB6;&#x5BF9;&#x57FA;&#x4E8E;Redis&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;Redis&#x7684;&#x4F5C;&#x8005;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x53EB;&#x505A;Redlock&#x3002;&#x6709;&#x4E00;&#x5929;&#xFF0C;Martin Kleppmann&#x5199;&#x4E86;&#x4E00;&#x7BC7;blog&#xFF0C;&#x5206;&#x6790;&#x4E86;Redlock&#x5728;&#x5B89;&#x5168;&#x6027;&#x4E0A;&#x5B58;&#x5728;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x3002;&#x7136;&#x540E;Redis&#x7684;&#x4F5C;&#x8005;&#x7ACB;&#x5373;&#x5199;&#x4E86;&#x4E00;&#x7BC7;blog&#x6765;&#x53CD;&#x9A73;Martin&#x7684;&#x5206;&#x6790;&#x3002;&#x4F46;Martin&#x8868;&#x793A;&#x4ECD;&#x7136;&#x575A;&#x6301;&#x539F;&#x6765;&#x7684;&#x89C2;&#x70B9;&#x3002;&#x968F;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5728;Twitter&#x548C;Hacker News&#x4E0A;&#x5F15;&#x53D1;&#x4E86;&#x6FC0;&#x70C8;&#x7684;&#x8BA8;&#x8BBA;&#xFF0C;&#x5F88;&#x591A;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x4E13;&#x5BB6;&#x90FD;&#x53C2;&#x4E0E;&#x5176;&#x4E2D;&#x3002;</p>
-<p>&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x5BF9;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x4EBA;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x975E;&#x5E38;&#x503C;&#x5F97;&#x5173;&#x6CE8;&#x3002;&#x4E0D;&#x7BA1;&#x4F60;&#x662F;&#x521A;&#x63A5;&#x89E6;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x65B0;&#x624B;&#xFF0C;&#x8FD8;&#x662F;&#x6709;&#x7740;&#x591A;&#x5E74;&#x5206;&#x5E03;&#x5F0F;&#x5F00;&#x53D1;&#x7ECF;&#x9A8C;&#x7684;&#x8001;&#x624B;&#xFF0C;&#x8BFB;&#x5B8C;&#x8FD9;&#x4E9B;&#x5206;&#x6790;&#x548C;&#x8BC4;&#x8BBA;&#x4E4B;&#x540E;&#xFF0C;&#x5927;&#x6982;&#x90FD;&#x4F1A;&#x6709;&#x6240;&#x6536;&#x83B7;&#x3002;&#x8981;&#x77E5;&#x9053;&#xFF0C;&#x4EB2;&#x624B;&#x5B9E;&#x73B0;&#x8FC7;Redis Cluster&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7CFB;&#x7EDF;&#x7684;antirez&#xFF0C;&#x8DB3;&#x4EE5;&#x7B97;&#x5F97;&#x4E0A;&#x5206;&#x5E03;&#x5F0F;&#x9886;&#x57DF;&#x7684;&#x4E00;&#x540D;&#x4E13;&#x5BB6;&#x4E86;&#x3002;&#x4F46;&#x5BF9;&#x4E8E;&#x7531;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x5F15;&#x53D1;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x95EE;&#x9898;&#x7684;&#x5206;&#x6790;&#x4E2D;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x4E13;&#x5BB6;&#x5374;&#x80FD;&#x5F97;&#x51FA;&#x8FE5;&#x5F02;&#x7684;&#x7ED3;&#x8BBA;&#xFF0C;&#x4ECE;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7AA5;&#x89C1;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x76F8;&#x5173;&#x7684;&#x95EE;&#x9898;&#x5177;&#x6709;&#x4F55;&#x7B49;&#x7684;&#x590D;&#x6742;&#x6027;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x8BBE;&#x8BA1;&#x4E2D;&#x7ECF;&#x5E38;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;&#x662F;&#xFF1A;&#x8BB8;&#x591A;&#x60F3;&#x6CD5;&#x521D;&#x770B;&#x8D77;&#x6765;&#x6BEB;&#x65E0;&#x7834;&#x7EFD;&#xFF0C;&#x800C;&#x4E00;&#x65E6;&#x8BE6;&#x52A0;&#x8003;&#x91CF;&#xFF0C;&#x5374;&#x53D1;&#x73B0;&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x5929;&#x8863;&#x65E0;&#x7F1D;&#x3002;</p>
+        <p>网上有关Redis分布式锁的文章可谓多如牛毛了，不信的话你可以拿关键词“Redis 分布式锁”随便到哪个搜索引擎上去搜索一下就知道了。这些文章的思路大体相近，给出的实现算法也看似合乎逻辑，但当我们着手去实现它们的时候，却发现如果你越是仔细推敲，疑虑也就越来越多。</p>
+<p>实际上，大概在一年以前，关于Redis分布式锁的安全性问题，在分布式系统专家Martin Kleppmann和Redis的作者antirez之间就发生过一场争论。由于对这个问题一直以来比较关注，所以我前些日子仔细阅读了与这场争论相关的资料。这场争论的大概过程是这样的：为了规范各家对基于Redis的分布式锁的实现，Redis的作者提出了一个更安全的实现，叫做Redlock。有一天，Martin Kleppmann写了一篇blog，分析了Redlock在安全性上存在的一些问题。然后Redis的作者立即写了一篇blog来反驳Martin的分析。但Martin表示仍然坚持原来的观点。随后，这个问题在Twitter和Hacker News上引发了激烈的讨论，很多分布式系统的专家都参与其中。</p>
+<p>对于那些对分布式系统感兴趣的人来说，这个事件非常值得关注。不管你是刚接触分布式系统的新手，还是有着多年分布式开发经验的老手，读完这些分析和评论之后，大概都会有所收获。要知道，亲手实现过Redis Cluster这样一个复杂系统的antirez，足以算得上分布式领域的一名专家了。但对于由分布式锁引发的一系列问题的分析中，不同的专家却能得出迥异的结论，从中我们可以窥见分布式系统相关的问题具有何等的复杂性。实际上，在分布式系统的设计中经常发生的事情是：许多想法初看起来毫无破绽，而一旦详加考量，却发现不是那么天衣无缝。</p>
 <a id="more"></a>
-<p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x4ECE;&#x5934;&#x81F3;&#x5C3E;&#x628A;&#x8FD9;&#x573A;&#x4E89;&#x8BBA;&#x8FC7;&#x7A0B;&#x4E2D;&#x5404;&#x65B9;&#x7684;&#x89C2;&#x70B9;&#x8FDB;&#x884C;&#x4E00;&#x4E0B;&#x56DE;&#x987E;&#x548C;&#x5206;&#x6790;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x5F71;&#x54CD;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x5B89;&#x5168;&#x6027;&#x7684;&#x90A3;&#x4E9B;&#x6280;&#x672F;&#x7EC6;&#x8282;&#x5C55;&#x5F00;&#x8FDB;&#x884C;&#x8BA8;&#x8BBA;&#xFF0C;&#x8FD9;&#x5C06;&#x662F;&#x4E00;&#x4EF6;&#x5F88;&#x6709;&#x610F;&#x601D;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x957F;&#x7684;&#x6545;&#x4E8B;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x5176;&#x4E2D;&#x4E5F;&#x514D;&#x4E0D;&#x4E86;&#x5305;&#x542B;&#x4E00;&#x4E9B;&#x5C0F;&#x201C;&#x516B;&#x5366;&#x201D;&#x3002;</p>
-<h2 id="redlock&#x7B97;&#x6CD5;"><a href="#Redlock&#x7B97;&#x6CD5;" class="headerlink" title="Redlock&#x7B97;&#x6CD5;"></a>Redlock&#x7B97;&#x6CD5;</h2><p>&#x5C31;&#x50CF;&#x672C;&#x6587;&#x5F00;&#x5934;&#x6240;&#x8BB2;&#x7684;&#xFF0C;&#x501F;&#x52A9;Redis&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x9501;(Distributed Lock)&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x5DF2;&#x7ECF;&#x6709;&#x5F88;&#x591A;&#x4EBA;&#x5C1D;&#x8BD5;&#x8FC7;&#x3002;&#x4EBA;&#x4EEC;&#x6784;&#x5EFA;&#x8FD9;&#x6837;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x76EE;&#x7684;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x5BF9;&#x4E00;&#x4E9B;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x8FDB;&#x884C;&#x4E92;&#x65A5;&#x8BBF;&#x95EE;&#x3002;</p>
-<p>&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x4E9B;&#x5B9E;&#x73B0;&#x867D;&#x7136;&#x601D;&#x8DEF;&#x5927;&#x4F53;&#x76F8;&#x8FD1;&#xFF0C;&#x4F46;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x4E0A;&#x5404;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x5B83;&#x4EEC;&#x80FD;&#x63D0;&#x4F9B;&#x7684;&#x5B89;&#x5168;&#x6027;&#x548C;&#x53EF;&#x7528;&#x6027;&#x4E5F;&#x4E0D;&#x5C3D;&#x76F8;&#x540C;&#x3002;&#x6240;&#x4EE5;&#xFF0C;Redis&#x7684;&#x4F5C;&#x8005;antirez&#x7ED9;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x66F4;&#x597D;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x79F0;&#x4E3A;Redlock&#xFF0C;&#x7B97;&#x662F;Redis&#x5B98;&#x65B9;&#x5BF9;&#x4E8E;&#x5B9E;&#x73B0;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x6307;&#x5BFC;&#x89C4;&#x8303;&#x3002;Redlock&#x7684;&#x7B97;&#x6CD5;&#x63CF;&#x8FF0;&#x5C31;&#x653E;&#x5728;Redis&#x7684;&#x5B98;&#x7F51;&#x4E0A;&#xFF1A;</p>
+<p>下面，我们就从头至尾把这场争论过程中各方的观点进行一下回顾和分析。在这个过程中，我们把影响分布式锁的安全性的那些技术细节展开进行讨论，这将是一件很有意思的事情。这也是一个比较长的故事。当然，其中也免不了包含一些小“八卦”。</p>
+<h2><span id="redlock算法">Redlock算法</span></h2><p>就像本文开头所讲的，借助Redis来实现一个分布式锁(Distributed Lock)的做法，已经有很多人尝试过。人们构建这样的分布式锁的目的，是为了对一些共享资源进行互斥访问。</p>
+<p>但是，这些实现虽然思路大体相近，但实现细节上各不相同，它们能提供的安全性和可用性也不尽相同。所以，Redis的作者antirez给出了一个更好的实现，称为Redlock，算是Redis官方对于实现分布式锁的指导规范。Redlock的算法描述就放在Redis的官网上：</p>
 <ul>
-<li><a href="https://redis.io/topics/distlock" target="_blank" rel="external">https://redis.io/topics/distlock</a></li>
+<li><a href="https://redis.io/topics/distlock" target="_blank" rel="noopener">https://redis.io/topics/distlock</a></li>
 </ul>
-<p>&#x5728;Redlock&#x4E4B;&#x524D;&#xFF0C;&#x5F88;&#x591A;&#x4EBA;&#x5BF9;&#x4E8E;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x5B9E;&#x73B0;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x5355;&#x4E2A;Redis&#x8282;&#x70B9;&#x7684;&#x3002;&#x800C;Redlock&#x662F;&#x57FA;&#x4E8E;&#x591A;&#x4E2A;Redis&#x8282;&#x70B9;&#xFF08;&#x90FD;&#x662F;Master&#xFF09;&#x7684;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x3002;&#x4E3A;&#x4E86;&#x80FD;&#x7406;&#x89E3;Redlock&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x9700;&#x8981;&#x628A;&#x7B80;&#x5355;&#x7684;&#x57FA;&#x4E8E;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x7B97;&#x6CD5;&#x63CF;&#x8FF0;&#x6E05;&#x695A;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;Redlock&#x7684;&#x57FA;&#x7840;&#x3002;</p>
-<h3 id="&#x57FA;&#x4E8E;&#x5355;redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;"><a href="#&#x57FA;&#x4E8E;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;" class="headerlink" title="&#x57FA;&#x4E8E;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;"></a>&#x57FA;&#x4E8E;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;</h3><p>&#x9996;&#x5148;&#xFF0C;Redis&#x5BA2;&#x6237;&#x7AEF;&#x4E3A;&#x4E86;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x5411;Redis&#x8282;&#x70B9;&#x53D1;&#x9001;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SET resource_name my_random_value NX PX 30000</div></pre></td></tr></table></figure>
-<p>&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x5982;&#x679C;&#x6267;&#x884C;&#x6210;&#x529F;&#xFF0C;&#x5219;&#x5BA2;&#x6237;&#x7AEF;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x9501;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x4E86;&#xFF1B;&#x800C;&#x5982;&#x679C;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x83B7;&#x53D6;&#x9501;&#x5931;&#x8D25;&#x3002;</p>
-<p>&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x4E0A;&#x9762;&#x7684;SET&#x547D;&#x4EE4;&#x4E2D;&#xFF1A;</p>
+<p>在Redlock之前，很多人对于分布式锁的实现都是基于单个Redis节点的。而Redlock是基于多个Redis节点（都是Master）的一种实现。为了能理解Redlock，我们首先需要把简单的基于单Redis节点的算法描述清楚，因为它是Redlock的基础。</p>
+<h3><span id="基于单redis节点的分布式锁">基于单Redis节点的分布式锁</span></h3><p>首先，Redis客户端为了获取锁，向Redis节点发送如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET resource_name my_random_value NX PX 30000</span><br></pre></td></tr></table></figure>
+<p>上面的命令如果执行成功，则客户端成功获取到了锁，接下来就可以访问共享资源了；而如果上面的命令执行失败，则说明获取锁失败。</p>
+<p>注意，在上面的SET命令中：</p>
 <ul>
-<li>my_random_value &#x662F;&#x7531;&#x5BA2;&#x6237;&#x7AEF;&#x751F;&#x6210;&#x7684;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5B83;&#x8981;&#x4FDD;&#x8BC1;&#x5728;&#x8DB3;&#x591F;&#x957F;&#x7684;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5185;&#x5728;&#x6240;&#x6709;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6240;&#x6709;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8BF7;&#x6C42;&#x4E2D;&#x90FD;&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;</li>
-<li>NX&#x8868;&#x793A;&#x53EA;&#x6709;&#x5F53;resource_name&#x5BF9;&#x5E94;&#x7684;key&#x503C;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x65F6;&#x5019;&#x624D;&#x80FD;SET&#x6210;&#x529F;&#x3002;&#x8FD9;&#x4FDD;&#x8BC1;&#x4E86;&#x53EA;&#x6709;&#x7B2C;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x624D;&#x80FD;&#x83B7;&#x5F97;&#x9501;&#xFF0C;&#x800C;&#x5176;&#x5B83;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x9501;&#x88AB;&#x91CA;&#x653E;&#x4E4B;&#x524D;&#x90FD;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x9501;&#x3002;</li>
-<li>PX 30000&#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x9501;&#x6709;&#x4E00;&#x4E2A;30&#x79D2;&#x7684;&#x81EA;&#x52A8;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x8FD9;&#x91CC;30&#x79D2;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x3002;</li>
+<li>my_random_value 是由客户端生成的一个随机字符串，它要保证在足够长的一段时间内在所有客户端的所有获取锁的请求中都是唯一的。</li>
+<li>NX表示只有当resource_name对应的key值不存在的时候才能SET成功。这保证了只有第一个请求的客户端才能获得锁，而其它客户端在锁被释放之前都无法获得锁。</li>
+<li>PX 30000表示这个锁有一个30秒的自动过期时间。当然，这里30秒只是一个例子，客户端可以选择合适的过期时间。</li>
 </ul>
-<p>&#x6700;&#x540E;&#xFF0C;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x5B8C;&#x6210;&#x4E86;&#x5BF9;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;Redis Lua&#x811A;&#x672C;&#x6765;<strong>&#x91CA;&#x653E;&#x9501;</strong>&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if redis.call(&quot;get&quot;,KEYS[1]) == ARGV[1] then</div><div class="line">    return redis.call(&quot;del&quot;,KEYS[1])</div><div class="line">else</div><div class="line">    return 0</div><div class="line">end</div></pre></td></tr></table></figure>
-<p>&#x8FD9;&#x6BB5;Lua&#x811A;&#x672C;&#x5728;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x8981;&#x628A;&#x524D;&#x9762;&#x7684;my_random_value&#x4F5C;&#x4E3A;ARGV[1]&#x7684;&#x503C;&#x4F20;&#x8FDB;&#x53BB;&#xFF0C;&#x628A;resource_name&#x4F5C;&#x4E3A;KEYS[1]&#x7684;&#x503C;&#x4F20;&#x8FDB;&#x53BB;&#x3002;</p>
-<p>&#x81F3;&#x6B64;&#xFF0C;&#x57FA;&#x4E8E;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x7B97;&#x6CD5;&#x5C31;&#x63CF;&#x8FF0;&#x5B8C;&#x4E86;&#x3002;&#x8FD9;&#x91CC;&#x9762;&#x6709;&#x597D;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#x9700;&#x8981;&#x91CD;&#x70B9;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x3002;</p>
-<p>&#x9996;&#x5148;&#x7B2C;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x4E2A;&#x9501;&#x5FC5;&#x987B;&#x8981;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x3002;&#x5426;&#x5219;&#x7684;&#x8BDD;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x83B7;&#x53D6;&#x9501;&#x6210;&#x529F;&#x4E4B;&#x540E;&#xFF0C;&#x5047;&#x5982;&#x5B83;&#x5D29;&#x6E83;&#x4E86;&#xFF0C;&#x6216;&#x8005;&#x7531;&#x4E8E;&#x53D1;&#x751F;&#x4E86;&#x7F51;&#x7EDC;&#x5206;&#x5272;&#xFF08;network partition&#xFF09;&#x5BFC;&#x81F4;&#x5B83;&#x518D;&#x4E5F;&#x65E0;&#x6CD5;&#x548C;Redis&#x8282;&#x70B9;&#x901A;&#x4FE1;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x4F1A;&#x4E00;&#x76F4;&#x6301;&#x6709;&#x8FD9;&#x4E2A;&#x9501;&#xFF0C;&#x800C;&#x5176;&#x5B83;&#x5BA2;&#x6237;&#x7AEF;&#x6C38;&#x8FDC;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x9501;&#x4E86;&#x3002;antirez&#x5728;&#x540E;&#x9762;&#x7684;&#x5206;&#x6790;&#x4E2D;&#x4E5F;&#x7279;&#x522B;&#x5F3A;&#x8C03;&#x4E86;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x800C;&#x4E14;&#x628A;&#x8FD9;&#x4E2A;&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x79F0;&#x4E3A;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;(lock validity time)&#x3002;&#x83B7;&#x5F97;&#x9501;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5FC5;&#x987B;&#x5728;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x4E4B;&#x5185;&#x5B8C;&#x6210;&#x5BF9;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x8BBF;&#x95EE;&#x3002;</p>
-<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x7B2C;&#x4E00;&#x6B65;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x7F51;&#x4E0A;&#x4E0D;&#x5C11;&#x6587;&#x7AE0;&#x628A;&#x5B83;&#x5B9E;&#x73B0;&#x6210;&#x4E86;&#x4E24;&#x4E2A;Redis&#x547D;&#x4EE4;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">SETNX resource_name my_random_value</div><div class="line">EXPIRE resource_name 30</div></pre></td></tr></table></figure>
-<p>&#x867D;&#x7136;&#x8FD9;&#x4E24;&#x4E2A;&#x547D;&#x4EE4;&#x548C;&#x524D;&#x9762;&#x7B97;&#x6CD5;&#x63CF;&#x8FF0;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;SET&#x547D;&#x4EE4;&#x6267;&#x884C;&#x6548;&#x679C;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5374;&#x4E0D;&#x662F;&#x539F;&#x5B50;&#x7684;&#x3002;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x6267;&#x884C;&#x5B8C;SETNX&#x540E;&#x5D29;&#x6E83;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x6CA1;&#x6709;&#x673A;&#x4F1A;&#x6267;&#x884C;EXPIRE&#x4E86;&#xFF0C;&#x5BFC;&#x81F4;&#x5B83;&#x4E00;&#x76F4;&#x6301;&#x6709;&#x8FD9;&#x4E2A;&#x9501;&#x3002;</p>
-<p>&#x7B2C;&#x4E09;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4E5F;&#x662F;antirez&#x6307;&#x51FA;&#x7684;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;my_random_value&#x662F;&#x5F88;&#x6709;&#x5FC5;&#x8981;&#x7684;&#xFF0C;&#x5B83;&#x4FDD;&#x8BC1;&#x4E86;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x91CA;&#x653E;&#x7684;&#x9501;&#x5FC5;&#x987B;&#x662F;&#x81EA;&#x5DF1;&#x6301;&#x6709;&#x7684;&#x90A3;&#x4E2A;&#x9501;&#x3002;&#x5047;&#x5982;&#x83B7;&#x53D6;&#x9501;&#x65F6;SET&#x7684;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x751F;&#x4E0B;&#x9762;&#x7684;&#x6267;&#x884C;&#x5E8F;&#x5217;&#xFF1A;</p>
+<p>最后，当客户端完成了对共享资源的操作之后，执行下面的Redis Lua脚本来<strong>释放锁</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if redis.call(&quot;get&quot;,KEYS[1]) == ARGV[1] then</span><br><span class="line">    return redis.call(&quot;del&quot;,KEYS[1])</span><br><span class="line">else</span><br><span class="line">    return 0</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>这段Lua脚本在执行的时候要把前面的my_random_value作为ARGV[1]的值传进去，把resource_name作为KEYS[1]的值传进去。</p>
+<p>至此，基于单Redis节点的分布式锁的算法就描述完了。这里面有好几个问题需要重点分析一下。</p>
+<p>首先第一个问题，这个锁必须要设置一个过期时间。否则的话，当一个客户端获取锁成功之后，假如它崩溃了，或者由于发生了网络分割（network partition）导致它再也无法和Redis节点通信了，那么它就会一直持有这个锁，而其它客户端永远无法获得锁了。antirez在后面的分析中也特别强调了这一点，而且把这个过期时间称为锁的有效时间(lock validity time)。获得锁的客户端必须在这个时间之内完成对共享资源的访问。</p>
+<p>第二个问题，第一步获取锁的操作，网上不少文章把它实现成了两个Redis命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SETNX resource_name my_random_value</span><br><span class="line">EXPIRE resource_name 30</span><br></pre></td></tr></table></figure>
+<p>虽然这两个命令和前面算法描述中的一个SET命令执行效果相同，但却不是原子的。如果客户端在执行完SETNX后崩溃了，那么就没有机会执行EXPIRE了，导致它一直持有这个锁。</p>
+<p>第三个问题，也是antirez指出的，设置一个随机字符串my_random_value是很有必要的，它保证了一个客户端释放的锁必须是自己持有的那个锁。假如获取锁时SET的不是一个随机字符串，而是一个固定值，那么可能会发生下面的执行序列：</p>
 <ol>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x83B7;&#x53D6;&#x9501;&#x6210;&#x529F;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x5728;&#x67D0;&#x4E2A;&#x64CD;&#x4F5C;&#x4E0A;&#x963B;&#x585E;&#x4E86;&#x5F88;&#x957F;&#x65F6;&#x95F4;&#x3002;</li>
-<li>&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x5230;&#x4E86;&#xFF0C;&#x9501;&#x81EA;&#x52A8;&#x91CA;&#x653E;&#x4E86;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;2&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x5BF9;&#x5E94;&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x9501;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;&#x963B;&#x585E;&#x4E2D;&#x6062;&#x590D;&#x8FC7;&#x6765;&#xFF0C;&#x91CA;&#x653E;&#x6389;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;2&#x6301;&#x6709;&#x7684;&#x9501;&#x3002;</li>
+<li>客户端1获取锁成功。</li>
+<li>客户端1在某个操作上阻塞了很长时间。</li>
+<li>过期时间到了，锁自动释放了。</li>
+<li>客户端2获取到了对应同一个资源的锁。</li>
+<li>客户端1从阻塞中恢复过来，释放掉了客户端2持有的锁。</li>
 </ol>
-<p>&#x4E4B;&#x540E;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;2&#x5728;&#x8BBF;&#x95EE;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x6CA1;&#x6709;&#x9501;&#x4E3A;&#x5B83;&#x63D0;&#x4F9B;&#x4FDD;&#x62A4;&#x4E86;&#x3002;</p>
-<p>&#x7B2C;&#x56DB;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x91CA;&#x653E;&#x9501;&#x7684;&#x64CD;&#x4F5C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;Lua&#x811A;&#x672C;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x91CA;&#x653E;&#x9501;&#x5176;&#x5B9E;&#x5305;&#x542B;&#x4E09;&#x6B65;&#x64CD;&#x4F5C;&#xFF1A;&#x2019;GET&#x2019;&#x3001;&#x5224;&#x65AD;&#x548C;&#x2019;DEL&#x2019;&#xFF0C;&#x7528;Lua&#x811A;&#x672C;&#x6765;&#x5B9E;&#x73B0;&#x80FD;&#x4FDD;&#x8BC1;&#x8FD9;&#x4E09;&#x6B65;&#x7684;&#x539F;&#x5B50;&#x6027;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x5982;&#x679C;&#x628A;&#x8FD9;&#x4E09;&#x6B65;&#x64CD;&#x4F5C;&#x653E;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x903B;&#x8F91;&#x4E2D;&#x53BB;&#x6267;&#x884C;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x6709;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x4E0E;&#x524D;&#x9762;&#x7B2C;&#x4E09;&#x4E2A;&#x95EE;&#x9898;&#x7C7B;&#x4F3C;&#x7684;&#x6267;&#x884C;&#x5E8F;&#x5217;&#xFF1A;</p>
+<p>之后，客户端2在访问共享资源的时候，就没有锁为它提供保护了。</p>
+<p>第四个问题，释放锁的操作必须使用Lua脚本来实现。释放锁其实包含三步操作：’GET’、判断和’DEL’，用Lua脚本来实现能保证这三步的原子性。否则，如果把这三步操作放到客户端逻辑中去执行的话，就有可能发生与前面第三个问题类似的执行序列：</p>
 <ol>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x83B7;&#x53D6;&#x9501;&#x6210;&#x529F;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x8BBF;&#x95EE;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x4E3A;&#x4E86;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x5148;&#x6267;&#x884C;&#x2019;GET&#x2019;&#x64CD;&#x4F5C;&#x83B7;&#x53D6;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x503C;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x5224;&#x65AD;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x503C;&#xFF0C;&#x4E0E;&#x9884;&#x671F;&#x7684;&#x503C;&#x76F8;&#x7B49;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x7531;&#x4E8E;&#x67D0;&#x4E2A;&#x539F;&#x56E0;&#x963B;&#x585E;&#x4F4F;&#x4E86;&#x5F88;&#x957F;&#x65F6;&#x95F4;&#x3002;</li>
-<li>&#x8FC7;&#x671F;&#x65F6;&#x95F4;&#x5230;&#x4E86;&#xFF0C;&#x9501;&#x81EA;&#x52A8;&#x91CA;&#x653E;&#x4E86;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;2&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x5BF9;&#x5E94;&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x9501;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;&#x963B;&#x585E;&#x4E2D;&#x6062;&#x590D;&#x8FC7;&#x6765;&#xFF0C;&#x6267;&#x884C;DEL&#x64CD;&#x7EB5;&#xFF0C;&#x91CA;&#x653E;&#x6389;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;2&#x6301;&#x6709;&#x7684;&#x9501;&#x3002;</li>
+<li>客户端1获取锁成功。</li>
+<li>客户端1访问共享资源。</li>
+<li>客户端1为了释放锁，先执行’GET’操作获取随机字符串的值。</li>
+<li>客户端1判断随机字符串的值，与预期的值相等。</li>
+<li>客户端1由于某个原因阻塞住了很长时间。</li>
+<li>过期时间到了，锁自动释放了。</li>
+<li>客户端2获取到了对应同一个资源的锁。</li>
+<li>客户端1从阻塞中恢复过来，执行DEL操纵，释放掉了客户端2持有的锁。</li>
 </ol>
-<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5728;&#x4E0A;&#x8FF0;&#x7B2C;&#x4E09;&#x4E2A;&#x95EE;&#x9898;&#x548C;&#x7B2C;&#x56DB;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x5206;&#x6790;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x963B;&#x585E;&#x4F4F;&#x4E86;&#xFF0C;&#x800C;&#x662F;&#x51FA;&#x73B0;&#x4E86;&#x5927;&#x7684;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x7C7B;&#x4F3C;&#x7684;&#x6267;&#x884C;&#x5E8F;&#x5217;&#x53D1;&#x751F;&#x3002;</p>
-<p>&#x524D;&#x9762;&#x7684;&#x56DB;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x53EA;&#x8981;&#x5B9E;&#x73B0;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x65F6;&#x5019;&#x52A0;&#x4EE5;&#x6CE8;&#x610F;&#xFF0C;&#x5C31;&#x90FD;&#x80FD;&#x591F;&#x88AB;&#x6B63;&#x786E;&#x5904;&#x7406;&#x3002;&#x4F46;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;antirez&#x8FD8;&#x6307;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x7531;failover&#x5F15;&#x8D77;&#x7684;&#xFF0C;&#x5374;&#x662F;&#x57FA;&#x4E8E;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#x7684;&#x3002;&#x6B63;&#x662F;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x50AC;&#x751F;&#x4E86;Redlock&#x7684;&#x51FA;&#x73B0;&#x3002;</p>
-<p>&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x3002;&#x5047;&#x5982;Redis&#x8282;&#x70B9;&#x5B95;&#x673A;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6240;&#x6709;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x90FD;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x9501;&#x4E86;&#xFF0C;&#x670D;&#x52A1;&#x53D8;&#x5F97;&#x4E0D;&#x53EF;&#x7528;&#x3002;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x53EF;&#x7528;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED9;&#x8FD9;&#x4E2A;Redis&#x8282;&#x70B9;&#x6302;&#x4E00;&#x4E2A;Slave&#xFF0C;&#x5F53;Master&#x8282;&#x70B9;&#x4E0D;&#x53EF;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7CFB;&#x7EDF;&#x81EA;&#x52A8;&#x5207;&#x5230;Slave&#x4E0A;&#xFF08;failover&#xFF09;&#x3002;&#x4F46;&#x7531;&#x4E8E;Redis&#x7684;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#xFF08;replication&#xFF09;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5728;failover&#x8FC7;&#x7A0B;&#x4E2D;&#x4E27;&#x5931;&#x9501;&#x7684;&#x5B89;&#x5168;&#x6027;&#x3002;&#x8003;&#x8651;&#x4E0B;&#x9762;&#x7684;&#x6267;&#x884C;&#x5E8F;&#x5217;&#xFF1A;</p>
+<p>实际上，在上述第三个问题和第四个问题的分析中，如果不是客户端阻塞住了，而是出现了大的网络延迟，也有可能导致类似的执行序列发生。</p>
+<p>前面的四个问题，只要实现分布式锁的时候加以注意，就都能够被正确处理。但除此之外，antirez还指出了一个问题，是由failover引起的，却是基于单Redis节点的分布式锁无法解决的。正是这个问题催生了Redlock的出现。</p>
+<p>这个问题是这样的。假如Redis节点宕机了，那么所有客户端就都无法获得锁了，服务变得不可用。为了提高可用性，我们可以给这个Redis节点挂一个Slave，当Master节点不可用的时候，系统自动切到Slave上（failover）。但由于Redis的主从复制（replication）是异步的，这可能导致在failover过程中丧失锁的安全性。考虑下面的执行序列：</p>
 <ol>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;Master&#x83B7;&#x53D6;&#x4E86;&#x9501;&#x3002;</li>
-<li>Master&#x5B95;&#x673A;&#x4E86;&#xFF0C;&#x5B58;&#x50A8;&#x9501;&#x7684;key&#x8FD8;&#x6CA1;&#x6709;&#x6765;&#x5F97;&#x53CA;&#x540C;&#x6B65;&#x5230;Slave&#x4E0A;&#x3002;</li>
-<li>Slave&#x5347;&#x7EA7;&#x4E3A;Master&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;2&#x4ECE;&#x65B0;&#x7684;Master&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x5BF9;&#x5E94;&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x9501;&#x3002;</li>
+<li>客户端1从Master获取了锁。</li>
+<li>Master宕机了，存储锁的key还没有来得及同步到Slave上。</li>
+<li>Slave升级为Master。</li>
+<li>客户端2从新的Master获取到了对应同一个资源的锁。</li>
 </ol>
-<p>&#x4E8E;&#x662F;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;1&#x548C;&#x5BA2;&#x6237;&#x7AEF;2&#x540C;&#x65F6;&#x6301;&#x6709;&#x4E86;&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x9501;&#x3002;&#x9501;&#x7684;&#x5B89;&#x5168;&#x6027;&#x88AB;&#x6253;&#x7834;&#x3002;&#x9488;&#x5BF9;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;antirez&#x8BBE;&#x8BA1;&#x4E86;Redlock&#x7B97;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x63A5;&#x4E0B;&#x6765;&#x4F1A;&#x8BA8;&#x8BBA;&#x3002;</p>
-<h4 id="&#x5176;&#x5B83;&#x7591;&#x95EE;"><a href="#&#x3010;&#x5176;&#x5B83;&#x7591;&#x95EE;&#x3011;" class="headerlink" title="&#x3010;&#x5176;&#x5B83;&#x7591;&#x95EE;&#x3011;"></a>&#x3010;<em>&#x5176;&#x5B83;&#x7591;&#x95EE;</em>&#x3011;</h4><p>&#x524D;&#x9762;&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;(lock validity time)&#xFF0C;&#x8BBE;&#x7F6E;&#x6210;&#x591A;&#x5C11;&#x5408;&#x9002;&#x5462;&#xFF1F;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x592A;&#x77ED;&#x7684;&#x8BDD;&#xFF0C;&#x9501;&#x5C31;&#x6709;&#x53EF;&#x80FD;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x5B8C;&#x6210;&#x5BF9;&#x4E8E;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x8BBF;&#x95EE;&#x4E4B;&#x524D;&#x8FC7;&#x671F;&#xFF0C;&#x4ECE;&#x800C;&#x5931;&#x53BB;&#x4FDD;&#x62A4;&#xFF1B;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x592A;&#x957F;&#x7684;&#x8BDD;&#xFF0C;&#x4E00;&#x65E6;&#x67D0;&#x4E2A;&#x6301;&#x6709;&#x9501;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x91CA;&#x653E;&#x9501;&#x5931;&#x8D25;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x6240;&#x6709;&#x5176;&#x5B83;&#x5BA2;&#x6237;&#x7AEF;&#x90FD;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x9501;&#xFF0C;&#x4ECE;&#x800C;&#x957F;&#x65F6;&#x95F4;&#x5185;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;&#x770B;&#x6765;&#x771F;&#x662F;&#x4E2A;&#x4E24;&#x96BE;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
-<p>&#x800C;&#x4E14;&#xFF0C;&#x5728;&#x524D;&#x9762;&#x5BF9;&#x4E8E;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;my_random_value&#x7684;&#x5206;&#x6790;&#x4E2D;&#xFF0C;antirez&#x4E5F;&#x5728;&#x6587;&#x7AE0;&#x4E2D;&#x627F;&#x8BA4;&#x7684;&#x786E;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x5BA2;&#x6237;&#x7AEF;&#x957F;&#x671F;&#x963B;&#x585E;&#x5BFC;&#x81F4;&#x9501;&#x8FC7;&#x671F;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x5982;&#x679C;&#x771F;&#x7684;&#x53D1;&#x751F;&#x4E86;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x90A3;&#x4E48;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x662F;&#x4E0D;&#x662F;&#x5DF2;&#x7ECF;&#x5931;&#x53BB;&#x4E86;&#x4FDD;&#x62A4;&#x5462;&#xFF1F;antirez&#x91CD;&#x65B0;&#x8BBE;&#x8BA1;&#x7684;Redlock&#x662F;&#x5426;&#x80FD;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x5462;&#xFF1F;</p>
-<h3 id="&#x5206;&#x5E03;&#x5F0F;&#x9501;redlock"><a href="#&#x5206;&#x5E03;&#x5F0F;&#x9501;Redlock" class="headerlink" title="&#x5206;&#x5E03;&#x5F0F;&#x9501;Redlock"></a>&#x5206;&#x5E03;&#x5F0F;&#x9501;Redlock</h3><p>&#x7531;&#x4E8E;&#x524D;&#x9762;&#x4ECB;&#x7ECD;&#x7684;&#x57FA;&#x4E8E;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x5728;failover&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x4EA7;&#x751F;&#x89E3;&#x51B3;&#x4E0D;&#x4E86;&#x7684;&#x5B89;&#x5168;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x6B64;antirez&#x63D0;&#x51FA;&#x4E86;&#x65B0;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x7B97;&#x6CD5;Redlock&#xFF0C;&#x5B83;&#x57FA;&#x4E8E;N&#x4E2A;&#x5B8C;&#x5168;&#x72EC;&#x7ACB;&#x7684;Redis&#x8282;&#x70B9;&#xFF08;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;N&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x6210;5&#xFF09;&#x3002;</p>
-<p>&#x8FD0;&#x884C;Redlock&#x7B97;&#x6CD5;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x5404;&#x4E2A;&#x6B65;&#x9AA4;&#xFF0C;&#x6765;&#x5B8C;&#x6210;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<p>于是，客户端1和客户端2同时持有了同一个资源的锁。锁的安全性被打破。针对这个问题，antirez设计了Redlock算法，我们接下来会讨论。</p>
+<h4><span id="其它疑问">【<em>其它疑问</em>】</span></h4><p>前面这个算法中出现的锁的有效时间(lock validity time)，设置成多少合适呢？如果设置太短的话，锁就有可能在客户端完成对于共享资源的访问之前过期，从而失去保护；如果设置太长的话，一旦某个持有锁的客户端释放锁失败，那么就会导致所有其它客户端都无法获取锁，从而长时间内无法正常工作。看来真是个两难的问题。</p>
+<p>而且，在前面对于随机字符串my_random_value的分析中，antirez也在文章中承认的确应该考虑客户端长期阻塞导致锁过期的情况。如果真的发生了这种情况，那么共享资源是不是已经失去了保护呢？antirez重新设计的Redlock是否能解决这些问题呢？</p>
+<h3><span id="分布式锁redlock">分布式锁Redlock</span></h3><p>由于前面介绍的基于单Redis节点的分布式锁在failover的时候会产生解决不了的安全性问题，因此antirez提出了新的分布式锁的算法Redlock，它基于N个完全独立的Redis节点（通常情况下N可以设置成5）。</p>
+<p>运行Redlock算法的客户端依次执行下面各个步骤，来完成获取锁的操作：</p>
 <ol>
-<li>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF08;&#x6BEB;&#x79D2;&#x6570;&#xFF09;&#x3002;</li>
-<li>&#x6309;&#x987A;&#x5E8F;&#x4F9D;&#x6B21;&#x5411;N&#x4E2A;Redis&#x8282;&#x70B9;&#x6267;&#x884C;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x8FD9;&#x4E2A;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x8DDF;&#x524D;&#x9762;&#x57FA;&#x4E8E;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8FC7;&#x7A0B;&#x76F8;&#x540C;&#xFF0C;&#x5305;&#x542B;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;my_random_value&#xFF0C;&#x4E5F;&#x5305;&#x542B;&#x8FC7;&#x671F;&#x65F6;&#x95F4;(&#x6BD4;&#x5982;PX 30000&#xFF0C;&#x5373;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;)&#x3002;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x5728;&#x67D0;&#x4E2A;Redis&#x8282;&#x70B9;&#x4E0D;&#x53EF;&#x7528;&#x7684;&#x65F6;&#x5019;&#x7B97;&#x6CD5;&#x80FD;&#x591F;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#xFF0C;&#x8FD9;&#x4E2A;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x64CD;&#x4F5C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x8D85;&#x65F6;&#x65F6;&#x95F4;(time out)&#xFF0C;&#x5B83;&#x8981;&#x8FDC;&#x5C0F;&#x4E8E;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;&#xFF08;&#x51E0;&#x5341;&#x6BEB;&#x79D2;&#x91CF;&#x7EA7;&#xFF09;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x5411;&#x67D0;&#x4E2A;Redis&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x9501;&#x5931;&#x8D25;&#x4EE5;&#x540E;&#xFF0C;&#x5E94;&#x8BE5;&#x7ACB;&#x5373;&#x5C1D;&#x8BD5;&#x4E0B;&#x4E00;&#x4E2A;Redis&#x8282;&#x70B9;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x5931;&#x8D25;&#xFF0C;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x5931;&#x8D25;&#xFF0C;&#x6BD4;&#x5982;&#x8BE5;Redis&#x8282;&#x70B9;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x6216;&#x8005;&#x8BE5;Redis&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x9501;&#x5DF2;&#x7ECF;&#x88AB;&#x5176;&#x5B83;&#x5BA2;&#x6237;&#x7AEF;&#x6301;&#x6709;&#xFF08;&#x6CE8;&#xFF1A;Redlock&#x539F;&#x6587;&#x4E2D;&#x8FD9;&#x91CC;&#x53EA;&#x63D0;&#x5230;&#x4E86;Redis&#x8282;&#x70B9;&#x4E0D;&#x53EF;&#x7528;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F46;&#x4E5F;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x5176;&#x5B83;&#x7684;&#x5931;&#x8D25;&#x60C5;&#x51B5;&#xFF09;&#x3002;</li>
-<li>&#x8BA1;&#x7B97;&#x6574;&#x4E2A;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8FC7;&#x7A0B;&#x603B;&#x5171;&#x6D88;&#x8017;&#x4E86;&#x591A;&#x957F;&#x65F6;&#x95F4;&#xFF0C;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#x662F;&#x7528;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x51CF;&#x53BB;&#x7B2C;1&#x6B65;&#x8BB0;&#x5F55;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x4ECE;&#x5927;&#x591A;&#x6570;Redis&#x8282;&#x70B9;&#xFF08;&gt;= N/2+1&#xFF09;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x9501;&#xFF0C;&#x5E76;&#x4E14;&#x83B7;&#x53D6;&#x9501;&#x603B;&#x5171;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#x6CA1;&#x6709;&#x8D85;&#x8FC7;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;(lock validity time)&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x65F6;&#x5BA2;&#x6237;&#x7AEF;&#x624D;&#x8BA4;&#x4E3A;&#x6700;&#x7EC8;&#x83B7;&#x53D6;&#x9501;&#x6210;&#x529F;&#xFF1B;&#x5426;&#x5219;&#xFF0C;&#x8BA4;&#x4E3A;&#x6700;&#x7EC8;&#x83B7;&#x53D6;&#x9501;&#x5931;&#x8D25;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x6700;&#x7EC8;&#x83B7;&#x53D6;&#x9501;&#x6210;&#x529F;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;&#x5E94;&#x8BE5;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#xFF0C;&#x5B83;&#x7B49;&#x4E8E;&#x6700;&#x521D;&#x7684;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;&#x51CF;&#x53BB;&#x7B2C;3&#x6B65;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x83B7;&#x53D6;&#x9501;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#x3002;<br>&#x5982;&#x679C;&#x6700;&#x7EC8;&#x83B7;&#x53D6;&#x9501;&#x5931;&#x8D25;&#x4E86;&#xFF08;&#x53EF;&#x80FD;&#x7531;&#x4E8E;&#x83B7;&#x53D6;&#x5230;&#x9501;&#x7684;Redis&#x8282;&#x70B9;&#x4E2A;&#x6570;&#x5C11;&#x4E8E;N/2+1&#xFF0C;&#x6216;&#x8005;&#x6574;&#x4E2A;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8FC7;&#x7A0B;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;&#x4E86;&#x9501;&#x7684;&#x6700;&#x521D;&#x6709;&#x6548;&#x65F6;&#x95F4;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x8BE5;&#x7ACB;&#x5373;&#x5411;&#x6240;&#x6709;Redis&#x8282;&#x70B9;&#x53D1;&#x8D77;&#x91CA;&#x653E;&#x9501;&#x7684;&#x64CD;&#x4F5C;&#xFF08;&#x5373;&#x524D;&#x9762;&#x4ECB;&#x7ECD;&#x7684;Redis Lua&#x811A;&#x672C;&#xFF09;&#x3002;</li>
-<li>&#x5F53;&#x7136;&#xFF0C;&#x4E0A;&#x9762;&#x63CF;&#x8FF0;&#x7684;&#x53EA;&#x662F;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x800C;&#x91CA;&#x653E;&#x9501;&#x7684;&#x8FC7;&#x7A0B;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x5411;&#x6240;&#x6709;Redis&#x8282;&#x70B9;&#x53D1;&#x8D77;&#x91CA;&#x653E;&#x9501;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4E0D;&#x7BA1;&#x8FD9;&#x4E9B;&#x8282;&#x70B9;&#x5F53;&#x65F6;&#x5728;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x65F6;&#x5019;&#x6210;&#x529F;&#x4E0E;&#x5426;&#x3002;</li>
+<li>获取当前时间（毫秒数）。</li>
+<li>按顺序依次向N个Redis节点执行获取锁的操作。这个获取操作跟前面基于单Redis节点的获取锁的过程相同，包含随机字符串my_random_value，也包含过期时间(比如PX 30000，即锁的有效时间)。为了保证在某个Redis节点不可用的时候算法能够继续运行，这个获取锁的操作还有一个超时时间(time out)，它要远小于锁的有效时间（几十毫秒量级）。客户端在向某个Redis节点获取锁失败以后，应该立即尝试下一个Redis节点。这里的失败，应该包含任何类型的失败，比如该Redis节点不可用，或者该Redis节点上的锁已经被其它客户端持有（注：Redlock原文中这里只提到了Redis节点不可用的情况，但也应该包含其它的失败情况）。</li>
+<li>计算整个获取锁的过程总共消耗了多长时间，计算方法是用当前时间减去第1步记录的时间。如果客户端从大多数Redis节点（&gt;= N/2+1）成功获取到了锁，并且获取锁总共消耗的时间没有超过锁的有效时间(lock validity time)，那么这时客户端才认为最终获取锁成功；否则，认为最终获取锁失败。</li>
+<li>如果最终获取锁成功了，那么这个锁的有效时间应该重新计算，它等于最初的锁的有效时间减去第3步计算出来的获取锁消耗的时间。<br>如果最终获取锁失败了（可能由于获取到锁的Redis节点个数少于N/2+1，或者整个获取锁的过程消耗的时间超过了锁的最初有效时间），那么客户端应该立即向所有Redis节点发起释放锁的操作（即前面介绍的Redis Lua脚本）。</li>
+<li>当然，上面描述的只是获取锁的过程，而释放锁的过程比较简单：客户端向所有Redis节点发起释放锁的操作，不管这些节点当时在获取锁的时候成功与否。</li>
 </ol>
-<p>&#x7531;&#x4E8E;N&#x4E2A;Redis&#x8282;&#x70B9;&#x4E2D;&#x7684;&#x5927;&#x591A;&#x6570;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x5C31;&#x80FD;&#x4FDD;&#x8BC1;Redlock&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x56E0;&#x6B64;&#x7406;&#x8BBA;&#x4E0A;&#x5B83;&#x7684;&#x53EF;&#x7528;&#x6027;&#x66F4;&#x9AD8;&#x3002;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x8BA8;&#x8BBA;&#x7684;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x5728;failover&#x7684;&#x65F6;&#x5019;&#x9501;&#x5931;&#x6548;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5728;Redlock&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x4E86;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x6709;&#x8282;&#x70B9;&#x53D1;&#x751F;&#x5D29;&#x6E83;&#x91CD;&#x542F;&#xFF0C;&#x8FD8;&#x662F;&#x4F1A;&#x5BF9;&#x9501;&#x7684;&#x5B89;&#x5168;&#x6027;&#x6709;&#x5F71;&#x54CD;&#x7684;&#x3002;&#x5177;&#x4F53;&#x7684;&#x5F71;&#x54CD;&#x7A0B;&#x5EA6;&#x8DDF;Redis&#x5BF9;&#x6570;&#x636E;&#x7684;&#x6301;&#x4E45;&#x5316;&#x7A0B;&#x5EA6;&#x6709;&#x5173;&#x3002;</p>
-<p>&#x5047;&#x8BBE;&#x4E00;&#x5171;&#x6709;5&#x4E2A;Redis&#x8282;&#x70B9;&#xFF1A;A, B, C, D, E&#x3002;&#x8BBE;&#x60F3;&#x53D1;&#x751F;&#x4E86;&#x5982;&#x4E0B;&#x7684;&#x4E8B;&#x4EF6;&#x5E8F;&#x5217;&#xFF1A;</p>
+<p>由于N个Redis节点中的大多数能正常工作就能保证Redlock正常工作，因此理论上它的可用性更高。我们前面讨论的单Redis节点的分布式锁在failover的时候锁失效的问题，在Redlock中不存在了，但如果有节点发生崩溃重启，还是会对锁的安全性有影响的。具体的影响程度跟Redis对数据的持久化程度有关。</p>
+<p>假设一共有5个Redis节点：A, B, C, D, E。设想发生了如下的事件序列：</p>
 <ol>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x6210;&#x529F;&#x9501;&#x4F4F;&#x4E86;A, B, C&#xFF0C;&#x83B7;&#x53D6;&#x9501;&#x6210;&#x529F;&#xFF08;&#x4F46;D&#x548C;E&#x6CA1;&#x6709;&#x9501;&#x4F4F;&#xFF09;&#x3002;</li>
-<li>&#x8282;&#x70B9;C&#x5D29;&#x6E83;&#x91CD;&#x542F;&#x4E86;&#xFF0C;&#x4F46;&#x5BA2;&#x6237;&#x7AEF;1&#x5728;C&#x4E0A;&#x52A0;&#x7684;&#x9501;&#x6CA1;&#x6709;&#x6301;&#x4E45;&#x5316;&#x4E0B;&#x6765;&#xFF0C;&#x4E22;&#x5931;&#x4E86;&#x3002;</li>
-<li>&#x8282;&#x70B9;C&#x91CD;&#x542F;&#x540E;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;2&#x9501;&#x4F4F;&#x4E86;C, D, E&#xFF0C;&#x83B7;&#x53D6;&#x9501;&#x6210;&#x529F;&#x3002;</li>
+<li>客户端1成功锁住了A, B, C，获取锁成功（但D和E没有锁住）。</li>
+<li>节点C崩溃重启了，但客户端1在C上加的锁没有持久化下来，丢失了。</li>
+<li>节点C重启后，客户端2锁住了C, D, E，获取锁成功。</li>
 </ol>
-<p>&#x8FD9;&#x6837;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;1&#x548C;&#x5BA2;&#x6237;&#x7AEF;2&#x540C;&#x65F6;&#x83B7;&#x5F97;&#x4E86;&#x9501;&#xFF08;&#x9488;&#x5BF9;&#x540C;&#x4E00;&#x8D44;&#x6E90;&#xFF09;&#x3002;</p>
-<p>&#x5728;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Redis&#x7684;AOF&#x6301;&#x4E45;&#x5316;&#x65B9;&#x5F0F;&#x662F;&#x6BCF;&#x79D2;&#x5199;&#x4E00;&#x6B21;&#x78C1;&#x76D8;&#xFF08;&#x5373;&#x6267;&#x884C;fsync&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x80FD;&#x4E22;&#x5931;1&#x79D2;&#x7684;&#x6570;&#x636E;&#x3002;&#x4E3A;&#x4E86;&#x5C3D;&#x53EF;&#x80FD;&#x4E0D;&#x4E22;&#x6570;&#x636E;&#xFF0C;Redis&#x5141;&#x8BB8;&#x8BBE;&#x7F6E;&#x6210;&#x6BCF;&#x6B21;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x90FD;&#x8FDB;&#x884C;fsync&#xFF0C;&#x4F46;&#x8FD9;&#x4F1A;&#x964D;&#x4F4E;&#x6027;&#x80FD;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x5373;&#x4F7F;&#x6267;&#x884C;&#x4E86;fsync&#x4E5F;&#x4ECD;&#x7136;&#x6709;&#x53EF;&#x80FD;&#x4E22;&#x5931;&#x6570;&#x636E;&#xFF08;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x7CFB;&#x7EDF;&#x800C;&#x4E0D;&#x662F;Redis&#x7684;&#x5B9E;&#x73B0;&#xFF09;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4E0A;&#x9762;&#x5206;&#x6790;&#x7684;&#x7531;&#x4E8E;&#x8282;&#x70B9;&#x91CD;&#x542F;&#x5F15;&#x53D1;&#x7684;&#x9501;&#x5931;&#x6548;&#x95EE;&#x9898;&#xFF0C;&#x603B;&#x662F;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x3002;&#x4E3A;&#x4E86;&#x5E94;&#x5BF9;&#x8FD9;&#x4E00;&#x95EE;&#x9898;&#xFF0C;antirez&#x53C8;&#x63D0;&#x51FA;&#x4E86;&#x5EF6;&#x8FDF;&#x91CD;&#x542F;(delayed restarts)&#x7684;&#x6982;&#x5FF5;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x5D29;&#x6E83;&#x540E;&#xFF0C;&#x5148;&#x4E0D;&#x7ACB;&#x5373;&#x91CD;&#x542F;&#x5B83;&#xFF0C;&#x800C;&#x662F;&#x7B49;&#x5F85;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x518D;&#x91CD;&#x542F;&#xFF0C;&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x5E94;&#x8BE5;&#x5927;&#x4E8E;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;(lock validity time)&#x3002;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x5728;&#x91CD;&#x542F;&#x524D;&#x6240;&#x53C2;&#x4E0E;&#x7684;&#x9501;&#x90FD;&#x4F1A;&#x8FC7;&#x671F;&#xFF0C;&#x5B83;&#x5728;&#x91CD;&#x542F;&#x540E;&#x5C31;&#x4E0D;&#x4F1A;&#x5BF9;&#x73B0;&#x6709;&#x7684;&#x9501;&#x9020;&#x6210;&#x5F71;&#x54CD;&#x3002;</p>
-<p>&#x5173;&#x4E8E;Redlock&#x8FD8;&#x6709;&#x4E00;&#x70B9;&#x7EC6;&#x8282;&#x503C;&#x5F97;&#x62FF;&#x51FA;&#x6765;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#xFF1A;&#x5728;&#x6700;&#x540E;&#x91CA;&#x653E;&#x9501;&#x7684;&#x65F6;&#x5019;&#xFF0C;antirez&#x5728;&#x7B97;&#x6CD5;&#x63CF;&#x8FF0;&#x4E2D;&#x7279;&#x522B;&#x5F3A;&#x8C03;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x8BE5;&#x5411;&#x6240;&#x6709;Redis&#x8282;&#x70B9;&#x53D1;&#x8D77;&#x91CA;&#x653E;&#x9501;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5373;&#x4F7F;&#x5F53;&#x65F6;&#x5411;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x9501;&#x6CA1;&#x6709;&#x6210;&#x529F;&#xFF0C;&#x5728;&#x91CA;&#x653E;&#x9501;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x4E0D;&#x5E94;&#x8BE5;&#x6F0F;&#x6389;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x3002;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x8BBE;&#x60F3;&#x8FD9;&#x6837;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x7ED9;&#x67D0;&#x4E2A;Redis&#x8282;&#x70B9;&#x7684;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8BF7;&#x6C42;&#x6210;&#x529F;&#x5230;&#x8FBE;&#x4E86;&#x8BE5;Redis&#x8282;&#x70B9;&#xFF0C;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x4E5F;&#x6210;&#x529F;&#x6267;&#x884C;&#x4E86;SET&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x54CD;&#x5E94;&#x5305;&#x5374;&#x4E22;&#x5931;&#x4E86;&#x3002;&#x8FD9;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x770B;&#x6765;&#xFF0C;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8BF7;&#x6C42;&#x7531;&#x4E8E;&#x8D85;&#x65F6;&#x800C;&#x5931;&#x8D25;&#x4E86;&#xFF0C;&#x4F46;&#x5728;Redis&#x8FD9;&#x8FB9;&#x770B;&#x6765;&#xFF0C;&#x52A0;&#x9501;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x4E86;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x91CA;&#x653E;&#x9501;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x4E5F;&#x5E94;&#x8BE5;&#x5BF9;&#x5F53;&#x65F6;&#x83B7;&#x53D6;&#x9501;&#x5931;&#x8D25;&#x7684;&#x90A3;&#x4E9B;Redis&#x8282;&#x70B9;&#x540C;&#x6837;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x5728;&#x5F02;&#x6B65;&#x901A;&#x4FE1;&#x6A21;&#x578B;&#x4E2D;&#x662F;&#x6709;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x7684;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x5411;&#x670D;&#x52A1;&#x5668;&#x901A;&#x4FE1;&#x662F;&#x6B63;&#x5E38;&#x7684;&#xFF0C;&#x4F46;&#x53CD;&#x65B9;&#x5411;&#x5374;&#x662F;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;</p>
-<h4 id="&#x5176;&#x5B83;&#x7591;&#x95EE;"><a href="#&#x3010;&#x5176;&#x5B83;&#x7591;&#x95EE;&#x3011;-1" class="headerlink" title="&#x3010;&#x5176;&#x5B83;&#x7591;&#x95EE;&#x3011;"></a>&#x3010;<em>&#x5176;&#x5B83;&#x7591;&#x95EE;</em>&#x3011;</h4><p>&#x524D;&#x9762;&#x5728;&#x8BA8;&#x8BBA;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6700;&#x540E;&#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x7591;&#x95EE;&#xFF0C;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x957F;&#x671F;&#x963B;&#x585E;&#x5BFC;&#x81F4;&#x9501;&#x8FC7;&#x671F;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x63A5;&#x4E0B;&#x6765;&#x8BBF;&#x95EE;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x5C31;&#x4E0D;&#x5B89;&#x5168;&#x4E86;&#xFF08;&#x6CA1;&#x6709;&#x4E86;&#x9501;&#x7684;&#x4FDD;&#x62A4;&#xFF09;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5728;Redlock&#x4E2D;&#x662F;&#x5426;&#x6709;&#x6240;&#x6539;&#x5584;&#x5462;&#xFF1F;&#x663E;&#x7136;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x95EE;&#x9898;&#x5728;Redlock&#x4E2D;&#x662F;&#x4F9D;&#x7136;&#x5B58;&#x5728;&#x7684;&#x3002;</p>
-<p>&#x53E6;&#x5916;&#xFF0C;&#x5728;&#x7B97;&#x6CD5;&#x7B2C;4&#x6B65;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x4E86;&#x9501;&#x4E4B;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x7531;&#x4E8E;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8FC7;&#x7A0B;&#x6D88;&#x8017;&#x4E86;&#x8F83;&#x957F;&#x65F6;&#x95F4;&#xFF0C;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x5269;&#x4F59;&#x7684;&#x9501;&#x6709;&#x6548;&#x65F6;&#x95F4;&#x5F88;&#x77ED;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x8FD8;&#x6765;&#x5F97;&#x53CA;&#x53BB;&#x5B8C;&#x6210;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x8BBF;&#x95EE;&#x5417;&#xFF1F;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x592A;&#x77ED;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x5E94;&#x8BE5;&#x7ACB;&#x5373;&#x8FDB;&#x884C;&#x9501;&#x7684;&#x91CA;&#x653E;&#x64CD;&#x4F5C;&#xFF1F;&#x90A3;&#x5230;&#x5E95;&#x591A;&#x77ED;&#x624D;&#x7B97;&#x5462;&#xFF1F;&#x53C8;&#x662F;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x96BE;&#x9898;&#x3002;</p>
-<h2 id="martin&#x7684;&#x5206;&#x6790;"><a href="#Martin&#x7684;&#x5206;&#x6790;" class="headerlink" title="Martin&#x7684;&#x5206;&#x6790;"></a>Martin&#x7684;&#x5206;&#x6790;</h2><p>Martin Kleppmann&#x5728;2016-02-08&#x8FD9;&#x4E00;&#x5929;&#x53D1;&#x8868;&#x4E86;&#x4E00;&#x7BC7;blog&#xFF0C;&#x540D;&#x5B57;&#x53EB;&#x201D;How to do distributed locking &#x201C;&#xFF0C;&#x5730;&#x5740;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>这样，客户端1和客户端2同时获得了锁（针对同一资源）。</p>
+<p>在默认情况下，Redis的AOF持久化方式是每秒写一次磁盘（即执行fsync），因此最坏情况下可能丢失1秒的数据。为了尽可能不丢数据，Redis允许设置成每次修改数据都进行fsync，但这会降低性能。当然，即使执行了fsync也仍然有可能丢失数据（这取决于系统而不是Redis的实现）。所以，上面分析的由于节点重启引发的锁失效问题，总是有可能出现的。为了应对这一问题，antirez又提出了延迟重启(delayed restarts)的概念。也就是说，一个节点崩溃后，先不立即重启它，而是等待一段时间再重启，这段时间应该大于锁的有效时间(lock validity time)。这样的话，这个节点在重启前所参与的锁都会过期，它在重启后就不会对现有的锁造成影响。</p>
+<p>关于Redlock还有一点细节值得拿出来分析一下：在最后释放锁的时候，antirez在算法描述中特别强调，客户端应该向所有Redis节点发起释放锁的操作。也就是说，即使当时向某个节点获取锁没有成功，在释放锁的时候也不应该漏掉这个节点。这是为什么呢？设想这样一种情况，客户端发给某个Redis节点的获取锁的请求成功到达了该Redis节点，这个节点也成功执行了SET操作，但是它返回给客户端的响应包却丢失了。这在客户端看来，获取锁的请求由于超时而失败了，但在Redis这边看来，加锁已经成功了。因此，释放锁的时候，客户端也应该对当时获取锁失败的那些Redis节点同样发起请求。实际上，这种情况在异步通信模型中是有可能发生的：客户端向服务器通信是正常的，但反方向却是有问题的。</p>
+<h4><span id="其它疑问">【<em>其它疑问</em>】</span></h4><p>前面在讨论单Redis节点的分布式锁的时候，最后我们提出了一个疑问，如果客户端长期阻塞导致锁过期，那么它接下来访问共享资源就不安全了（没有了锁的保护）。这个问题在Redlock中是否有所改善呢？显然，这样的问题在Redlock中是依然存在的。</p>
+<p>另外，在算法第4步成功获取了锁之后，如果由于获取锁的过程消耗了较长时间，重新计算出来的剩余的锁有效时间很短了，那么我们还来得及去完成共享资源访问吗？如果我们认为太短，是不是应该立即进行锁的释放操作？那到底多短才算呢？又是一个选择难题。</p>
+<h2><span id="martin的分析">Martin的分析</span></h2><p>Martin Kleppmann在2016-02-08这一天发表了一篇blog，名字叫”How to do distributed locking “，地址如下：</p>
 <ul>
-<li><a href="https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html" target="_blank" rel="external">https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html</a></li>
+<li><a href="https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html" target="_blank" rel="noopener">https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html</a></li>
 </ul>
-<p>Martin&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x8C08;&#x53CA;&#x4E86;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x5F88;&#x591A;&#x57FA;&#x7840;&#x6027;&#x7684;&#x95EE;&#x9898;&#xFF08;&#x7279;&#x522B;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7684;&#x5F02;&#x6B65;&#x6A21;&#x578B;&#xFF09;&#xFF0C;&#x5BF9;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x4ECE;&#x4E1A;&#x8005;&#x6765;&#x8BF4;&#x975E;&#x5E38;&#x503C;&#x5F97;&#x4E00;&#x8BFB;&#x3002;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x5927;&#x4F53;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x5927;&#x90E8;&#x5206;&#xFF1A;</p>
+<p>Martin在这篇文章中谈及了分布式系统的很多基础性的问题（特别是分布式计算的异步模型），对分布式系统的从业者来说非常值得一读。这篇文章大体可以分为两大部分：</p>
 <ul>
-<li>&#x524D;&#x534A;&#x90E8;&#x5206;&#xFF0C;&#x4E0E;Redlock&#x65E0;&#x5173;&#x3002;Martin&#x6307;&#x51FA;&#xFF0C;&#x5373;&#x4F7F;&#x6211;&#x4EEC;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x5B8C;&#x7F8E;&#x5B9E;&#x73B0;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#xFF08;&#x5E26;&#x81EA;&#x52A8;&#x8FC7;&#x671F;&#x529F;&#x80FD;&#xFF09;&#xFF0C;&#x5728;&#x6CA1;&#x6709;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x53C2;&#x4E0E;&#x8FDB;&#x6765;&#x63D0;&#x4F9B;&#x67D0;&#x79CD;fencing&#x673A;&#x5236;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x4ECD;&#x7136;&#x4E0D;&#x53EF;&#x80FD;&#x83B7;&#x5F97;&#x8DB3;&#x591F;&#x7684;&#x5B89;&#x5168;&#x6027;&#x3002;</li>
-<li>&#x540E;&#x534A;&#x90E8;&#x5206;&#xFF0C;&#x662F;&#x5BF9;Redlock&#x672C;&#x8EAB;&#x7684;&#x6279;&#x8BC4;&#x3002;Martin&#x6307;&#x51FA;&#xFF0C;&#x7531;&#x4E8E;Redlock&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x5EFA;&#x7ACB;&#x5728;&#x4E00;&#x4E2A;&#x540C;&#x6B65;&#x6A21;&#x578B;&#x4E4B;&#x4E0A;&#xFF0C;&#x5BF9;&#x7CFB;&#x7EDF;&#x7684;&#x8BB0;&#x65F6;&#x5047;&#x8BBE;(timing assumption)&#x6709;&#x5F88;&#x5F3A;&#x7684;&#x8981;&#x6C42;&#xFF0C;&#x56E0;&#x6B64;&#x672C;&#x8EAB;&#x7684;&#x5B89;&#x5168;&#x6027;&#x662F;&#x4E0D;&#x591F;&#x7684;&#x3002;<br>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x8BA8;&#x8BBA;&#x4E00;&#x4E0B;&#x524D;&#x534A;&#x90E8;&#x5206;&#x7684;&#x5173;&#x952E;&#x70B9;&#x3002;Martin&#x7ED9;&#x51FA;&#x4E86;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x4E00;&#x4EFD;&#x65F6;&#x5E8F;&#x56FE;&#xFF1A;</li>
+<li>前半部分，与Redlock无关。Martin指出，即使我们拥有一个完美实现的分布式锁（带自动过期功能），在没有共享资源参与进来提供某种fencing机制的前提下，我们仍然不可能获得足够的安全性。</li>
+<li>后半部分，是对Redlock本身的批评。Martin指出，由于Redlock本质上是建立在一个同步模型之上，对系统的记时假设(timing assumption)有很强的要求，因此本身的安全性是不够的。<br>首先我们讨论一下前半部分的关键点。Martin给出了下面这样一份时序图：</li>
 </ul>
 <p><img src="http://zhangtielei.com/assets/photos_redlock/unsafe-lock.png" alt=""></p>
-<p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x65F6;&#x5E8F;&#x56FE;&#x4E2D;&#xFF0C;&#x5047;&#x8BBE;&#x9501;&#x670D;&#x52A1;&#x672C;&#x8EAB;&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x5B83;&#x603B;&#x662F;&#x80FD;&#x4FDD;&#x8BC1;&#x4EFB;&#x4E00;&#x65F6;&#x523B;&#x6700;&#x591A;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x83B7;&#x5F97;&#x9501;&#x3002;&#x4E0A;&#x56FE;&#x4E2D;&#x51FA;&#x73B0;&#x7684;lease&#x8FD9;&#x4E2A;&#x8BCD;&#x53EF;&#x4EE5;&#x6682;&#x4E14;&#x8BA4;&#x4E3A;&#x5C31;&#x7B49;&#x540C;&#x4E8E;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x81EA;&#x52A8;&#x8FC7;&#x671F;&#x529F;&#x80FD;&#x7684;&#x9501;&#x3002;&#x5BA2;&#x6237;&#x7AEF;1&#x5728;&#x83B7;&#x5F97;&#x9501;&#x4E4B;&#x540E;&#x53D1;&#x751F;&#x4E86;&#x5F88;&#x957F;&#x65F6;&#x95F4;&#x7684;GC pause&#xFF0C;&#x5728;&#x6B64;&#x671F;&#x95F4;&#xFF0C;&#x5B83;&#x83B7;&#x5F97;&#x7684;&#x9501;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x800C;&#x5BA2;&#x6237;&#x7AEF;2&#x83B7;&#x5F97;&#x4E86;&#x9501;&#x3002;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;GC pause&#x4E2D;&#x6062;&#x590D;&#x8FC7;&#x6765;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x4E0D;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x6301;&#x6709;&#x7684;&#x9501;&#x5DF2;&#x7ECF;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x5B83;&#x4F9D;&#x7136;&#x5411;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#xFF08;&#x4E0A;&#x56FE;&#x4E2D;&#x662F;&#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x670D;&#x52A1;&#xFF09;&#x53D1;&#x8D77;&#x4E86;&#x5199;&#x6570;&#x636E;&#x8BF7;&#x6C42;&#xFF0C;&#x800C;&#x8FD9;&#x65F6;&#x9501;&#x5B9E;&#x9645;&#x4E0A;&#x88AB;&#x5BA2;&#x6237;&#x7AEF;2&#x6301;&#x6709;&#xFF0C;&#x56E0;&#x6B64;&#x4E24;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5199;&#x8BF7;&#x6C42;&#x5C31;&#x6709;&#x53EF;&#x80FD;&#x51B2;&#x7A81;&#xFF08;&#x9501;&#x7684;&#x4E92;&#x65A5;&#x4F5C;&#x7528;&#x5931;&#x6548;&#x4E86;&#xFF09;&#x3002;</p>
-<p>&#x521D;&#x770B;&#x4E0A;&#x53BB;&#xFF0C;&#x6709;&#x4EBA;&#x53EF;&#x80FD;&#x4F1A;&#x8BF4;&#xFF0C;&#x65E2;&#x7136;&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;GC pause&#x4E2D;&#x6062;&#x590D;&#x8FC7;&#x6765;&#x4EE5;&#x540E;&#x4E0D;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x6301;&#x6709;&#x7684;&#x9501;&#x5DF2;&#x7ECF;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x8BBF;&#x95EE;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x4E4B;&#x524D;&#x5148;&#x5224;&#x65AD;&#x4E00;&#x4E0B;&#x9501;&#x662F;&#x5426;&#x8FC7;&#x671F;&#x3002;&#x4F46;&#x4ED4;&#x7EC6;&#x60F3;&#x60F3;&#xFF0C;&#x8FD9;&#x4E1D;&#x6BEB;&#x4E5F;&#x6CA1;&#x6709;&#x5E2E;&#x52A9;&#x3002;&#x56E0;&#x4E3A;GC pause&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x5728;&#x4EFB;&#x610F;&#x65F6;&#x523B;&#xFF0C;&#x4E5F;&#x8BB8;&#x6070;&#x597D;&#x5728;&#x5224;&#x65AD;&#x5B8C;&#x4E4B;&#x540E;&#x3002;</p>
-<p>&#x4E5F;&#x6709;&#x4EBA;&#x4F1A;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;&#x6CA1;&#x6709;GC&#x7684;&#x8BED;&#x8A00;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x5C31;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5462;&#xFF1F;Martin&#x6307;&#x51FA;&#xFF0C;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x592A;&#x590D;&#x6742;&#xFF0C;&#x4ECD;&#x7136;&#x6709;&#x5F88;&#x591A;&#x539F;&#x56E0;&#x5BFC;&#x81F4;&#x8FDB;&#x7A0B;&#x7684;pause&#xFF0C;&#x6BD4;&#x5982;&#x865A;&#x5B58;&#x9020;&#x6210;&#x7684;&#x7F3A;&#x9875;&#x6545;&#x969C;(page fault)&#xFF0C;&#x518D;&#x6BD4;&#x5982;CPU&#x8D44;&#x6E90;&#x7684;&#x7ADE;&#x4E89;&#x3002;&#x5373;&#x4F7F;&#x4E0D;&#x8003;&#x8651;&#x8FDB;&#x7A0B;pause&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#x4E5F;&#x4ECD;&#x7136;&#x4F1A;&#x9020;&#x6210;&#x7C7B;&#x4F3C;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
-<p>&#x603B;&#x7ED3;&#x8D77;&#x6765;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5373;&#x4F7F;&#x9501;&#x670D;&#x52A1;&#x672C;&#x8EAB;&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x800C;&#x4EC5;&#x4EC5;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x6709;&#x957F;&#x65F6;&#x95F4;&#x7684;pause&#x6216;&#x7F51;&#x7EDC;&#x5EF6;&#x8FDF;&#xFF0C;&#x4ECD;&#x7136;&#x4F1A;&#x9020;&#x6210;&#x4E24;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x51B2;&#x7A81;&#x60C5;&#x51B5;&#x53D1;&#x751F;&#x3002;&#x800C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5728;&#x524D;&#x9762;&#x5DF2;&#x7ECF;&#x63D0;&#x51FA;&#x6765;&#x7684;&#x201C;&#x5BA2;&#x6237;&#x7AEF;&#x957F;&#x671F;&#x963B;&#x585E;&#x5BFC;&#x81F4;&#x9501;&#x8FC7;&#x671F;&#x201D;&#x7684;&#x90A3;&#x4E2A;&#x7591;&#x95EE;&#x3002;</p>
-<p>&#x90A3;&#x600E;&#x4E48;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5462;&#xFF1F;Martin&#x7ED9;&#x51FA;&#x4E86;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x79F0;&#x4E3A;fencing token&#x3002;fencing token&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x8C03;&#x9012;&#x589E;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x65F6;&#x5019;&#x5B83;&#x968F;&#x540C;&#x9501;&#x4E00;&#x8D77;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x800C;&#x5BA2;&#x6237;&#x7AEF;&#x8BBF;&#x95EE;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x65F6;&#x5019;&#x5E26;&#x7740;&#x8FD9;&#x4E2A;fencing token&#xFF0C;&#x8FD9;&#x6837;&#x63D0;&#x4F9B;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x670D;&#x52A1;&#x5C31;&#x80FD;&#x6839;&#x636E;&#x5B83;&#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF0C;&#x62D2;&#x7EDD;&#x6389;&#x5EF6;&#x8FDF;&#x5230;&#x6765;&#x7684;&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;&#xFF08;&#x907F;&#x514D;&#x4E86;&#x51B2;&#x7A81;&#xFF09;&#x3002;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p>在上面的时序图中，假设锁服务本身是没有问题的，它总是能保证任一时刻最多只有一个客户端获得锁。上图中出现的lease这个词可以暂且认为就等同于一个带有自动过期功能的锁。客户端1在获得锁之后发生了很长时间的GC pause，在此期间，它获得的锁过期了，而客户端2获得了锁。当客户端1从GC pause中恢复过来的时候，它不知道自己持有的锁已经过期了，它依然向共享资源（上图中是一个存储服务）发起了写数据请求，而这时锁实际上被客户端2持有，因此两个客户端的写请求就有可能冲突（锁的互斥作用失效了）。</p>
+<p>初看上去，有人可能会说，既然客户端1从GC pause中恢复过来以后不知道自己持有的锁已经过期了，那么它可以在访问共享资源之前先判断一下锁是否过期。但仔细想想，这丝毫也没有帮助。因为GC pause可能发生在任意时刻，也许恰好在判断完之后。</p>
+<p>也有人会说，如果客户端使用没有GC的语言来实现，是不是就没有这个问题呢？Martin指出，系统环境太复杂，仍然有很多原因导致进程的pause，比如虚存造成的缺页故障(page fault)，再比如CPU资源的竞争。即使不考虑进程pause的情况，网络延迟也仍然会造成类似的结果。</p>
+<p>总结起来就是说，即使锁服务本身是没有问题的，而仅仅是客户端有长时间的pause或网络延迟，仍然会造成两个客户端同时访问共享资源的冲突情况发生。而这种情况其实就是我们在前面已经提出来的“客户端长期阻塞导致锁过期”的那个疑问。</p>
+<p>那怎么解决这个问题呢？Martin给出了一种方法，称为fencing token。fencing token是一个单调递增的数字，当客户端成功获取锁的时候它随同锁一起返回给客户端。而客户端访问共享资源的时候带着这个fencing token，这样提供共享资源的服务就能根据它进行检查，拒绝掉延迟到来的访问请求（避免了冲突）。如下图：</p>
 <p><img src="http://zhangtielei.com/assets/photos_redlock/fencing-tokens.png" alt=""></p>
-<p>&#x5728;&#x4E0A;&#x56FE;&#x4E2D;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;1&#x5148;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x9501;&#xFF0C;&#x56E0;&#x6B64;&#x6709;&#x4E00;&#x4E2A;&#x8F83;&#x5C0F;&#x7684;fencing token&#xFF0C;&#x7B49;&#x4E8E;33&#xFF0C;&#x800C;&#x5BA2;&#x6237;&#x7AEF;2&#x540E;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x9501;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x8F83;&#x5927;&#x7684;fencing token&#xFF0C;&#x7B49;&#x4E8E;34&#x3002;&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;GC pause&#x4E2D;&#x6062;&#x590D;&#x8FC7;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x4F9D;&#x7136;&#x662F;&#x5411;&#x5B58;&#x50A8;&#x670D;&#x52A1;&#x53D1;&#x9001;&#x8BBF;&#x95EE;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x5E26;&#x4E86;fencing token = 33&#x3002;&#x5B58;&#x50A8;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x5B83;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5904;&#x7406;&#x8FC7;34&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x62D2;&#x7EDD;&#x6389;&#x8FD9;&#x6B21;33&#x7684;&#x8BF7;&#x6C42;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x907F;&#x514D;&#x4E86;&#x51B2;&#x7A81;&#x3002;</p>
-<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x518D;&#x8BA8;&#x8BBA;&#x4E00;&#x4E0B;Martin&#x7684;&#x6587;&#x7AE0;&#x7684;&#x540E;&#x534A;&#x90E8;&#x5206;&#x3002;</p>
-<p>Martin&#x5728;&#x6587;&#x4E2D;&#x6784;&#x9020;&#x4E86;&#x4E00;&#x4E9B;&#x4E8B;&#x4EF6;&#x5E8F;&#x5217;&#xFF0C;&#x80FD;&#x591F;&#x8BA9;Redlock&#x5931;&#x6548;&#xFF08;&#x4E24;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x540C;&#x65F6;&#x6301;&#x6709;&#x9501;&#xFF09;&#x3002;&#x4E3A;&#x4E86;&#x8BF4;&#x660E;Redlock&#x5BF9;&#x7CFB;&#x7EDF;&#x8BB0;&#x65F6;(timing)&#x7684;&#x8FC7;&#x5206;&#x4F9D;&#x8D56;&#xFF0C;&#x4ED6;&#x9996;&#x5148;&#x7ED9;&#x51FA;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF08;&#x8FD8;&#x662F;&#x5047;&#x8BBE;&#x6709;5&#x4E2A;Redis&#x8282;&#x70B9;A, B, C, D, E&#xFF09;&#xFF1A;</p>
+<p>在上图中，客户端1先获取到的锁，因此有一个较小的fencing token，等于33，而客户端2后获取到的锁，有一个较大的fencing token，等于34。客户端1从GC pause中恢复过来之后，依然是向存储服务发送访问请求，但是带了fencing token = 33。存储服务发现它之前已经处理过34的请求，所以会拒绝掉这次33的请求。这样就避免了冲突。</p>
+<p>现在我们再讨论一下Martin的文章的后半部分。</p>
+<p>Martin在文中构造了一些事件序列，能够让Redlock失效（两个客户端同时持有锁）。为了说明Redlock对系统记时(timing)的过分依赖，他首先给出了下面的一个例子（还是假设有5个Redis节点A, B, C, D, E）：</p>
 <ol>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;Redis&#x8282;&#x70B9;A, B, C&#x6210;&#x529F;&#x83B7;&#x53D6;&#x4E86;&#x9501;&#xFF08;&#x591A;&#x6570;&#x8282;&#x70B9;&#xFF09;&#x3002;&#x7531;&#x4E8E;&#x7F51;&#x7EDC;&#x95EE;&#x9898;&#xFF0C;&#x4E0E;D&#x548C;E&#x901A;&#x4FE1;&#x5931;&#x8D25;&#x3002;</li>
-<li>&#x8282;&#x70B9;C&#x4E0A;&#x7684;&#x65F6;&#x949F;&#x53D1;&#x751F;&#x4E86;&#x5411;&#x524D;&#x8DF3;&#x8DC3;&#xFF0C;&#x5BFC;&#x81F4;&#x5B83;&#x4E0A;&#x9762;&#x7EF4;&#x62A4;&#x7684;&#x9501;&#x5FEB;&#x901F;&#x8FC7;&#x671F;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;2&#x4ECE;Redis&#x8282;&#x70B9;C, D, E&#x6210;&#x529F;&#x83B7;&#x53D6;&#x4E86;&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x9501;&#xFF08;&#x591A;&#x6570;&#x8282;&#x70B9;&#xFF09;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x548C;&#x5BA2;&#x6237;&#x7AEF;2&#x73B0;&#x5728;&#x90FD;&#x8BA4;&#x4E3A;&#x81EA;&#x5DF1;&#x6301;&#x6709;&#x4E86;&#x9501;&#x3002;</li>
+<li>客户端1从Redis节点A, B, C成功获取了锁（多数节点）。由于网络问题，与D和E通信失败。</li>
+<li>节点C上的时钟发生了向前跳跃，导致它上面维护的锁快速过期。</li>
+<li>客户端2从Redis节点C, D, E成功获取了同一个资源的锁（多数节点）。</li>
+<li>客户端1和客户端2现在都认为自己持有了锁。</li>
 </ol>
-<p>&#x4E0A;&#x9762;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E4B;&#x6240;&#x4EE5;&#x6709;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x56E0;&#x4E3A;Redlock&#x7684;&#x5B89;&#x5168;&#x6027;(safety property)&#x5BF9;&#x7CFB;&#x7EDF;&#x7684;&#x65F6;&#x949F;&#x6709;&#x6BD4;&#x8F83;&#x5F3A;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x4E00;&#x65E6;&#x7CFB;&#x7EDF;&#x7684;&#x65F6;&#x949F;&#x53D8;&#x5F97;&#x4E0D;&#x51C6;&#x786E;&#xFF0C;&#x7B97;&#x6CD5;&#x7684;&#x5B89;&#x5168;&#x6027;&#x4E5F;&#x5C31;&#x4FDD;&#x8BC1;&#x4E0D;&#x4E86;&#x4E86;&#x3002;Martin&#x5728;&#x8FD9;&#x91CC;&#x5176;&#x5B9E;&#x662F;&#x8981;&#x6307;&#x51FA;&#x5206;&#x5E03;&#x5F0F;&#x7B97;&#x6CD5;&#x7814;&#x7A76;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x57FA;&#x7840;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x4E00;&#x4E9B;&#x5E38;&#x8BC6;&#x95EE;&#x9898;&#xFF0C;&#x5373;&#x597D;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7B97;&#x6CD5;&#x5E94;&#x8BE5;&#x57FA;&#x4E8E;&#x5F02;&#x6B65;&#x6A21;&#x578B;(asynchronous model)&#xFF0C;&#x7B97;&#x6CD5;&#x7684;&#x5B89;&#x5168;&#x6027;&#x4E0D;&#x5E94;&#x8BE5;&#x4F9D;&#x8D56;&#x4E8E;&#x4EFB;&#x4F55;&#x8BB0;&#x65F6;&#x5047;&#x8BBE;(timing assumption)&#x3002;&#x5728;&#x5F02;&#x6B65;&#x6A21;&#x578B;&#x4E2D;&#xFF1A;&#x8FDB;&#x7A0B;&#x53EF;&#x80FD;pause&#x4EFB;&#x610F;&#x957F;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x6D88;&#x606F;&#x53EF;&#x80FD;&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x5EF6;&#x8FDF;&#x4EFB;&#x610F;&#x957F;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x751A;&#x81F3;&#x4E22;&#x5931;&#xFF0C;&#x7CFB;&#x7EDF;&#x65F6;&#x949F;&#x4E5F;&#x53EF;&#x80FD;&#x4EE5;&#x4EFB;&#x610F;&#x65B9;&#x5F0F;&#x51FA;&#x9519;&#x3002;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7B97;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E9B;&#x56E0;&#x7D20;&#x4E0D;&#x5E94;&#x8BE5;&#x5F71;&#x54CD;&#x5B83;&#x7684;&#x5B89;&#x5168;&#x6027;(safety property)&#xFF0C;&#x53EA;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x5230;&#x5B83;&#x7684;&#x6D3B;&#x6027;(liveness property)&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5373;&#x4F7F;&#x5728;&#x975E;&#x5E38;&#x6781;&#x7AEF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;&#x6BD4;&#x5982;&#x7CFB;&#x7EDF;&#x65F6;&#x949F;&#x4E25;&#x91CD;&#x9519;&#x8BEF;&#xFF09;&#xFF0C;&#x7B97;&#x6CD5;&#x9876;&#x591A;&#x662F;&#x4E0D;&#x80FD;&#x5728;&#x6709;&#x9650;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x7ED9;&#x51FA;&#x7ED3;&#x679C;&#x800C;&#x5DF2;&#xFF0C;&#x800C;&#x4E0D;&#x5E94;&#x8BE5;&#x7ED9;&#x51FA;&#x9519;&#x8BEF;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x7B97;&#x6CD5;&#x5728;&#x73B0;&#x5B9E;&#x4E2D;&#x662F;&#x5B58;&#x5728;&#x7684;&#xFF0C;&#x50CF;&#x6BD4;&#x8F83;&#x8457;&#x540D;&#x7684;Paxos&#xFF0C;&#x6216;Raft&#x3002;&#x4F46;&#x663E;&#x7136;&#x6309;&#x8FD9;&#x4E2A;&#x6807;&#x51C6;&#x7684;&#x8BDD;&#xFF0C;Redlock&#x7684;&#x5B89;&#x5168;&#x6027;&#x7EA7;&#x522B;&#x662F;&#x8FBE;&#x4E0D;&#x5230;&#x7684;&#x3002;</p>
-<p>&#x968F;&#x540E;&#xFF0C;Martin&#x89C9;&#x5F97;&#x524D;&#x9762;&#x8FD9;&#x4E2A;&#x65F6;&#x949F;&#x8DF3;&#x8DC3;&#x7684;&#x4F8B;&#x5B50;&#x8FD8;&#x4E0D;&#x591F;&#xFF0C;&#x53C8;&#x7ED9;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x7531;&#x5BA2;&#x6237;&#x7AEF;GC pause&#x5F15;&#x53D1;Redlock&#x5931;&#x6548;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>上面这种情况之所以有可能发生，本质上是因为Redlock的安全性(safety property)对系统的时钟有比较强的依赖，一旦系统的时钟变得不准确，算法的安全性也就保证不了了。Martin在这里其实是要指出分布式算法研究中的一些基础性问题，或者说一些常识问题，即好的分布式算法应该基于异步模型(asynchronous model)，算法的安全性不应该依赖于任何记时假设(timing assumption)。在异步模型中：进程可能pause任意长的时间，消息可能在网络中延迟任意长的时间，甚至丢失，系统时钟也可能以任意方式出错。一个好的分布式算法，这些因素不应该影响它的安全性(safety property)，只可能影响到它的活性(liveness property)，也就是说，即使在非常极端的情况下（比如系统时钟严重错误），算法顶多是不能在有限的时间内给出结果而已，而不应该给出错误的结果。这样的算法在现实中是存在的，像比较著名的Paxos，或Raft。但显然按这个标准的话，Redlock的安全性级别是达不到的。</p>
+<p>随后，Martin觉得前面这个时钟跳跃的例子还不够，又给出了一个由客户端GC pause引发Redlock失效的例子。如下：</p>
 <ol>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x5411;Redis&#x8282;&#x70B9;A, B, C, D, E&#x53D1;&#x8D77;&#x9501;&#x8BF7;&#x6C42;&#x3002;</li>
-<li>&#x5404;&#x4E2A;Redis&#x8282;&#x70B9;&#x5DF2;&#x7ECF;&#x628A;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7ED9;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;1&#xFF0C;&#x4F46;&#x5BA2;&#x6237;&#x7AEF;1&#x5728;&#x6536;&#x5230;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;&#x4E4B;&#x524D;&#x8FDB;&#x5165;&#x4E86;&#x957F;&#x65F6;&#x95F4;&#x7684;GC pause&#x3002;</li>
-<li>&#x5728;&#x6240;&#x6709;&#x7684;Redis&#x8282;&#x70B9;&#x4E0A;&#xFF0C;&#x9501;&#x8FC7;&#x671F;&#x4E86;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;2&#x5728;A, B, C, D, E&#x4E0A;&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x9501;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;GC pause&#x4ECE;&#x6062;&#x590D;&#xFF0C;&#x6536;&#x5230;&#x4E86;&#x524D;&#x9762;&#x7B2C;2&#x6B65;&#x6765;&#x81EA;&#x5404;&#x4E2A;Redis&#x8282;&#x70B9;&#x7684;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;&#x3002;&#x5BA2;&#x6237;&#x7AEF;1&#x8BA4;&#x4E3A;&#x81EA;&#x5DF1;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x5230;&#x4E86;&#x9501;&#x3002;</li>
-<li>&#x5BA2;&#x6237;&#x7AEF;1&#x548C;&#x5BA2;&#x6237;&#x7AEF;2&#x73B0;&#x5728;&#x90FD;&#x8BA4;&#x4E3A;&#x81EA;&#x5DF1;&#x6301;&#x6709;&#x4E86;&#x9501;&#x3002;</li>
+<li>客户端1向Redis节点A, B, C, D, E发起锁请求。</li>
+<li>各个Redis节点已经把请求结果返回给了客户端1，但客户端1在收到请求结果之前进入了长时间的GC pause。</li>
+<li>在所有的Redis节点上，锁过期了。</li>
+<li>客户端2在A, B, C, D, E上获取到了锁。</li>
+<li>客户端1从GC pause从恢复，收到了前面第2步来自各个Redis节点的请求结果。客户端1认为自己成功获取到了锁。</li>
+<li>客户端1和客户端2现在都认为自己持有了锁。</li>
 </ol>
-<p>Martin&#x7ED9;&#x51FA;&#x7684;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5176;&#x5B9E;&#x6709;&#x70B9;&#x5C0F;&#x95EE;&#x9898;&#x3002;&#x5728;Redlock&#x7B97;&#x6CD5;&#x4E2D;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x5B8C;&#x6210;&#x5411;&#x5404;&#x4E2A;Redis&#x8282;&#x70B9;&#x7684;&#x83B7;&#x53D6;&#x9501;&#x7684;&#x8BF7;&#x6C42;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x8BA1;&#x7B97;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x7136;&#x540E;&#x68C0;&#x67E5;&#x662F;&#x4E0D;&#x662F;&#x8D85;&#x8FC7;&#x4E86;&#x9501;&#x7684;&#x6709;&#x6548;&#x65F6;&#x95F4;(lock validity time)&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x7B2C;5&#x6B65;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;1&#x4ECE;GC pause&#x4E2D;&#x6062;&#x590D;&#x8FC7;&#x6765;&#x4EE5;&#x540E;&#xFF0C;&#x5B83;&#x4F1A;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x68C0;&#x67E5;&#x53D1;&#x73B0;&#x9501;&#x5DF2;&#x7ECF;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x4E0D;&#x4F1A;&#x518D;&#x8BA4;&#x4E3A;&#x81EA;&#x5DF1;&#x6210;&#x529F;&#x83B7;&#x53D6;&#x5230;&#x9501;&#x4E86;&#x3002;&#x968F;&#x540E;antirez&#x5728;&#x4ED6;&#x7684;&#x53CD;&#x9A73;&#x6587;&#x7AE0;&#x4E2D;&#x5C31;&#x6307;&#x51FA;&#x6765;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F46;Martin&#x8BA4;&#x4E3A;&#x8FD9;&#x4E2A;&#x7EC6;&#x8282;&#x5BF9;Redlock&#x6574;&#x4F53;&#x7684;&#x5B89;&#x5168;&#x6027;&#x6CA1;&#x6709;&#x672C;&#x8D28;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
-<p>&#x629B;&#x5F00;&#x8FD9;&#x4E2A;&#x7EC6;&#x8282;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#x4E00;&#x4E0B;Martin&#x4E3E;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x7684;&#x610F;&#x56FE;&#x5728;&#x54EA;&#x3002;&#x521D;&#x770B;&#x8D77;&#x6765;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x8DDF;&#x6587;&#x7AE0;&#x524D;&#x534A;&#x90E8;&#x5206;&#x5206;&#x6790;&#x901A;&#x7528;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x65F6;&#x7ED9;&#x51FA;&#x7684;GC pause&#x7684;&#x65F6;&#x5E8F;&#x56FE;&#x662F;&#x57FA;&#x672C;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x90A3;&#x91CC;&#x7684;GC pause&#x53D1;&#x751F;&#x5728;&#x5BA2;&#x6237;&#x7AEF;1&#x83B7;&#x5F97;&#x4E86;&#x9501;&#x4E4B;&#x540E;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x7684;GC pause&#x53D1;&#x751F;&#x5728;&#x5BA2;&#x6237;&#x7AEF;1&#x83B7;&#x5F97;&#x9501;&#x4E4B;&#x524D;&#x3002;&#x4F46;&#x4E24;&#x4E2A;&#x4F8B;&#x5B50;&#x7684;&#x4FA7;&#x91CD;&#x70B9;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#x3002;Martin&#x6784;&#x9020;&#x8FD9;&#x91CC;&#x7684;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x5F3A;&#x8C03;&#x5728;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x5F02;&#x6B65;&#x73AF;&#x5883;&#x4E0B;&#xFF0C;&#x957F;&#x65F6;&#x95F4;&#x7684;GC pause&#x6216;&#x6D88;&#x606F;&#x5EF6;&#x8FDF;&#xFF08;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x628A;GC pause&#x6362;&#x6210;Redis&#x8282;&#x70B9;&#x548C;&#x5BA2;&#x6237;&#x7AEF;1&#x4E4B;&#x95F4;&#x7684;&#x6D88;&#x606F;&#x5EF6;&#x8FDF;&#xFF0C;&#x903B;&#x8F91;&#x4E0D;&#x53D8;&#xFF09;&#xFF0C;&#x4F1A;&#x8BA9;&#x5BA2;&#x6237;&#x7AEF;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x8FC7;&#x671F;&#x7684;&#x9501;&#x3002;&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;1&#x7684;&#x89D2;&#x5EA6;&#x770B;&#xFF0C;Redlock&#x7684;&#x5B89;&#x5168;&#x6027;&#x88AB;&#x6253;&#x7834;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;1&#x6536;&#x5230;&#x9501;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x9501;&#x5DF2;&#x7ECF;&#x5931;&#x6548;&#x4E86;&#xFF0C;&#x800C;Redlock&#x540C;&#x65F6;&#x8FD8;&#x628A;&#x8FD9;&#x4E2A;&#x9501;&#x5206;&#x914D;&#x7ED9;&#x4E86;&#x5BA2;&#x6237;&#x7AEF;2&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;Redis&#x670D;&#x52A1;&#x5668;&#x5728;&#x628A;&#x9501;&#x5206;&#x53D1;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x9014;&#x4E2D;&#xFF0C;&#x9501;&#x5C31;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x4F46;&#x53C8;&#x6CA1;&#x6709;&#x6709;&#x6548;&#x7684;&#x673A;&#x5236;&#x8BA9;&#x5BA2;&#x6237;&#x7AEF;&#x660E;&#x786E;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x800C;&#x5728;&#x4E4B;&#x524D;&#x7684;&#x90A3;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;1&#x6536;&#x5230;&#x9501;&#x7684;&#x65F6;&#x5019;&#x9501;&#x8FD8;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x9501;&#x670D;&#x52A1;&#x672C;&#x8EAB;&#x7684;&#x5B89;&#x5168;&#x6027;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x6CA1;&#x6709;&#x88AB;&#x6253;&#x7834;&#xFF0C;&#x540E;&#x9762;&#x867D;&#x7136;&#x4E5F;&#x51FA;&#x4E86;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x95EE;&#x9898;&#x662F;&#x51FA;&#x5728;&#x5BA2;&#x6237;&#x7AEF;1&#x548C;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x4E0A;&#x3002;</p>
-<p>&#x5728;Martin&#x7684;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x6709;&#x89C1;&#x5730;&#x7684;&#x89C2;&#x70B9;&#xFF0C;&#x5C31;&#x662F;&#x5BF9;&#x9501;&#x7684;&#x7528;&#x9014;&#x7684;&#x533A;&#x5206;&#x3002;&#x4ED6;&#x628A;&#x9501;&#x7684;&#x7528;&#x9014;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#xFF1A;</p>
+<p>Martin给出的这个例子其实有点小问题。在Redlock算法中，客户端在完成向各个Redis节点的获取锁的请求之后，会计算这个过程消耗的时间，然后检查是不是超过了锁的有效时间(lock validity time)。也就是上面的例子中第5步，客户端1从GC pause中恢复过来以后，它会通过这个检查发现锁已经过期了，不会再认为自己成功获取到锁了。随后antirez在他的反驳文章中就指出来了这个问题，但Martin认为这个细节对Redlock整体的安全性没有本质的影响。</p>
+<p>抛开这个细节，我们可以分析一下Martin举这个例子的意图在哪。初看起来，这个例子跟文章前半部分分析通用的分布式锁时给出的GC pause的时序图是基本一样的，只不过那里的GC pause发生在客户端1获得了锁之后，而这里的GC pause发生在客户端1获得锁之前。但两个例子的侧重点不太一样。Martin构造这里的这个例子，是为了强调在一个分布式的异步环境下，长时间的GC pause或消息延迟（上面这个例子中，把GC pause换成Redis节点和客户端1之间的消息延迟，逻辑不变），会让客户端获得一个已经过期的锁。从客户端1的角度看，Redlock的安全性被打破了，因为客户端1收到锁的时候，这个锁已经失效了，而Redlock同时还把这个锁分配给了客户端2。换句话说，Redis服务器在把锁分发给客户端的途中，锁就过期了，但又没有有效的机制让客户端明确知道这个问题。而在之前的那个例子中，客户端1收到锁的时候锁还是有效的，锁服务本身的安全性可以认为没有被打破，后面虽然也出了问题，但问题是出在客户端1和共享资源服务器之间的交互上。</p>
+<p>在Martin的这篇文章中，还有一个很有见地的观点，就是对锁的用途的区分。他把锁的用途分为两种：</p>
 <ul>
-<li>&#x4E3A;&#x4E86;&#x6548;&#x7387;(efficiency)&#xFF0C;&#x534F;&#x8C03;&#x5404;&#x4E2A;&#x5BA2;&#x6237;&#x7AEF;&#x907F;&#x514D;&#x505A;&#x91CD;&#x590D;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x5373;&#x4F7F;&#x9501;&#x5076;&#x5C14;&#x5931;&#x6548;&#x4E86;&#xFF0C;&#x53EA;&#x662F;&#x53EF;&#x80FD;&#x628A;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#x591A;&#x505A;&#x4E00;&#x904D;&#x800C;&#x5DF2;&#xFF0C;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x5176;&#x5B83;&#x7684;&#x4E0D;&#x826F;&#x540E;&#x679C;&#x3002;&#x6BD4;&#x5982;&#x91CD;&#x590D;&#x53D1;&#x9001;&#x4E86;&#x4E00;&#x5C01;&#x540C;&#x6837;&#x7684;email&#x3002;</li>
-<li>&#x4E3A;&#x4E86;&#x6B63;&#x786E;&#x6027;(correctness)&#x3002;&#x5728;&#x4EFB;&#x4F55;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4E0D;&#x5141;&#x8BB8;&#x9501;&#x5931;&#x6548;&#x7684;&#x60C5;&#x51B5;&#x53D1;&#x751F;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x65E6;&#x53D1;&#x751F;&#xFF0C;&#x5C31;&#x53EF;&#x80FD;&#x610F;&#x5473;&#x7740;&#x6570;&#x636E;&#x4E0D;&#x4E00;&#x81F4;(inconsistency)&#xFF0C;&#x6570;&#x636E;&#x4E22;&#x5931;&#xFF0C;&#x6587;&#x4EF6;&#x635F;&#x574F;&#xFF0C;&#x6216;&#x8005;&#x5176;&#x5B83;&#x4E25;&#x91CD;&#x7684;&#x95EE;&#x9898;&#x3002;</li>
+<li>为了效率(efficiency)，协调各个客户端避免做重复的工作。即使锁偶尔失效了，只是可能把某些操作多做一遍而已，不会产生其它的不良后果。比如重复发送了一封同样的email。</li>
+<li>为了正确性(correctness)。在任何情况下都不允许锁失效的情况发生，因为一旦发生，就可能意味着数据不一致(inconsistency)，数据丢失，文件损坏，或者其它严重的问题。</li>
 </ul>
-<p>&#x6700;&#x540E;&#xFF0C;Martin&#x5F97;&#x51FA;&#x4E86;&#x5982;&#x4E0B;&#x7684;&#x7ED3;&#x8BBA;&#xFF1A;</p>
+<p>最后，Martin得出了如下的结论：</p>
 <ul>
-<li>&#x5982;&#x679C;&#x662F;&#x4E3A;&#x4E86;&#x6548;&#x7387;(efficiency)&#x800C;&#x4F7F;&#x7528;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#xFF0C;&#x5141;&#x8BB8;&#x9501;&#x7684;&#x5076;&#x5C14;&#x5931;&#x6548;&#xFF0C;&#x90A3;&#x4E48;&#x4F7F;&#x7528;&#x5355;Redis&#x8282;&#x70B9;&#x7684;&#x9501;&#x65B9;&#x6848;&#x5C31;&#x8DB3;&#x591F;&#x4E86;&#xFF0C;&#x7B80;&#x5355;&#x800C;&#x4E14;&#x6548;&#x7387;&#x9AD8;&#x3002;Redlock&#x5219;&#x662F;&#x4E2A;&#x8FC7;&#x91CD;&#x7684;&#x5B9E;&#x73B0;(heavyweight)&#x3002;</li>
-<li>&#x5982;&#x679C;&#x662F;&#x4E3A;&#x4E86;&#x6B63;&#x786E;&#x6027;(correctness)&#x5728;&#x5F88;&#x4E25;&#x8083;&#x7684;&#x573A;&#x5408;&#x4F7F;&#x7528;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#xFF0C;&#x90A3;&#x4E48;&#x4E0D;&#x8981;&#x4F7F;&#x7528;Redlock&#x3002;&#x5B83;&#x4E0D;&#x662F;&#x5EFA;&#x7ACB;&#x5728;&#x5F02;&#x6B65;&#x6A21;&#x578B;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x8DB3;&#x591F;&#x5F3A;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x5B83;&#x5BF9;&#x4E8E;&#x7CFB;&#x7EDF;&#x6A21;&#x578B;&#x7684;&#x5047;&#x8BBE;&#x4E2D;&#x5305;&#x542B;&#x5F88;&#x591A;&#x5371;&#x9669;&#x7684;&#x6210;&#x5206;(&#x5BF9;&#x4E8E;timing)&#x3002;&#x800C;&#x4E14;&#xFF0C;&#x5B83;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x673A;&#x5236;&#x80FD;&#x591F;&#x63D0;&#x4F9B;fencing token&#x3002;&#x90A3;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x6280;&#x672F;&#x5462;&#xFF1F;Martin&#x8BA4;&#x4E3A;&#xFF0C;&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x7C7B;&#x4F3C;Zookeeper&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x6216;&#x8005;&#x652F;&#x6301;&#x4E8B;&#x52A1;&#x7684;&#x6570;&#x636E;&#x5E93;&#x3002;<br>Martin&#x5BF9;Redlock&#x7B97;&#x6CD5;&#x7684;&#x5F62;&#x5BB9;&#x662F;&#xFF1A;</li>
+<li>如果是为了效率(efficiency)而使用分布式锁，允许锁的偶尔失效，那么使用单Redis节点的锁方案就足够了，简单而且效率高。Redlock则是个过重的实现(heavyweight)。</li>
+<li>如果是为了正确性(correctness)在很严肃的场合使用分布式锁，那么不要使用Redlock。它不是建立在异步模型上的一个足够强的算法，它对于系统模型的假设中包含很多危险的成分(对于timing)。而且，它没有一个机制能够提供fencing token。那应该使用什么技术呢？Martin认为，应该考虑类似Zookeeper的方案，或者支持事务的数据库。<br>Martin对Redlock算法的形容是：</li>
 </ul>
 <blockquote>
-<p>neither fish nor fowl &#xFF08;&#x975E;&#x9A74;&#x975E;&#x9A6C;&#xFF09;</p>
+<p>neither fish nor fowl （非驴非马）</p>
 </blockquote>
-<p>####&#x3010;<em>&#x5176;&#x5B83;&#x7591;&#x95EE;</em>&#x3011;</p>
+<p>####【<em>其它疑问</em>】</p>
 <ul>
-<li>Martin&#x63D0;&#x51FA;&#x7684;fencing token&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x9700;&#x8981;&#x5BF9;&#x63D0;&#x4F9B;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x670D;&#x52A1;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x8FD9;&#x5728;&#x73B0;&#x5B9E;&#x4E2D;&#x53EF;&#x884C;&#x5417;&#xFF1F;</li>
-<li>&#x6839;&#x636E;Martin&#x7684;&#x8BF4;&#x6CD5;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#xFF0C;&#x5982;&#x679C;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x5B9E;&#x73B0;&#x4E86;fencing token&#xFF0C;&#x5B83;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x5931;&#x6548;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4E5F;&#x4ECD;&#x7136;&#x80FD;&#x4FDD;&#x6301;&#x8D44;&#x6E90;&#x7684;&#x4E92;&#x65A5;&#x8BBF;&#x95EE;&#x3002;&#x8FD9;&#x662F;&#x4E0D;&#x662F;&#x610F;&#x5473;&#x7740;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x5B58;&#x5728;&#x7684;&#x610F;&#x4E49;&#x4E86;&#xFF1F;</li>
-<li>&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x9700;&#x8981;&#x68C0;&#x67E5;fencing token&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x8D44;&#x6E90;&#x8BBF;&#x95EE;&#x7684;&#x670D;&#x52A1;&#x4E5F;&#x662F;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#xFF08;&#x5206;&#x5E03;&#x5F0F;&#x7684;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x600E;&#x4E48;&#x68C0;&#x67E5;&#x624D;&#x80FD;&#x4FDD;&#x8BC1;fencing token&#x5728;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#x4E0A;&#x662F;&#x9012;&#x589E;&#x7684;&#x5462;&#xFF1F;</li>
-<li>Martin&#x5BF9;&#x4E8E;fencing token&#x7684;&#x4E3E;&#x4F8B;&#x4E2D;&#xFF0C;&#x4E24;&#x4E2A;fencing token&#x5230;&#x8FBE;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x7684;&#x987A;&#x5E8F;&#x98A0;&#x5012;&#x4E86;&#xFF08;&#x5C0F;&#x7684;fencing token&#x540E;&#x5230;&#x4E86;&#xFF09;&#xFF0C;&#x8FD9;&#x65F6;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x68C0;&#x67E5;&#x51FA;&#x4E86;&#x8FD9;&#x4E00;&#x95EE;&#x9898;&#x3002;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;1&#x548C;&#x5BA2;&#x6237;&#x7AEF;2&#x90FD;&#x53D1;&#x751F;&#x4E86;GC pause&#xFF0C;&#x4E24;&#x4E2A;fencing token&#x90FD;&#x5EF6;&#x8FDF;&#x4E86;&#xFF0C;&#x5B83;&#x4EEC;&#x51E0;&#x4E4E;&#x540C;&#x65F6;&#x5230;&#x8FBE;&#x4E86;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F46;&#x4FDD;&#x6301;&#x4E86;&#x987A;&#x5E8F;&#xFF0C;&#x90A3;&#x4E48;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x662F;&#x4E0D;&#x662F;&#x5C31;&#x68C0;&#x67E5;&#x4E0D;&#x51FA;&#x95EE;&#x9898;&#x4E86;&#xFF1F;&#x8FD9;&#x65F6;&#x5BF9;&#x4E8E;&#x8D44;&#x6E90;&#x7684;&#x8BBF;&#x95EE;&#x662F;&#x4E0D;&#x662F;&#x5C31;&#x53D1;&#x751F;&#x51B2;&#x7A81;&#x4E86;&#xFF1F;</li>
-<li>&#x5206;&#x5E03;&#x5F0F;&#x9501;+fencing&#x7684;&#x65B9;&#x6848;&#x662F;&#x7EDD;&#x5BF9;&#x6B63;&#x786E;&#x7684;&#x5417;&#xFF1F;&#x80FD;&#x8BC1;&#x660E;&#x5417;&#xFF1F;</li>
+<li>Martin提出的fencing token的方案，需要对提供共享资源的服务进行修改，这在现实中可行吗？</li>
+<li>根据Martin的说法，看起来，如果资源服务器实现了fencing token，它在分布式锁失效的情况下也仍然能保持资源的互斥访问。这是不是意味着分布式锁根本没有存在的意义了？</li>
+<li>资源服务器需要检查fencing token的大小，如果提供资源访问的服务也是包含多个节点的（分布式的），那么这里怎么检查才能保证fencing token在多个节点上是递增的呢？</li>
+<li>Martin对于fencing token的举例中，两个fencing token到达资源服务器的顺序颠倒了（小的fencing token后到了），这时资源服务器检查出了这一问题。如果客户端1和客户端2都发生了GC pause，两个fencing token都延迟了，它们几乎同时到达了资源服务器，但保持了顺序，那么资源服务器是不是就检查不出问题了？这时对于资源的访问是不是就发生冲突了？</li>
+<li>分布式锁+fencing的方案是绝对正确的吗？能证明吗？</li>
 </ul>
-<p>&#x672C;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a href="http://zhangtielei.com/posts/blog-redlock-reasoning.html" target="_blank" rel="external">http://zhangtielei.com/posts/blog-redlock-reasoning.html </a></p>
+<p>本文链接：<a href="http://zhangtielei.com/posts/blog-redlock-reasoning.html" target="_blank" rel="noopener">http://zhangtielei.com/posts/blog-redlock-reasoning.html </a></p>
 
       
     </div>
@@ -546,8 +545,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2018/08/14/基于Redis的分布式锁到底安全吗（上）/"
-           data-title="基于Redis的分布式锁到底安全吗（上）？(转载)" data-url="http://www.haomer.top/2018/08/14/基于Redis的分布式锁到底安全吗（上）/">
+      <div class="ds-thread" data-thread-key="2018/08/14/基于Redis的分布式锁到底安全吗（上）/" data-title="基于Redis的分布式锁到底安全吗（上）？(转载)" data-url="http://www.haomer.top/2018/08/14/基于Redis的分布式锁到底安全吗（上）/">
       </div>
     
   </div>
@@ -572,7 +570,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -582,10 +580,8 @@
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.png"
-               alt="张 浩 | Zhang Hao" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="张 浩 | Zhang Hao">
           <p class="site-author-name" itemprop="name">张 浩 | Zhang Hao</p>
           <p class="site-description motion-element" itemprop="description">Just do IT</p>
         </div>
@@ -654,7 +650,7 @@
         
           <div class="cc-license motion-element" itemprop="license">
             <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
             </a>
           </div>
         
@@ -671,7 +667,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redlock算法"><span class="nav-number">1.</span> <span class="nav-text">Redlock算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于单redis节点的分布式锁"><span class="nav-number">1.1.</span> <span class="nav-text">基于单Redis节点的分布式锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其它疑问"><span class="nav-number">1.1.1.</span> <span class="nav-text">【其它疑问】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式锁redlock"><span class="nav-number">1.2.</span> <span class="nav-text">分布式锁Redlock</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其它疑问"><span class="nav-number">1.2.1.</span> <span class="nav-text">【其它疑问】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#martin的分析"><span class="nav-number">2.</span> <span class="nav-text">Martin的分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Redlock算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">基于单Redis节点的分布式锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">【其它疑问】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">分布式锁Redlock</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">【其它疑问】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Martin的分析</span></a></li></ol></div>
             
           </div>
         </section>
@@ -687,7 +683,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy;  2015 - 
   <span itemprop="copyrightYear">2019</span>

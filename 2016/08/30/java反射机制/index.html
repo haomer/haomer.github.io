@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,54 +63,40 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="JAVA, centos, 张浩" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="张 浩 | Zhang Hao" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <meta name="keywords" content="JAVA, centos, 张浩">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="张 浩 | Zhang Hao" type="application/atom+xml">
 
-<meta name="description" content="JAVA反射(Reflection)机制是在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;  对于任意一个对象,都能够调用它的任意一个方法和属性;这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。  
-  Java反射机制主要提供了以下功能:  
 
-在运行时判断任意一个对象所属的类; 
-在运行时构造任意一个类的对象; 
-在运行时判断任意一个类所具有的成员变量">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="JAVA反射(Reflection)机制是在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;  对于任意一个对象,都能够调用它的任意一个方法和属性;这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。     Java反射机制主要提供了以下功能:    在运行时判断任意一个对象所属的类;  在运行时构造任意一个类的对象;  在运行时判断任意一个类所具有的成员变量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA反射机制">
 <meta property="og:url" content="http://www.haomer.top/2016/08/30/java反射机制/index.html">
 <meta property="og:site_name" content="张 浩 | Zhang Hao">
-<meta property="og:description" content="JAVA反射(Reflection)机制是在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;  对于任意一个对象,都能够调用它的任意一个方法和属性;这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。  
-  Java反射机制主要提供了以下功能:  
-
-在运行时判断任意一个对象所属的类; 
-在运行时构造任意一个类的对象; 
-在运行时判断任意一个类所具有的成员变量">
+<meta property="og:description" content="JAVA反射(Reflection)机制是在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;  对于任意一个对象,都能够调用它的任意一个方法和属性;这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。     Java反射机制主要提供了以下功能:    在运行时判断任意一个对象所属的类;  在运行时构造任意一个类的对象;  在运行时判断任意一个类所具有的成员变量">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-15T02:07:25.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA反射机制">
-<meta name="twitter:description" content="JAVA反射(Reflection)机制是在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;  对于任意一个对象,都能够调用它的任意一个方法和属性;这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。  
-  Java反射机制主要提供了以下功能:  
-
-在运行时判断任意一个对象所属的类; 
-在运行时构造任意一个类的对象; 
-在运行时判断任意一个类所具有的成员变量">
+<meta name="twitter:description" content="JAVA反射(Reflection)机制是在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;  对于任意一个对象,都能够调用它的任意一个方法和属性;这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。     Java反射机制主要提供了以下功能:    在运行时判断任意一个对象所属的类;  在运行时构造任意一个类的对象;  在运行时判断任意一个类所具有的成员变量">
 
 
 
@@ -131,12 +117,12 @@
 
 
 
-  <link rel="canonical" href="http://www.haomer.top/2016/08/30/java反射机制/"/>
+  <link rel="canonical" href="http://www.haomer.top/2016/08/30/java反射机制/">
 
   <title> JAVA反射机制 | 张 浩 | Zhang Hao </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -148,7 +134,7 @@
 
 
   <div style="display: none;">
-    <script src="//s6.cnzz.com/stat.php?id=www.sharehao.com&web_id=www.sharehao.com" type="text/javascript"></script>
+    <script src="//s6.cnzz.com/stat.php?id=www.haomer.top&web_id=www.haomer.top" type="text/javascript"></script>
   </div>
 
 
@@ -163,12 +149,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">张 浩 | Zhang Hao</span>
       <span class="logo-line-after"><i></i></span>
@@ -195,7 +181,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -205,7 +191,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -215,7 +201,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -225,7 +211,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -235,7 +221,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -268,7 +254,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -302,14 +288,14 @@
 
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                   <a href="/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
@@ -350,17 +336,17 @@
       
 
       
-        <p>JAVA&#x53CD;&#x5C04;(Reflection)&#x673A;&#x5236;&#x662F;&#x5728;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x4E2D;,&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x7C7B;,&#x90FD;&#x80FD;&#x591F;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;;<br>  &#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;,&#x90FD;&#x80FD;&#x591F;&#x8C03;&#x7528;&#x5B83;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;;&#x8FD9;&#x79CD;&#x52A8;&#x6001;&#x83B7;&#x53D6;&#x7684;&#x4FE1;&#x606F;&#x4EE5;&#x53CA;&#x52A8;&#x6001;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x529F;&#x80FD;&#x79F0;&#x4E3A;java&#x8BED;&#x8A00;&#x7684;&#x53CD;&#x5C04;&#x673A;&#x5236;&#x3002;  </p>
-<p>  Java&#x53CD;&#x5C04;&#x673A;&#x5236;&#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x4E86;&#x4EE5;&#x4E0B;&#x529F;&#x80FD;:  </p>
+        <p>JAVA反射(Reflection)机制是在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;<br>  对于任意一个对象,都能够调用它的任意一个方法和属性;这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。  </p>
+<p>  Java反射机制主要提供了以下功能:  </p>
 <ul>
-<li>&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5224;&#x65AD;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6240;&#x5C5E;&#x7684;&#x7C7B;; </li>
-<li>&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x6784;&#x9020;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;; </li>
-<li>&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5224;&#x65AD;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x7C7B;&#x6240;&#x5177;&#x6709;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x548C;&#x65B9;&#x6CD5; &#x5728;&#x8FD0;&#x884C;&#x65F6;&#x8C03;&#x7528;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;; </li>
-<li><p>&#x751F;&#x6210;&#x52A8;&#x6001;&#x4EE3;&#x7406;</p>
+<li>在运行时判断任意一个对象所属的类; </li>
+<li>在运行时构造任意一个类的对象; </li>
+<li>在运行时判断任意一个类所具有的成员变量和方法 在运行时调用任意一个对象的方法; </li>
+<li><p>生成动态代理</p>
 <a id="more"></a>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">import org.junit.Test;</div><div class="line"></div><div class="line">import java.lang.reflect.*;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by zhanghao on 16/8/30.</div><div class="line"> */</div><div class="line">public class ReflectDemo {</div><div class="line">   	//&#x901A;&#x8FC7;JAVA&#x53CD;&#x5C04;&#x673A;&#x5236;&#x5F97;&#x5230;&#x7C7B;&#x7684;&#x5305;&#x540D;&#x548C;&#x7C7B;&#x540D;</div><div class="line">    @Test</div><div class="line">   	public void test1(){</div><div class="line">       	Person person = new Person();</div><div class="line">        System.out.println(&quot;&#x5305;&#x540D;&#xFF1A;&quot; + person.getClass().getPackage().getName() + &quot;, &quot; + &quot;&#x5B8C;&#x6574;&#x7C7B;&#x540D;&#xFF1A;&quot; + person.getClass().getName());</div><div class="line">   	}</div><div class="line"></div><div class="line">    //&#x9A8C;&#x8BC1;&#x6240;&#x6709;&#x7684;&#x7C7B;&#x90FD;&#x662F;Class&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;</div><div class="line">   	@Test</div><div class="line">    public void test2() throws ClassNotFoundException {</div><div class="line">   	    //&#x5B9A;&#x4E49;&#x4E24;&#x4E2A;&#x7C7B;&#x578B;&#x90FD;&#x672A;&#x77E5;&#x7684;Class , &#x8BBE;&#x7F6E;&#x521D;&#x503C;&#x4E3A;null, &#x770B;&#x770B;&#x5982;&#x4F55;&#x7ED9;&#x5B83;&#x4EEC;&#x8D4B;&#x503C;&#x6210;Person&#x7C7B;</div><div class="line">       	Class&lt;?&gt; class1 = null;</div><div class="line">       	Class&lt;?&gt; class2 = null;</div><div class="line"></div><div class="line">   	    //&#x5199;&#x6CD5;1&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x629B;&#x51FA;ClassNotFoundException[&#x591A;&#x7528;&#x8FD9;&#x4E2A;&#x5199;&#x6CD5;]</div><div class="line">       	class1 = Class.forName(&quot;com.fahai.Person&quot;);</div><div class="line">        System.out.println(&quot;(&#x5199;&#x6CD5;1) &#x5305;&#x540D;&#xFF1A;&quot; + class1.getPackage().getName() +&quot;, &quot; + &quot;&#x5B8C;&#x6574;&#x7C7B;&#x540D;&#xFF1A;&quot;+ class1.getName());</div><div class="line"></div><div class="line">   	    //&#x5199;&#x6CD5;2</div><div class="line">       	class2 = Person.class;</div><div class="line">        System.out.println(&quot;(&#x5199;&#x6CD5;2) &#x5305;&#x540D;&#xFF1A;&quot; + class2.getPackage().getName() + &quot;, &quot; + &quot;&#x5B8C;&#x6574;&#x7C7B;&#x540D;&#xFF1A;&quot; + class2.getName());</div><div class="line">   	}</div><div class="line"></div><div class="line">    //&#x901A;&#x8FC7;Java&#x53CD;&#x5C04;&#x673A;&#x5236;&#xFF0C;&#x7528;Class&#x521B;&#x5EFA;&#x7C7B;&#x5BF9;&#x8C61;&#xFF08;&#x53CD;&#x5C04;&#x5B58;&#x5728;&#x7684;&#x610F;&#x4E49;&#xFF09;</div><div class="line">   	@Test</div><div class="line">    public void test3() throws ClassNotFoundException, IllegalAccessException, InstantiationException {</div><div class="line">   	    Class&lt;?&gt; class1 = null;</div><div class="line">       	class1 = Class.forName(&quot;com.fahai.Person&quot;);</div><div class="line">        //&#x7531;&#x4E8E;&#x8FD9;&#x91CC;&#x4E0D;&#x80FD;&#x5E26;&#x53C2;&#x6570;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x8981;&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x8FD9;&#x4E2A;&#x7C7B;Person&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x6709;&#x65E0;&#x53C2;&#x6784;&#x9020;&#x51FD;&#x6570;&#x54C8;&#xFF5E;</div><div class="line">   	    Person person = (Person) class1.newInstance();</div><div class="line">       	person.setAge(20);</div><div class="line">        person.setName(&quot;&#x5F20;&#x4E09;&quot;);</div><div class="line">   	    System.out.println(person.getName() + &quot; : &quot;+ person.getAge());</div><div class="line">    }</div><div class="line">   	//&#x901A;&#x8FC7;Java&#x53CD;&#x5C04;&#x673A;&#x5236;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;&#x521B;&#x5EFA;&#x5E26;&#x53C2;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;</div><div class="line">    @Test</div><div class="line">   	public void test4() throws ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException {</div><div class="line">       	Class&lt;?&gt; class1 = null;</div><div class="line">        Person person1 = null;</div><div class="line">   	    Person person2 = null;</div><div class="line">       	class1 = Class.forName(&quot;com.fahai.Person&quot;);</div><div class="line">        //&#x5F97;&#x5230;&#x4E00;&#x7CFB;&#x5217;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x96C6;&#x5408;</div><div class="line">   	    Constructor&lt;?&gt;[] constructors = class1.getConstructors();</div><div class="line">//        System.out.println(constructors[0].getParameterCount());</div><div class="line">   	    person1 = (Person) constructors[0].newInstance();</div><div class="line">       	person1.setAge(30);</div><div class="line">        person1.setName(&quot;&#x5F20;&#x4E09;&quot;);</div><div class="line"></div><div class="line">        System.out.println(constructors[1].getParameterCount());</div><div class="line">   	    person2 = (Person) constructors[1].newInstance(20, &quot;&#x5F20;&#x4E09;&quot;);</div><div class="line"></div><div class="line">   	    System.out.println( person1.getName() + &quot; : &quot; + person1.getAge()</div><div class="line">                       + &quot;  ,   &quot; + person2.getName() + &quot; : &quot; + person2.getAge());</div><div class="line">   	}</div><div class="line"></div><div class="line">    //&#x901A;&#x8FC7;Java&#x53CD;&#x5C04;&#x673A;&#x5236;&#x64CD;&#x4F5C;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;set &#x548C; get</div><div class="line">   	@Test</div><div class="line">    public void test5() throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchFieldException {</div><div class="line">   	    Class&lt;?&gt; class1 = null;</div><div class="line">       	class1 = Class.forName(&quot;com.fahai.Person&quot;);</div><div class="line">        Object obj = class1.newInstance();</div><div class="line"></div><div class="line">   	    //&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;</div><div class="line">       	Field[] fields = class1.getDeclaredFields();</div><div class="line">        System.out.println(fields.length);</div><div class="line">   	    System.out.println(fields[0]);</div><div class="line">       	System.out.println(fields[1].getName());</div><div class="line"></div><div class="line">        fields[1].setAccessible(true);</div><div class="line">   	    fields[1].set(obj, &quot;&#x80D6;&#x864E;&#x5148;&#x68EE;&quot;);</div><div class="line">       	System.out.println(&quot;&#x4FEE;&#x6539;&#x5C5E;&#x6027;&#x4E4B;&#x540E;&#x5F97;&#x5230;&#x5C5E;&#x6027;&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF1A;&quot; + fields[1].get(obj));</div><div class="line">   	}</div><div class="line"></div><div class="line">    //&#x901A;&#x8FC7;Java&#x53CD;&#x5C04;&#x673A;&#x5236;&#x5F97;&#x5230;&#x7C7B;&#x7684;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#xFF1A;&#x7EE7;&#x627F;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x7236;&#x7C7B;&#xFF0C;&#x51FD;&#x6570;&#x4FE1;&#x606F;&#xFF0C;&#x7C7B;&#x578B;&#x7B49;</div><div class="line">   	@Test</div><div class="line">    public void test6() throws ClassNotFoundException {</div><div class="line">   	    Class&lt;?&gt; class1 = null;</div><div class="line">       	class1 = Class.forName(&quot;com.fahai.SuperMan&quot;);</div><div class="line"></div><div class="line">        //&#x83B7;&#x53D6;&#x7236;&#x7C7B;&#x540D;&#x79F0;</div><div class="line">   	    Class&lt;?&gt; superClass = class1.getSuperclass();</div><div class="line">       	System.out.println(superClass.getName());</div><div class="line">        System.out.println(&quot;===============================================&quot;);</div><div class="line"></div><div class="line">   	    Field[] fields = class1.getDeclaredFields();</div><div class="line">       	for (int i = 0; i &lt; fields.length; i++) {</div><div class="line">           	System.out.println(&quot;&#x7C7B;&#x4E2D;&#x7684;&#x6210;&#x5458;: &quot; + fields[i]);</div><div class="line">        }</div><div class="line"></div><div class="line">   	    System.out.println(&quot;===============================================&quot;);</div><div class="line">       	Method[] methods = class1.getDeclaredMethods();</div><div class="line">        for (int i = 0; i &lt; methods.length; i++) {</div><div class="line">   	        System.out.println(&quot;Demo6,&#x53D6;&#x5F97;SuperMan&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;&quot;);</div><div class="line">       	    System.out.println(&quot;&#x51FD;&#x6570;&#x540D;&#xFF1A;&quot; + methods[i].getName());</div><div class="line">           	System.out.println(&quot;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#xFF1A;&quot; + methods[i].getReturnType());</div><div class="line">            System.out.println(&quot;&#x51FD;&#x6570;&#x8BBF;&#x95EE;&#x4FEE;&#x9970;&#x7B26;&#xFF1A;&quot; + Modifier.toString(methods[i].getModifiers()));</div><div class="line">            System.out.println(&quot;&#x51FD;&#x6570;&#x4EE3;&#x7801;&#x5199;&#x6CD5;&#xFF1A; &quot; + methods[i]);</div><div class="line">   	    }</div><div class="line">       	System.out.println(&quot;===============================================&quot;);</div><div class="line">        //&#x53D6;&#x5F97;&#x7C7B;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;,&#x56E0;&#x4E3A;&#x63A5;&#x53E3;&#x7C7B;&#x4E5F;&#x5C5E;&#x4E8E;Class,&#x6240;&#x4EE5;&#x5F97;&#x5230;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x4E5F;&#x662F;&#x4E00;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x5F97;&#x5230;&#x54C8;</div><div class="line">   	    Class&lt;?&gt; interfaces[] = class1.getInterfaces();</div><div class="line">       	for (int i = 0; i &lt; interfaces.length; i++) {</div><div class="line">           	System.out.println(&quot;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;&#x7C7B;&#x540D;: &quot; + interfaces[i].getName() );</div><div class="line">        }</div><div class="line">   	}</div><div class="line"></div><div class="line">    //&#x901A;&#x8FC7;Java&#x53CD;&#x5C04;&#x673A;&#x5236;&#x8C03;&#x7528;&#x7C7B;&#x65B9;&#x6CD5;</div><div class="line">   	@Test</div><div class="line">    public void test7() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException {</div><div class="line">   	    Class&lt;?&gt; class1 = null;</div><div class="line">       	class1 = Class.forName(&quot;com.fahai.SuperMan&quot;);</div><div class="line">        System.out.println(&quot;&#x8C03;&#x7528;&#x65E0;&#x53C2;&#x65B9;&#x6CD5; fly()&quot;);</div><div class="line">   	    Method method = class1.getMethod(&quot;fly&quot;);</div><div class="line">       	method.invoke(class1.newInstance());</div><div class="line"></div><div class="line">        System.out.println(&quot;&#x8C03;&#x7528;&#x6709;&#x53C2;&#x65B9;&#x6CD5;walk(int m)&#xFF1A;&quot;);</div><div class="line">   	    method = class1.getMethod(&quot;walk&quot;,int.class);</div><div class="line">       	method.invoke(class1.newInstance(),100);</div><div class="line">    }</div><div class="line">   	//&#x901A;&#x8FC7;Java&#x53CD;&#x5C04;&#x673A;&#x5236;&#x5F97;&#x5230;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x4FE1;&#x606F;</div><div class="line">    //&#x5728;java&#x4E2D;&#x6709;&#x4E09;&#x79CD;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;:</div><div class="line">   	//1&#xFF09;Bootstrap ClassLoader &#x6B64;&#x52A0;&#x8F7D;&#x5668;&#x91C7;&#x7528;c++&#x7F16;&#x5199;&#xFF0C;&#x4E00;&#x822C;&#x5F00;&#x53D1;&#x4E2D;&#x5F88;&#x5C11;&#x89C1;&#x3002;</div><div class="line">    //2&#xFF09;Extension ClassLoader &#x7528;&#x6765;&#x8FDB;&#x884C;&#x6269;&#x5C55;&#x7C7B;&#x7684;&#x52A0;&#x8F7D;&#xFF0C;&#x4E00;&#x822C;&#x5BF9;&#x5E94;&#x7684;&#x662F;jre\lib\ext&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x7C7B;</div><div class="line">   	//3&#xFF09;AppClassLoader &#x52A0;&#x8F7D;classpath&#x6307;&#x5B9A;&#x7684;&#x7C7B;&#xFF0C;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x52A0;&#x8F7D;&#x5668;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x662F;java&#x4E2D;&#x9ED8;&#x8BA4;&#x7684;&#x52A0;&#x8F7D;&#x5668;&#x3002;</div><div class="line">   	@Test</div><div class="line">    public void test8() throws ClassNotFoundException {</div><div class="line">   	    Class&lt;?&gt; class1 = null;</div><div class="line">       	class1 = Class.forName(&quot;com.fahai.SuperMan&quot;);</div><div class="line"></div><div class="line">   	    String className = class1.getClassLoader().getClass().getName();</div><div class="line">       	System.out.println(&quot;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x7C7B;&#x540D;:&quot;+ className);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">class  Person{</div><div class="line">   	private int age;</div><div class="line">    private String name;</div><div class="line">    public Person(){</div><div class="line"></div><div class="line">   	}</div><div class="line">    public Person(int age, String name){</div><div class="line">   	    this.age = age;</div><div class="line">       	this.name = name;</div><div class="line">    }</div><div class="line"></div><div class="line">   	public int getAge() {</div><div class="line">       	return age;</div><div class="line">    }</div><div class="line">   	public void setAge(int age) {</div><div class="line">       	this.age = age;</div><div class="line">    }</div><div class="line">   	public String getName() {</div><div class="line">       	return name;</div><div class="line">    }</div><div class="line">   	public void setName(String name) {</div><div class="line">       	this.name = name;</div><div class="line">    }</div><div class="line">}</div><div class="line">class SuperMan extends Person implements ActionInterface{</div><div class="line">    private boolean BlueBriefs;</div><div class="line"></div><div class="line">    public void fly(){</div><div class="line">   	    System.out.println(&quot;&#x8D85;&#x4EBA;&#x4F1A;&#x98DE;&#x8036;&#xFF5E;&#xFF5E;&quot;);</div><div class="line">    }</div><div class="line"></div><div class="line">   	public boolean isBlueBriefs() {</div><div class="line">       	return BlueBriefs;</div><div class="line">    }</div><div class="line">   	public void setBlueBriefs(boolean blueBriefs) {</div><div class="line">       	BlueBriefs = blueBriefs;</div><div class="line">    }</div><div class="line"></div><div class="line">   	@Override</div><div class="line">    public void walk(int m) {</div><div class="line">   	    // TODO Auto-generated method stub</div><div class="line">       	System.out.println(&quot;&#x8D85;&#x4EBA;&#x4F1A;&#x8D70;&#x8036;&#xFF5E;&#xFF5E;&#x8D70;&#x4E86;&quot; + m + &quot;&#x7C73;&#x5C31;&#x8D70;&#x4E0D;&#x52A8;&#x4E86;&#xFF01;&quot;);</div><div class="line">    }</div><div class="line">}</div><div class="line">interface ActionInterface{</div><div class="line">   	public void walk(int m);</div><div class="line">}</div><div class="line"> </div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">import org.junit.Test;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.*;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by zhanghao on 16/8/30.</span><br><span class="line"> */</span><br><span class="line">public class ReflectDemo &#123;</span><br><span class="line">   	//通过JAVA反射机制得到类的包名和类名</span><br><span class="line">    @Test</span><br><span class="line">   	public void test1()&#123;</span><br><span class="line">       	Person person = new Person();</span><br><span class="line">        System.out.println(&quot;包名：&quot; + person.getClass().getPackage().getName() + &quot;, &quot; + &quot;完整类名：&quot; + person.getClass().getName());</span><br><span class="line">   	&#125;</span><br><span class="line"></span><br><span class="line">    //验证所有的类都是Class类的实例对象</span><br><span class="line">   	@Test</span><br><span class="line">    public void test2() throws ClassNotFoundException &#123;</span><br><span class="line">   	    //定义两个类型都未知的Class , 设置初值为null, 看看如何给它们赋值成Person类</span><br><span class="line">       	Class&lt;?&gt; class1 = null;</span><br><span class="line">       	Class&lt;?&gt; class2 = null;</span><br><span class="line"></span><br><span class="line">   	    //写法1，可能会抛出ClassNotFoundException[多用这个写法]</span><br><span class="line">       	class1 = Class.forName(&quot;com.fahai.Person&quot;);</span><br><span class="line">        System.out.println(&quot;(写法1) 包名：&quot; + class1.getPackage().getName() +&quot;, &quot; + &quot;完整类名：&quot;+ class1.getName());</span><br><span class="line"></span><br><span class="line">   	    //写法2</span><br><span class="line">       	class2 = Person.class;</span><br><span class="line">        System.out.println(&quot;(写法2) 包名：&quot; + class2.getPackage().getName() + &quot;, &quot; + &quot;完整类名：&quot; + class2.getName());</span><br><span class="line">   	&#125;</span><br><span class="line"></span><br><span class="line">    //通过Java反射机制，用Class创建类对象（反射存在的意义）</span><br><span class="line">   	@Test</span><br><span class="line">    public void test3() throws ClassNotFoundException, IllegalAccessException, InstantiationException &#123;</span><br><span class="line">   	    Class&lt;?&gt; class1 = null;</span><br><span class="line">       	class1 = Class.forName(&quot;com.fahai.Person&quot;);</span><br><span class="line">        //由于这里不能带参数，所以你要实例化的这个类Person，一定要有无参构造函数哈～</span><br><span class="line">   	    Person person = (Person) class1.newInstance();</span><br><span class="line">       	person.setAge(20);</span><br><span class="line">        person.setName(&quot;张三&quot;);</span><br><span class="line">   	    System.out.println(person.getName() + &quot; : &quot;+ person.getAge());</span><br><span class="line">    &#125;</span><br><span class="line">   	//通过Java反射机制得到一个类的构造函数，并实现创建带参实例对象</span><br><span class="line">    @Test</span><br><span class="line">   	public void test4() throws ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException &#123;</span><br><span class="line">       	Class&lt;?&gt; class1 = null;</span><br><span class="line">        Person person1 = null;</span><br><span class="line">   	    Person person2 = null;</span><br><span class="line">       	class1 = Class.forName(&quot;com.fahai.Person&quot;);</span><br><span class="line">        //得到一系列类构造函数集合</span><br><span class="line">   	    Constructor&lt;?&gt;[] constructors = class1.getConstructors();</span><br><span class="line">//        System.out.println(constructors[0].getParameterCount());</span><br><span class="line">   	    person1 = (Person) constructors[0].newInstance();</span><br><span class="line">       	person1.setAge(30);</span><br><span class="line">        person1.setName(&quot;张三&quot;);</span><br><span class="line"></span><br><span class="line">        System.out.println(constructors[1].getParameterCount());</span><br><span class="line">   	    person2 = (Person) constructors[1].newInstance(20, &quot;张三&quot;);</span><br><span class="line"></span><br><span class="line">   	    System.out.println( person1.getName() + &quot; : &quot; + person1.getAge()</span><br><span class="line">                       + &quot;  ,   &quot; + person2.getName() + &quot; : &quot; + person2.getAge());</span><br><span class="line">   	&#125;</span><br><span class="line"></span><br><span class="line">    //通过Java反射机制操作成员变量，set 和 get</span><br><span class="line">   	@Test</span><br><span class="line">    public void test5() throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchFieldException &#123;</span><br><span class="line">   	    Class&lt;?&gt; class1 = null;</span><br><span class="line">       	class1 = Class.forName(&quot;com.fahai.Person&quot;);</span><br><span class="line">        Object obj = class1.newInstance();</span><br><span class="line"></span><br><span class="line">   	    //获取所有的成员变量</span><br><span class="line">       	Field[] fields = class1.getDeclaredFields();</span><br><span class="line">        System.out.println(fields.length);</span><br><span class="line">   	    System.out.println(fields[0]);</span><br><span class="line">       	System.out.println(fields[1].getName());</span><br><span class="line"></span><br><span class="line">        fields[1].setAccessible(true);</span><br><span class="line">   	    fields[1].set(obj, &quot;胖虎先森&quot;);</span><br><span class="line">       	System.out.println(&quot;修改属性之后得到属性变量的值：&quot; + fields[1].get(obj));</span><br><span class="line">   	&#125;</span><br><span class="line"></span><br><span class="line">    //通过Java反射机制得到类的一些属性：继承的接口，父类，函数信息，类型等</span><br><span class="line">   	@Test</span><br><span class="line">    public void test6() throws ClassNotFoundException &#123;</span><br><span class="line">   	    Class&lt;?&gt; class1 = null;</span><br><span class="line">       	class1 = Class.forName(&quot;com.fahai.SuperMan&quot;);</span><br><span class="line"></span><br><span class="line">        //获取父类名称</span><br><span class="line">   	    Class&lt;?&gt; superClass = class1.getSuperclass();</span><br><span class="line">       	System.out.println(superClass.getName());</span><br><span class="line">        System.out.println(&quot;===============================================&quot;);</span><br><span class="line"></span><br><span class="line">   	    Field[] fields = class1.getDeclaredFields();</span><br><span class="line">       	for (int i = 0; i &lt; fields.length; i++) &#123;</span><br><span class="line">           	System.out.println(&quot;类中的成员: &quot; + fields[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">   	    System.out.println(&quot;===============================================&quot;);</span><br><span class="line">       	Method[] methods = class1.getDeclaredMethods();</span><br><span class="line">        for (int i = 0; i &lt; methods.length; i++) &#123;</span><br><span class="line">   	        System.out.println(&quot;Demo6,取得SuperMan类的方法：&quot;);</span><br><span class="line">       	    System.out.println(&quot;函数名：&quot; + methods[i].getName());</span><br><span class="line">           	System.out.println(&quot;函数返回类型：&quot; + methods[i].getReturnType());</span><br><span class="line">            System.out.println(&quot;函数访问修饰符：&quot; + Modifier.toString(methods[i].getModifiers()));</span><br><span class="line">            System.out.println(&quot;函数代码写法： &quot; + methods[i]);</span><br><span class="line">   	    &#125;</span><br><span class="line">       	System.out.println(&quot;===============================================&quot;);</span><br><span class="line">        //取得类实现的接口,因为接口类也属于Class,所以得到接口中的方法也是一样的方法得到哈</span><br><span class="line">   	    Class&lt;?&gt; interfaces[] = class1.getInterfaces();</span><br><span class="line">       	for (int i = 0; i &lt; interfaces.length; i++) &#123;</span><br><span class="line">           	System.out.println(&quot;实现的接口类名: &quot; + interfaces[i].getName() );</span><br><span class="line">        &#125;</span><br><span class="line">   	&#125;</span><br><span class="line"></span><br><span class="line">    //通过Java反射机制调用类方法</span><br><span class="line">   	@Test</span><br><span class="line">    public void test7() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException &#123;</span><br><span class="line">   	    Class&lt;?&gt; class1 = null;</span><br><span class="line">       	class1 = Class.forName(&quot;com.fahai.SuperMan&quot;);</span><br><span class="line">        System.out.println(&quot;调用无参方法 fly()&quot;);</span><br><span class="line">   	    Method method = class1.getMethod(&quot;fly&quot;);</span><br><span class="line">       	method.invoke(class1.newInstance());</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;调用有参方法walk(int m)：&quot;);</span><br><span class="line">   	    method = class1.getMethod(&quot;walk&quot;,int.class);</span><br><span class="line">       	method.invoke(class1.newInstance(),100);</span><br><span class="line">    &#125;</span><br><span class="line">   	//通过Java反射机制得到类加载器信息</span><br><span class="line">    //在java中有三种类加载器:</span><br><span class="line">   	//1）Bootstrap ClassLoader 此加载器采用c++编写，一般开发中很少见。</span><br><span class="line">    //2）Extension ClassLoader 用来进行扩展类的加载，一般对应的是jre\lib\ext目录中的类</span><br><span class="line">   	//3）AppClassLoader 加载classpath指定的类，是最常用的加载器。同时也是java中默认的加载器。</span><br><span class="line">   	@Test</span><br><span class="line">    public void test8() throws ClassNotFoundException &#123;</span><br><span class="line">   	    Class&lt;?&gt; class1 = null;</span><br><span class="line">       	class1 = Class.forName(&quot;com.fahai.SuperMan&quot;);</span><br><span class="line"></span><br><span class="line">   	    String className = class1.getClassLoader().getClass().getName();</span><br><span class="line">       	System.out.println(&quot;类加载器类名:&quot;+ className);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class  Person&#123;</span><br><span class="line">   	private int age;</span><br><span class="line">    private String name;</span><br><span class="line">    public Person()&#123;</span><br><span class="line"></span><br><span class="line">   	&#125;</span><br><span class="line">    public Person(int age, String name)&#123;</span><br><span class="line">   	    this.age = age;</span><br><span class="line">       	this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   	public int getAge() &#123;</span><br><span class="line">       	return age;</span><br><span class="line">    &#125;</span><br><span class="line">   	public void setAge(int age) &#123;</span><br><span class="line">       	this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">   	public String getName() &#123;</span><br><span class="line">       	return name;</span><br><span class="line">    &#125;</span><br><span class="line">   	public void setName(String name) &#123;</span><br><span class="line">       	this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class SuperMan extends Person implements ActionInterface&#123;</span><br><span class="line">    private boolean BlueBriefs;</span><br><span class="line"></span><br><span class="line">    public void fly()&#123;</span><br><span class="line">   	    System.out.println(&quot;超人会飞耶～～&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   	public boolean isBlueBriefs() &#123;</span><br><span class="line">       	return BlueBriefs;</span><br><span class="line">    &#125;</span><br><span class="line">   	public void setBlueBriefs(boolean blueBriefs) &#123;</span><br><span class="line">       	BlueBriefs = blueBriefs;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   	@Override</span><br><span class="line">    public void walk(int m) &#123;</span><br><span class="line">   	    // TODO Auto-generated method stub</span><br><span class="line">       	System.out.println(&quot;超人会走耶～～走了&quot; + m + &quot;米就走不动了！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">interface ActionInterface&#123;</span><br><span class="line">   	public void walk(int m);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -422,8 +408,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/30/java反射机制/"
-           data-title="JAVA反射机制" data-url="http://www.haomer.top/2016/08/30/java反射机制/">
+      <div class="ds-thread" data-thread-key="2016/08/30/java反射机制/" data-title="JAVA反射机制" data-url="http://www.haomer.top/2016/08/30/java反射机制/">
       </div>
     
   </div>
@@ -448,7 +433,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -458,10 +443,8 @@
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.png"
-               alt="张 浩 | Zhang Hao" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="张 浩 | Zhang Hao">
           <p class="site-author-name" itemprop="name">张 浩 | Zhang Hao</p>
           <p class="site-description motion-element" itemprop="description">Just do IT</p>
         </div>
@@ -530,7 +513,7 @@
         
           <div class="cc-license motion-element" itemprop="license">
             <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
             </a>
           </div>
         
@@ -563,7 +546,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy;  2015 - 
   <span itemprop="copyrightYear">2019</span>
