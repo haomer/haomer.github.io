@@ -388,6 +388,129 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/29/HTTPS协议解析/" itemprop="url">
+                  HTTPS协议解析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-29T11:37:27+08:00" content="2016-05-29">
+              2016-05-29
+            </time>
+          </span>
+          
+          
+
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/29/HTTPS协议解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/29/HTTPS协议解析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&#x4E0A;&#x4E2A;&#x4E16;&#x7EAA;90&#x5E74;&#x4EE3;&#x4E2D;&#x671F;&#xFF0C;&#x7F51;&#x666F;&#x516C;&#x53F8;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;HTTP&#x534F;&#x8BAE;&#x660E;&#x6587;&#x4F20;&#x9001;&#x7684;&#x5B89;&#x5168;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x8BBE;&#x8BA1;&#x4E86;SSL&#xFF08;Secure Sockets Layer &#x5B89;&#x5168;&#x5957;&#x63A5;&#x5C42;&#xFF09;&#x534F;&#x8BAE;&#x3002;<br>SSL&#x534F;&#x8BAE;&#x7684;&#x601D;&#x60F3;&#x662F;&#x57FA;&#x4E8E;&#x4F20;&#x8F93;&#x63A7;&#x5236;&#x5C42;&#x534F;&#x8BAE;&#xFF08;&#x4F8B;&#x5982;TCP&#xFF09;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x7684;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5C42;&#x3002;<br>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;&#x5E94;&#x7528;&#x5C42;&#x548C;&#x4F20;&#x8F93;&#x5C42;&#x4E4B;&#x95F4;&#x591A;&#x4E86;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x5957;&#x63A5;&#x5C42;&#xFF0C;&#x5E94;&#x7528;&#x5C42;&#x7684;&#x6570;&#x636E;&#x5148;&#x9012;&#x9001;&#x7ED9;&#x5B89;&#x5168;&#x5957;&#x63A5;&#x5C42;&#xFF0C;&#x5B89;&#x5168;&#x5957;&#x63A5;&#x5C42;&#x5BF9;&#x5E94;&#x7528;&#x5C42;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5206;&#x6BB5;&#x3001;&#x538B;&#x7F29;&#x3001;&#x6DFB;&#x52A0;&#x6D88;&#x606F;&#x8BA4;&#x8BC1;&#x7801;&#x548C;&#x52A0;&#x5BC6;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x5F80;&#x4E0B;&#x9012;&#x9001;&#x7ED9;&#x4F20;&#x8F93;&#x5C42;&#x8FDB;&#x884C;&#x4F20;&#x9001;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x4F20;&#x8F93;&#x5C42;&#x628A;&#x63A5;&#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x5148;&#x4F20;&#x7ED9;&#x5B89;&#x5168;&#x5957;&#x63A5;&#x5C42;&#xFF0C;&#x7531;&#x5B89;&#x5168;&#x5957;&#x63A5;&#x5C42;&#x89E3;&#x5BC6;&#x3001;&#x9A8C;&#x8BC1;&#x6D88;&#x606F;&#x5B8C;&#x6574;&#x6027;&#x3001;&#x89E3;&#x538B;&#x5E76;&#x4E14;&#x7EC4;&#x88C5;&#x4E4B;&#x540E;&#x518D;&#x4F20;&#x7ED9;&#x5E94;&#x7528;&#x5C42;&#x3002;<br>&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x4F20;&#x8F93;&#x5C42;&#x8D1F;&#x8D23;&#x63D0;&#x4F9B;&#x53EF;&#x9760;&#x7684;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#xFF0C;&#x5E94;&#x7528;&#x5C42;&#x8D1F;&#x8D23;&#x5904;&#x7406;&#x4E1A;&#x52A1;&#xFF0C;&#x4E2D;&#x95F4;&#x7684;&#x6570;&#x636E;&#x5B89;&#x5168;&#x7531;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x5C42;&#x9762;&#x6765;&#x8D1F;&#x8D23;&#xFF0C;&#x5927;&#x5BB6;&#x5404;&#x53F8;&#x5176;&#x804C;&#xFF0C;&#x5206;&#x5DE5;&#x660E;&#x786E;&#xFF0C;&#x5B89;&#x5168;&#x5957;&#x63A5;&#x5C42;&#x66FF;&#x4EE3;&#x4F20;&#x8F93;&#x5C42;&#x4E3A;&#x5E94;&#x7528;&#x5C42;&#x76F4;&#x63A5;&#x63D0;&#x4F9B;&#x5B89;&#x5168;&#x4E14;&#x53EF;&#x9760;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x6240;&#x6709;&#x5E94;&#x7528;&#x5C42;&#x7684;&#x534F;&#x8BAE;&#x90FD;&#x53EF;&#x4EE5;&#x914D;&#x5408;SSL&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x5B89;&#x5168;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#xFF0C;&#x76F8;&#x5BF9;&#x4E8E;&#x57FA;&#x4E8E;&#x5E94;&#x7528;&#x7684;&#x5B89;&#x5168;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6848;&#x66F4;&#x52A0;&#x901A;&#x7528;&#x53EF;&#x9760;&#xFF0C;&#x4E5F;&#x4F7F;&#x5F97;&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x4E13;&#x5FC3;&#x5904;&#x7406;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x800C;&#x65E0;&#x9700;&#x4E3A;&#x5E94;&#x7528;&#x7684;&#x6570;&#x636E;&#x5B89;&#x5168;&#x4F5C;&#x8FC7;&#x591A;&#x7684;&#x601D;&#x8003;&#x3002;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/26/Centos添加虚拟内存/" itemprop="url">
                   Centos添加虚拟内存
                 </a>
@@ -541,7 +664,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -558,7 +681,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -628,7 +751,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
