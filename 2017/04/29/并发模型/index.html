@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="并发系统可以采用多种并发模型来实现。并发模型指定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不相同。这篇并发模型教程将会较深入地介绍目前（2015年，本文撰写时间）比较流行的几种并发模型。 并发模型与分布式系统相似性本文所描述的并发模型类似于分布式系统中使用的很多体系结构。在并发系统中线程之间可以相互通信。在分布式系统中进程之">
+<meta name="description" content="并发系统可以采用多种并发模型来实现。并发模型指定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不相同。这篇并发模型教程将会较深入地介绍目前（2015年，本文撰写时间）比较流行的几种并发模型。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发模型(转载)">
 <meta property="og:url" content="http://www.haomer.top/2017/04/29/并发模型/index.html">
 <meta property="og:site_name" content="张 浩 | Zhang Hao">
-<meta property="og:description" content="并发系统可以采用多种并发模型来实现。并发模型指定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不相同。这篇并发模型教程将会较深入地介绍目前（2015年，本文撰写时间）比较流行的几种并发模型。 并发模型与分布式系统相似性本文所描述的并发模型类似于分布式系统中使用的很多体系结构。在并发系统中线程之间可以相互通信。在分布式系统中进程之">
+<meta property="og:description" content="并发系统可以采用多种并发模型来实现。并发模型指定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不相同。这篇并发模型教程将会较深入地介绍目前（2015年，本文撰写时间）比较流行的几种并发模型。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://f.talkingdata.com/uploads/article/20190103/5deab01ae9ae23497ae3b4f84a5b9f6c.png">
 <meta property="og:image" content="http://f.talkingdata.com/uploads/article/20190103/74b07985c98a750710e2dc6a0c48775d.png">
@@ -103,10 +103,10 @@
 <meta property="og:image" content="http://f.talkingdata.com/uploads/article/20190103/04fc59da61860c1ff61f7181cc49beb0.png">
 <meta property="og:image" content="http://f.talkingdata.com/uploads/article/20190103/99423cc5d7432bda04e24e44cfa95264.png">
 <meta property="og:image" content="http://f.talkingdata.com/uploads/article/20190103/eab53b6892a52992af0fc0e6ee8a3bdc.png">
-<meta property="og:updated_time" content="2019-01-03T03:10:08.831Z">
+<meta property="og:updated_time" content="2019-01-03T03:13:04.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发模型(转载)">
-<meta name="twitter:description" content="并发系统可以采用多种并发模型来实现。并发模型指定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不相同。这篇并发模型教程将会较深入地介绍目前（2015年，本文撰写时间）比较流行的几种并发模型。 并发模型与分布式系统相似性本文所描述的并发模型类似于分布式系统中使用的很多体系结构。在并发系统中线程之间可以相互通信。在分布式系统中进程之">
+<meta name="twitter:description" content="并发系统可以采用多种并发模型来实现。并发模型指定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不相同。这篇并发模型教程将会较深入地介绍目前（2015年，本文撰写时间）比较流行的几种并发模型。">
 <meta name="twitter:image" content="http://f.talkingdata.com/uploads/article/20190103/5deab01ae9ae23497ae3b4f84a5b9f6c.png">
 
 
@@ -348,6 +348,7 @@
 
       
         <p>并发系统可以采用多种并发模型来实现。并发模型指定了系统中的线程如何通过协作来完成分配给它们的作业。不同的并发模型采用不同的方式拆分作业，同时线程间的协作和交互方式也不相同。这篇并发模型教程将会较深入地介绍目前（2015年，本文撰写时间）比较流行的几种并发模型。</p>
+<a id="more"></a>
 <h3><span id="并发模型与分布式系统相似性">并发模型与分布式系统相似性</span></h3><p>本文所描述的并发模型类似于分布式系统中使用的很多体系结构。在并发系统中线程之间可以相互通信。在分布式系统中进程之间也可以相互通信（进程有可能在不同的机器中）。线程和进程之间具有很多相似的特性。这也就是为什么很多并发模型通常类似于各种分布式系统架构。</p>
 <p>当然，分布式系统在处理网络失效、远程主机或进程宕掉等方面也面临着额外的挑战。但是运行在巨型服务器上的并发系统也可能遇到类似的问题，比如一块CPU失效、一块网卡失效或一个磁盘损坏等情况。虽然出现失效的概率可能很低，但是在理论上仍然有可能发生。</p>
 <p>由于并发模型类似于分布式系统架构，因此它们通常可以互相借鉴思想。例如，为工作者们（线程）分配作业的模型一般与分布式系统中的负载均衡系统比较相似。同样，它们在日志记录、失效转移、幂等性等错误处理技术上也具有相似性。</p>
