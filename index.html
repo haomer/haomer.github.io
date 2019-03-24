@@ -901,6 +901,161 @@
             
               
                 
+                <a class="post-title-link" href="/2017/12/14/Nginx-keepalive/" itemprop="url">
+                  Nginx-Keepalive
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-12-14T20:20:22+08:00" content="2017-12-14">
+              2017-12-14
+            </time>
+          </span>
+          
+          
+
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/12/14/Nginx-keepalive/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/14/Nginx-keepalive/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在我们选在Nginx作为http请求的负载均衡时候，整个请求的流向是：上游服务 –&gt; Nginx –&gt;下游服务。</p>
+<p>当请求量级过大的时候，我们一般都会在上游服务请求下游服务的时候在client中打开长连接设置：<figure class="highlight plain"><figcaption><span>BasicHeader("Connection", "Keep-Alive"))```。在Nginx侧不需要做任何措施。默认情况下，Nginx已经自动开启了对上游连接的keep-alive支持。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">此时整个请求的链路的状态：</span><br><span class="line"></span><br><span class="line">* 从上游服务到Nginx的连接是长连接</span><br><span class="line">* 从Nginx到下游服务的连接是短连接</span><br><span class="line"></span><br><span class="line">默认情况下 Nginx 访问后端都是用的短连接(HTTP1.0)，一个请求来了，Nginx 新开一个端口和后端建立连接，请求结束连接回收。</span><br><span class="line"></span><br><span class="line">如果需要Nginx到下游服务也是长连接的时候需要两步设置：</span><br><span class="line"></span><br><span class="line">1. 在Nginx的Server.conf中配置：</span><br></pre></td></tr></table></figure></p>
+<pre><code>server {
+    …
+    location /xxx/ {
+        proxy_pass http://http_xxx;
+        proxy_http_version 1.1;
+        proxy_set_header Connection &quot;&quot;;
+        …
+    }
+}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 此时说明从Nginx upsteam下游请求的时候是默认的长连接。</span><br><span class="line"></span><br><span class="line">2. 在upsteam.conf中设置```keepalive connections```:</span><br></pre></td></tr></table></figure>
+
+upstream http_xxx {
+    server 127.0.0.1:8080;
+    keepalive 256;
+}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这个是激活Nignx到下游服务连接缓存数。</span><br><span class="line">官方解释：</span><br></pre></td></tr></table></figure>
+
+Activates the cache for connections to upstream servers.(将Nginx与要有服务的连接缓存下来)
+The connections parameter sets the maximum number of idle keepalive connections to upstream servers that are preserved in the cache of each worker process. When this number is exceeded, the least recently used connections are closed.（该connections参数设置在每个工作进程的缓存中保留与下游服务的最大空闲keepalive连接数。超过此数量时，将关闭最近最少使用的连接。）
+It should be particularly noted that the keepalive directive does not limit the total number of connections to upstream servers that an nginx worker process can open. The connections parameter should be set to a number small enough to let upstream servers process new incoming connections as well.（应特别注意的是，该keepalive指令不限制nginx工作进程可以打开的下游服务的连接总数。该connections参数应设置为足够小的数字，以允许下游服务处理新的传入连接。）
+```
+需要注意的是：keepalive 这个参数一定要小心设置，尤其对于QPS比较高的场景，需要先做一下估算，根据QPS和平均响应时间大体能计算出需要的长连接的数量。比如前面10000 QPS和100毫秒响应时间就可以推算出需要的长连接数量大概是1000. 然后将keepalive设置为这个长连接数量的10%到30%。
+
+还有还有一些长连接设置的参数：```keepalive_timeout、keepalive_requests```。
+</code></pre><p>此刻，完整的长连接服务就完整的建立起来了。<br>如果想查看请求是长连接、短连接可以通过抓包来查看完整的链路请求。</p>
+<p>容易混淆的概念：<br>TCP的keep alive和HTTP的Keep-alive</p>
+<ul>
+<li>TCP的keep alive是检查当前TCP连接是否活着；</li>
+<li>HTTP的Keep-alive是要让一个TCP连接活久点，请求在一个tcp链路上传输，减少握手、分手协议，节省性能。</li>
+</ul>
+<p>并且它们是不同层次的概念TCP是传输层协议，而HTTP是应用层协议，HTTP协议是建立在TCP协议基础之上的。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/12/14/回顾/" itemprop="url">
                   一次排查记录
                 </a>
@@ -1387,131 +1542,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/26/HashMapAndHashSet/" itemprop="url">
-                  HashMapAndHashSet
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-26T13:57:15+08:00" content="2016-07-26">
-              2016-07-26
-            </time>
-          </span>
-          
-          
-
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/26/HashMapAndHashSet/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/26/HashMapAndHashSet/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>HashMap和HashSet都是collection框架的一部分，它们让我们能够使用对象的集合。collection框架有自己的接口和实现，主要分为Set接口，List接口和Queue接口。它们有各自的特点，Set的集合里不允许对象有重复的值，List允许有重复，它对集合中的对象进行索引，Queue的工作原理是FCFS算法(First Come, First Serve)。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/26/HashMapAndHashSet/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1555,7 +1585,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1572,7 +1602,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
