@@ -90,11 +90,11 @@
 <meta name="keywords" content="笔记,Nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx-Keepalive">
-<meta property="og:url" content="http://www.haomer.top/2017/12/14/Nginx-keepalive/index.html">
+<meta property="og:url" content="http://www.haomer.top/2019/03/24/Nginx-keepalive/index.html">
 <meta property="og:site_name" content="张 浩 | Zhang Hao">
 <meta property="og:description" content="在我们选在Nginx作为http请求的负载均衡时候，整个请求的流向是：上游服务 –&amp;gt; Nginx –&amp;gt;下游服务。 当请求量级过大的时候，我们一般都会在上游服务请求下游服务的时候在client中打开长连接设置：BasicHeader(&quot;Connection&quot;, &quot;Keep-Alive&quot;))```。在Nginx侧不需要做任何措施。默认情况下，Nginx已经自动开启了对上游连接的keep-a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-24T05:49:58.646Z">
+<meta property="og:updated_time" content="2019-03-24T05:54:37.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx-Keepalive">
 <meta name="twitter:description" content="在我们选在Nginx作为http请求的负载均衡时候，整个请求的流向是：上游服务 –&amp;gt; Nginx –&amp;gt;下游服务。 当请求量级过大的时候，我们一般都会在上游服务请求下游服务的时候在client中打开长连接设置：BasicHeader(&quot;Connection&quot;, &quot;Keep-Alive&quot;))```。在Nginx侧不需要做任何措施。默认情况下，Nginx已经自动开启了对上游连接的keep-a">
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://www.haomer.top/2017/12/14/Nginx-keepalive/">
+  <link rel="canonical" href="http://www.haomer.top/2019/03/24/Nginx-keepalive/">
 
   <title> Nginx-Keepalive | 张 浩 | Zhang Hao </title>
 </head>
@@ -278,8 +278,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-12-14T20:20:22+08:00" content="2017-12-14">
-              2017-12-14
+            <time itemprop="dateCreated" datetime="2019-03-24T13:40:22+08:00" content="2019-03-24">
+              2019-03-24
             </time>
           </span>
           
@@ -313,8 +313,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/12/14/Nginx-keepalive/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/14/Nginx-keepalive/" itemprop="commentsCount"></span>
+                <a href="/2019/03/24/Nginx-keepalive/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/03/24/Nginx-keepalive/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -338,7 +338,7 @@
 
       
         <p>在我们选在Nginx作为http请求的负载均衡时候，整个请求的流向是：上游服务 –&gt; Nginx –&gt;下游服务。</p>
-<p>当请求量级过大的时候，我们一般都会在上游服务请求下游服务的时候在client中打开长连接设置：<figure class="highlight plain"><figcaption><span>BasicHeader("Connection", "Keep-Alive"))```。在Nginx侧不需要做任何措施。默认情况下，Nginx已经自动开启了对上游连接的keep-alive支持。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">此时整个请求的链路的状态：</span><br><span class="line"></span><br><span class="line">* 从上游服务到Nginx的连接是长连接</span><br><span class="line">* 从Nginx到下游服务的连接是短连接</span><br><span class="line"></span><br><span class="line">默认情况下 Nginx 访问后端都是用的短连接(HTTP1.0)，一个请求来了，Nginx 新开一个端口和后端建立连接，请求结束连接回收。</span><br><span class="line"></span><br><span class="line">如果需要Nginx到下游服务也是长连接的时候需要两步设置：</span><br><span class="line"></span><br><span class="line">1. 在Nginx的Server.conf中配置：</span><br></pre></td></tr></table></figure></p>
+<p>当请求量级过大的时候，我们一般都会在上游服务请求下游服务的时候在client中打开长连接设置：<figure class="highlight plain"><figcaption><span>BasicHeader("Connection", "Keep-Alive"))```。在Nginx侧不需要做任何措施。默认情况下，Nginx已经自动开启了对上游连接的keep-alive支持。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">此时整个请求的链路的状态：</span><br><span class="line"></span><br><span class="line">* 从上游服务到Nginx的连接是长连接</span><br><span class="line">* 从Nginx到下游服务的连接是短连接</span><br><span class="line"></span><br><span class="line">默认情况下 Nginx 访问后端都是用的短连接(HTTP1.0)，一个请求来了，Nginx 新开一个端口和后端建立连接，请求结束连接回收。</span><br><span class="line"></span><br><span class="line">如果需要Nginx到下游服务也是长连接的时候需要两步设置：</span><br><span class="line"></span><br><span class="line">1. 在Nginx的Server.conf中配置：</span><br></pre></td></tr></table></figure></p>
 <pre><code>server {
     …
     location /xxx/ {
@@ -403,17 +403,13 @@ It should be particularly noted that the keepalive directive does not limit the 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/14/回顾/" rel="next" title="一次排查记录">
-                <i class="fa fa-chevron-left"></i> 一次排查记录
+              <a href="/2018/08/14/基于Redis的分布式锁到底安全吗（上）/" rel="next" title="基于Redis的分布式锁到底安全吗（上）？(转载)">
+                <i class="fa fa-chevron-left"></i> 基于Redis的分布式锁到底安全吗（上）？(转载)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/28/gitflow介绍以及hubflow简单使用/" rel="prev" title="Git Flow介绍以及hubflow简单使用">
-                Git Flow介绍以及hubflow简单使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -439,7 +435,7 @@ It should be particularly noted that the keepalive directive does not limit the 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/12/14/Nginx-keepalive/" data-title="Nginx-Keepalive" data-url="http://www.haomer.top/2017/12/14/Nginx-keepalive/">
+      <div class="ds-thread" data-thread-key="2019/03/24/Nginx-keepalive/" data-title="Nginx-Keepalive" data-url="http://www.haomer.top/2019/03/24/Nginx-keepalive/">
       </div>
     
   </div>
