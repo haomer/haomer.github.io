@@ -267,6 +267,136 @@
             
               
                 
+                <a class="post-title-link" href="/2019/05/07/误操作引起的Logstash重复收集/" itemprop="url">
+                  误操作引起的Logstash重复收集
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-05-07T20:40:22+08:00" content="2019-05-07">
+              2019-05-07
+            </time>
+          </span>
+          
+          
+
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2019/05/07/误操作引起的Logstash重复收集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/05/07/误操作引起的Logstash重复收集/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>当需要做一个日志系统时，可能第一时间会想到ELK全家桶。<br>ELK分别表示：Elasticsearch , Logstash, Kibana 。他们组成了一套完整的日志系统的解决方案，方便我们使用。</p>
+<ul>
+<li>Logstash 对各个服务的日志进行采集、过滤、推送。</li>
+<li>Elasticsearch 存储Logstash传送的结构化数据，提供给Kibana。</li>
+<li>Kibana 提供用户UIweb页面进行，数据展示和分析形成图表等</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/05/07/误操作引起的Logstash重复收集/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2019/03/24/Nginx-keepalive/" itemprop="url">
                   Nginx-Keepalive
                 </a>
@@ -341,7 +471,7 @@
         
           
             <p>在我们选在Nginx作为http请求的负载均衡时候，整个请求的流向是：上游服务 –&gt; Nginx –&gt;下游服务。</p>
-<p>当请求量级过大的时候，我们一般都会在上游服务请求下游服务的时候在client中打开长连接设置：<figure class="highlight plain"><figcaption><span>BasicHeader("Connection", "Keep-Alive"))```。在Nginx侧不需要做任何措施。默认情况下，Nginx已经自动开启了对上游连接的keep-alive支持。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">此时整个请求的链路的状态：</span><br><span class="line"></span><br><span class="line">* 从上游服务到Nginx的连接是长连接</span><br><span class="line">* 从Nginx到下游服务的连接是短连接</span><br><span class="line"></span><br><span class="line">默认情况下 Nginx 访问后端都是用的短连接(HTTP1.0)，一个请求来了，Nginx 新开一个端口和后端建立连接，请求结束连接回收。</span><br><span class="line"></span><br><span class="line">如果需要Nginx到下游服务也是长连接的时候需要两步设置：</span><br><span class="line"></span><br><span class="line">1. 在Nginx的Server.conf中配置：</span><br></pre></td></tr></table></figure></p>
+<p>当请求量级过大的时候，我们一般都会在上游服务请求下游服务的时候在client中打开长连接设置：<figure class="highlight plain"><figcaption><span>BasicHeader("Connection", "Keep-Alive"))```。在Nginx侧不需要做任何措施。默认情况下，Nginx已经自动开启了对上游连接的keep-alive支持。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">此时整个请求的链路的状态：</span><br><span class="line"></span><br><span class="line">* 从上游服务到Nginx的连接是长连接</span><br><span class="line">* 从Nginx到下游服务的连接是短连接</span><br><span class="line"></span><br><span class="line">默认情况下 Nginx 访问后端都是用的短连接(HTTP1.0)，一个请求来了，Nginx 新开一个端口和后端建立连接，请求结束连接回收。</span><br><span class="line"></span><br><span class="line">如果需要Nginx到下游服务也是长连接的时候需要两步设置：</span><br><span class="line"></span><br><span class="line">1. 在Nginx的Server.conf中配置：</span><br></pre></td></tr></table></figure></p>
 <pre><code>server {
     …
     location /xxx/ {
@@ -1417,131 +1547,6 @@ It should be particularly noted that the keepalive directive does not limit the 
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/29/arithmetic/" itemprop="url">
-                  JAVA排序
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-29T11:50:34+08:00" content="2016-08-29">
-              2016-08-29
-            </time>
-          </span>
-          
-          
-
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/29/arithmetic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/arithmetic/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>  时间复杂度:n^2。<br>  每一轮比较都从头开始,然后两两比较,如果左值比右值大,则交换位置,每一轮结束后,当前轮”最后一个元素”必将是最大的.<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">public void bubbling(int[] arr, int length)&#123;</span><br><span class="line">     for(int i = 0; i &lt; length-1; i++)&#123;</span><br><span class="line">         for(int j = 0; j&lt; length -i -1; j++)&#123;</span><br><span class="line">             if(arr[j] &gt; arr[j+1])&#123;</span><br><span class="line">                 int tmp = arr[j];</span><br><span class="line">                 arr[j] = arr[j+1];</span><br><span class="line">                 arr[j+1] = tmp;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line">  </span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/29/arithmetic/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1585,7 +1590,7 @@ It should be particularly noted that the keepalive directive does not limit the 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1602,7 +1607,7 @@ It should be particularly noted that the keepalive directive does not limit the 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
